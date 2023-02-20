@@ -1,11 +1,18 @@
+import type RSVP from 'rsvp';
+import { defer } from 'rsvp';
 import { derived, writable } from 'svelte/store';
 
 type Modal = {
+  deferred: RSVP.Deferred<unknown>;
   component: unknown;
   data: unknown;
   result?: unknown;
   resolve(value: unknown): void;
   remove(): void;
+  then(
+    onFulfilled: (value: RSVP.Arg<unknown>) => unknown,
+    onRejected?: (reason: RSVP.Arg<unknown>) => unknown
+  ): Promise<unknown>;
 };
 
 export const stack = writable<Modal[]>([]);
@@ -17,8 +24,13 @@ export const open = (component: object, data?: object) => {
     component,
     data,
     result: undefined,
+    deferred: defer(),
     resolve(value: unknown) {
       this.result = value;
+      this.deferred.resolve(value);
+    },
+    then(onFulfilled, onRejected) {
+      return this.deferred.promise.then(onFulfilled, onRejected);
     },
     remove() {
       removeFromStack(this);

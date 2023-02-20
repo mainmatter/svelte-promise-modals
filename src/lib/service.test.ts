@@ -38,4 +38,22 @@ describe('Service', () => {
 
     modal.remove();
   });
+
+  it('modals are promises', async () => {
+    let modal = open({});
+    let steps: string[] = [];
+
+    modal.then(() => {
+      steps.push('then');
+    });
+
+    expect(steps).toMatchObject([]);
+
+    modal.resolve('foo');
+
+    let result = await modal;
+
+    expect(steps).toMatchObject(['then']);
+    expect(result).toBe('foo');
+  });
 });
