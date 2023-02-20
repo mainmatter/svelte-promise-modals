@@ -28,4 +28,14 @@ describe('Service', () => {
     expect(get(count), '#count').toBe(0);
     expect(get(top), '#top').toBe(undefined);
   });
+
+  it('modals can have results', () => {
+    let modal = open({});
+    expect(modal.result).toBe(undefined);
+
+    modal.resolve('foo');
+    expect(modal.result).toBe('foo');
+
+    modal.remove();
+  });
 });
