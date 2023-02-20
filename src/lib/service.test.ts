@@ -56,4 +56,18 @@ describe('Service', () => {
     expect(steps).toMatchObject(['then']);
     expect(result).toBe('foo');
   });
+
+  it('modals do not show up in openCount when closing', () => {
+    let modal = open({});
+
+    expect(get(count)).toBe(1);
+
+    modal.resolve();
+
+    expect(get(count)).toBe(0);
+
+    modal.remove();
+
+    expect(get(count)).toBe(0);
+  });
 });

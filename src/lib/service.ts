@@ -7,7 +7,8 @@ type Modal = {
   component: unknown;
   data: unknown;
   result?: unknown;
-  resolve(value: unknown): void;
+  isClosing: boolean;
+  resolve(value?: unknown): void;
   remove(): void;
   then(
     onFulfilled: (value: RSVP.Arg<unknown>) => unknown,
@@ -16,7 +17,7 @@ type Modal = {
 };
 
 export const stack = writable<Modal[]>([]);
-export const count = derived(stack, ($stack) => $stack.length);
+export const count = derived(stack, ($stack) => $stack.filter((modal) => !modal.isClosing).length);
 export const top = derived(stack, ($stack) => $stack.at(-1));
 
 export const open = (component: object, data?: object) => {
@@ -25,8 +26,10 @@ export const open = (component: object, data?: object) => {
     data,
     result: undefined,
     deferred: defer(),
+    isClosing: false,
     resolve(value: unknown) {
       this.result = value;
+      this.isClosing = true;
       this.deferred.resolve(value);
     },
     then(onFulfilled, onRejected) {
