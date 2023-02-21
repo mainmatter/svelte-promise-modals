@@ -8,6 +8,10 @@ type Modal = {
   data: unknown;
   result?: unknown;
   isClosing: boolean;
+  deferredOutAnimation?: RSVP.Deferred<unknown>;
+  options: {
+    onAnimationModalOutEnd?: () => void;
+  };
   resolve(value?: unknown): void;
   remove(): void;
   then(
@@ -20,16 +24,34 @@ export const stack = writable<Modal[]>([]);
 export const count = derived(stack, ($stack) => $stack.filter((modal) => !modal.isClosing).length);
 export const top = derived(stack, ($stack) => $stack.at(-1));
 
-export const open = (component: object, data?: object) => {
+export const open = (component: object, data?: object, options?: object) => {
   let modal: Modal = {
     component,
     data,
     result: undefined,
     deferred: defer(),
-    isClosing: false,
+    get isClosing() {
+      return Boolean(this.deferredOutAnimation);
+    },
+    options: {
+      onAnimationModalOutEnd: undefined,
+      ...options,
+    },
     resolve(value: unknown) {
+      if (this.deferredOutAnimation) {
+        return;
+      }
+
+      this.deferredOutAnimation = defer();
+      if (this.options.onAnimationModalOutEnd) {
+        this.deferredOutAnimation.promise
+          .then(() => this.options.onAnimationModalOutEnd?.())
+          .catch(() => {
+            // noop
+          });
+      }
+
       this.result = value;
-      this.isClosing = true;
       this.deferred.resolve(value);
     },
     then(onFulfilled, onRejected) {
@@ -37,6 +59,7 @@ export const open = (component: object, data?: object) => {
     },
     remove() {
       removeFromStack(this);
+      this.deferredOutAnimation?.resolve();
     },
   };
 

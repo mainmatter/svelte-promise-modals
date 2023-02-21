@@ -70,4 +70,33 @@ describe('Service', () => {
 
     expect(get(count)).toBe(0);
   });
+
+  it('modals will call the optional onAnimationModalOutEnd hook when it is passed as an option', async () => {
+    let steps = [];
+
+    let modal = open(
+      {},
+      {},
+      {
+        onAnimationModalOutEnd: () => {
+          steps.push('animation ended');
+        },
+      }
+    );
+
+    steps.push('modal open');
+
+    modal.resolve();
+    steps.push('modal closing');
+
+    modal.remove();
+    steps.push('modal closed');
+
+    // we need to wait a tick for the closing animation promise to be resolved
+    await new Promise((resolve) => {
+      setTimeout(resolve, 0);
+    });
+
+    expect(steps).toMatchObject(['modal open', 'modal closing', 'modal closed', 'animation ended']);
+  });
 });
