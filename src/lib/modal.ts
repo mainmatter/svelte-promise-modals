@@ -1,5 +1,6 @@
 import type RSVP from 'rsvp';
 import { defer } from 'rsvp';
+import type { ComponentType, SvelteComponentTyped } from 'svelte';
 
 import { removeFromStack } from './service';
 
@@ -8,15 +9,16 @@ type ModalOptions = {
 };
 
 export class Modal {
-  deferred: RSVP.Deferred<unknown> = defer();
-  component: unknown;
-  data: object;
+  private deferred: RSVP.Deferred<unknown> = defer();
+  component: ComponentType;
+  data: object | Record<string | number | symbol, unknown>;
   result?: unknown;
   deferredOutAnimation?: RSVP.Deferred<unknown>;
+  componentInstance?: SvelteComponentTyped;
 
   options: ModalOptions;
 
-  constructor(component: object, data?: object, options?: Partial<ModalOptions>) {
+  constructor(component: ComponentType, data?: object, options?: Partial<ModalOptions>) {
     this.component = component;
     this.data = data ?? {};
     this.options = {
@@ -42,6 +44,10 @@ export class Modal {
 
     this.result = value;
     this.deferred.resolve(value);
+  }
+
+  close() {
+    this.remove();
   }
 
   remove(): void {

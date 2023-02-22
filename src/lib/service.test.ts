@@ -1,3 +1,4 @@
+import type { ComponentType } from 'svelte';
 import { get } from 'svelte/store';
 import { afterEach, describe, expect, it } from 'vitest';
 
@@ -8,15 +9,18 @@ describe('Service', () => {
     stack.set([]);
   });
 
+  // We don't need real components here, any object we can uniquely reference to will do
+  let Component = {} as ComponentType;
+
   it('basics', () => {
     expect(get(count), '#count').toBe(0);
     expect(get(top), '#top').toBe(undefined);
 
-    let modal1 = open({}, { foo: 'bar' });
+    let modal1 = open(Component, { foo: 'bar' });
     expect(get(count), '#count').toBe(1);
     expect(get(top), '#top').toBe(modal1);
 
-    let modal2 = open({});
+    let modal2 = open(Component);
     expect(get(count), '#count').toBe(2);
     expect(get(top), '#top').toBe(modal2);
 
@@ -30,7 +34,7 @@ describe('Service', () => {
   });
 
   it('modals can have results', () => {
-    let modal = open({});
+    let modal = open(Component);
     expect(modal.result).toBe(undefined);
 
     modal.resolve('foo');
@@ -40,7 +44,7 @@ describe('Service', () => {
   });
 
   it('modals are promises', async () => {
-    let modal = open({});
+    let modal = open(Component);
     let steps: string[] = [];
 
     modal.then(() => {
@@ -58,7 +62,7 @@ describe('Service', () => {
   });
 
   it('modals do not show up in openCount when closing', () => {
-    let modal = open({});
+    let modal = open(Component);
 
     expect(get(count)).toBe(1);
 
@@ -75,7 +79,7 @@ describe('Service', () => {
     let steps = [];
 
     let modal = open(
-      {},
+      Component,
       {},
       {
         onAnimationModalOutEnd: () => {
