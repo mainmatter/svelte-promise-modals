@@ -1,0 +1,28 @@
+on:
+  - push
+  - pull_request
+
+env:
+  PNPM_VERSION: 7.28
+
+jobs:
+  tests_e2e:
+    name: Run end-to-end tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Install playwright browsers
+        run: pnpm exec playwright install --with-deps
+      - name: Run tests
+        run: pnpx playwright test
