@@ -1,25 +1,50 @@
 <script lang="ts">
   import './svelte-promise-modals.css';
 
+  import { createFocusTrap, type FocusTrap } from 'focus-trap';
   import { onDestroy, onMount } from "svelte";
 
   import type { Modal } from "./modal";
 
   type AnimationEndHandler = GlobalEventHandlers['onanimationend'];
+  type OnDeactivateCallback = (() => void) | null;
 
   export let modal: Modal;
 
   let isAnimatingOut = false;
+  let focusTrap: FocusTrap;
   let modalElement: HTMLElement;
   let animationEnd: AnimationEndHandler | null = null;
 
   onMount(async () => {
+    addFocusTrap();
     addAnimationListeners();
   });
 
   onDestroy(() => {
     destroyModal();
   });
+
+  const addFocusTrap = () => {
+    let options = {
+      fallbackFocus: modalElement,
+      clickOutsideDeactivates: true,
+      onDeactivate: () => {
+        closeModal();
+      },
+    };
+
+    focusTrap = createFocusTrap(modalElement, options);
+    focusTrap.activate();
+  }
+
+  const removeFocusTrap = (onDeactivate?: OnDeactivateCallback) => {
+    if (!focusTrap) {
+      return;
+    }
+
+    focusTrap.deactivate({ onDeactivate });
+  }
 
   const addAnimationListeners = () => {
     animationEnd = ({ target, animationName }) => {
@@ -52,12 +77,13 @@
   }
 
   export const destroyModal = () => {
+    removeFocusTrap(null);
     removeAnimationListeners();
 
     modal.remove();
   }
 
-  export const closeModal = (result: unknown) => {
+  export const closeModal = (result?: unknown) => {
     if (isAnimatingOut) {
       return;
     }
@@ -70,11 +96,19 @@
 
   const close = (result: unknown) => {
     closeModal(result);
+    removeFocusTrap();
   }
 </script>
 
 
-<div data-testid="backdrop" class="spm-backdrop" class:spm-out={isAnimatingOut}>
+<div
+  class="spm-backdrop"
+  class:spm-out={isAnimatingOut}
+  tabindex="-1"
+  role="presentation"
+  aria-hidden="true"
+  data-testid="backdrop"
+>
   <div data-testid="spm-modal" class="spm-modal" class:spm-out={isAnimatingOut} bind:this={modalElement}>
     <svelte:component this={modal.component} data={modal.data} close={close} />
   </div>

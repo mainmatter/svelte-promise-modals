@@ -23,6 +23,9 @@
 	"files": [
 		"dist"
 	],
+  "dependencies": {
+    "focus-trap": "^7.3.1"
+  },
 	"peerDependencies": {
 		"svelte": "^3.54.0"
 	},
