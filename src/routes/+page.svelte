@@ -1,3 +1,10 @@
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  import ModalContainer from "$lib/ModalContainer.svelte";
+  import { open } from "$lib/service";
+
+  import FooComponent from "./FooComponent.svelte";
+</script>
+
+<ModalContainer />
+
+<button type="button" on:click={() => open(FooComponent)}>Open</button>
