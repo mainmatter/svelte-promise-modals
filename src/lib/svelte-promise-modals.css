@@ -1,0 +1,132 @@
+:root {
+  /* The named -duration and -delay variables will be lowered to near zero when using the setupPromiseModals test helper  */
+  --spm-animation-backdrop-in-duration: 0.3s;
+  --spm-animation-backdrop-out-duration: 0.18s;
+  --spm-animation-modal-in-duration: 0.3s;
+  --spm-animation-modal-out-duration: 0.18s;
+  --spm-animation-backdrop-in-delay: 0s;
+  --spm-animation-backdrop-out-delay: 0s;
+  --spm-animation-modal-in-delay: 0s;
+  --spm-animation-modal-out-delay: 0s;
+  --spm-animation-backdrop-in: var(--spm-animation-backdrop-in-duration) ease var(--spm-animation-backdrop-in-delay) forwards spm-backdrop-in;
+  --spm-animation-backdrop-out: var(--spm-animation-backdrop-out-duration) ease var(--spm-animation-backdrop-out-delay) forwards spm-backdrop-out;
+  --spm-animation-modal-in: var(--spm-animation-modal-in-duration) ease-out var(--spm-animation-modal-in-delay) forwards spm-modal-in;
+  --spm-animation-modal-out: var(--spm-animation-modal-out-duration) ease-out var(--spm-animation-modal-out-delay) forwards spm-modal-out;
+  --spm-backdrop-background: #2d3748CD;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+  --spm-animation-backdrop-in-duration: 0.001s;
+  --spm-animation-backdrop-out-duration: 0.001s;
+  --spm-animation-modal-in-duration: 0.001s;
+  --spm-animation-modal-out-duration: 0.001s;
+  --spm-animation-backdrop-in-delay: 0.001s;
+  --spm-animation-backdrop-out-delay: 0.001s;
+  --spm-animation-modal-in-delay: 0.001s;
+  --spm-animation-modal-out-delay: 0.001s;
+  }
+}
+
+.spm-scrolling-disabled {
+  overflow: hidden;
+}
+
+.spm-backdrop,
+.spm-modal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.spm-backdrop {
+  background-color: var(--spm-backdrop-background);
+  opacity: 0;
+  animation: var(--spm-animation-backdrop-in);
+  animation-delay: var(--spm-animation-backdrop-in-delay);
+  animation-duration: var(--spm-animation-backdrop-in-duration);
+}
+
+.spm-modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.spm-animating .spm-modal-container {
+  overflow: unset;
+}
+
+.spm-modal {
+  margin: auto;
+  transform: translate(0, -30vh) scale(1.1);
+  opacity: 0;
+  animation: var(--spm-animation-modal-in);
+  animation-delay: var(--spm-animation-modal-in-delay);
+  animation-duration: var(--spm-animation-modal-in-duration);
+  -webkit-overflow-scrolling: touch; /* momentum-based scrolling for Safari on iOS */
+}
+
+.spm-backdrop.spm-out {
+  opacity: 1;
+  animation: var(--spm-animation-backdrop-out);
+  animation-delay: var(--spm-animation-backdrop-out-delay);
+  animation-duration: var(--spm-animation-backdrop-out-duration);
+  pointer-events: none;
+}
+
+.spm-modal.spm-out {
+  transform: translate(0, 0) scale(1);
+  opacity: 1;
+  animation: var(--spm-animation-modal-out);
+  animation-delay: var(--spm-animation-modal-out-delay);
+  animation-duration: var(--spm-animation-modal-out-duration);
+  pointer-events: none;
+}
+
+@keyframes spm-backdrop-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes spm-backdrop-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spm-modal-in {
+  0% {
+    transform: translate(0, -30vh) scale(1.1);
+    opacity: 0;
+  }
+  72% {
+    transform: translate(0, 0) scale(0.99);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spm-modal-out {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -10vh) scale(0.8);
+    opacity: 0;
+  }
+}

@@ -47,7 +47,7 @@ export class Modal {
   }
 
   close() {
-    this.remove();
+    this.componentInstance?.closeModal();
   }
 
   remove(): void {
