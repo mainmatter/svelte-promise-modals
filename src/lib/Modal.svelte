@@ -100,7 +100,6 @@
   }
 </script>
 
-
 <div
   class="spm-backdrop"
   class:spm-out={isAnimatingOut}
@@ -108,7 +107,9 @@
   role="presentation"
   aria-hidden="true"
   data-testid="backdrop"
->
+/>
+
+<div class="spm-modal-container">
   <div data-testid="spm-modal" class="spm-modal" class:spm-out={isAnimatingOut} bind:this={modalElement}>
     <svelte:component this={modal.component} data={modal.data} close={close} />
   </div>

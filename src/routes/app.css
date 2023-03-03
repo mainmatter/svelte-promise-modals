@@ -1,0 +1,246 @@
+/* === Basic styling for the demo modal */
+
+.spm-modal {
+  /*
+    Inset so modals look like modals on mobile.
+  */
+  padding: 0.5rem;
+}
+
+.modal {
+  max-width: 600px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0 4px 28px 0 rgba(0, 0, 0, 0.36);
+  padding: 1.5rem;
+}
+
+.modal2 {
+  max-width: 400px;
+}
+
+/* === Variation 1: Custom animation which animates the modal in from the bottom and back */
+
+/* this className will be added to the modal when the modal should be animated in */
+.from-bottom {
+  opacity: 1;
+  transform: translate(0, 0);
+  animation: from-bottom-in var(--epm-animation-modal-in-duration) ease-out;
+}
+
+/* this className will be added to the modal when the modal should be animated out */
+.from-bottom.epm-out {
+  opacity: 0;
+  transform: translate(0, calc(50vh + 50%));
+  animation: from-bottom-out var(--epm-animation-modal-out-duration) ease-in;
+}
+
+/* these keyframes describe the animation  */
+
+@keyframes from-bottom-in {
+  0% {
+    opacity: 0;
+    transform: translate(0, calc(50vh + 50%));
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes from-bottom-out {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, calc(50vh + 50%));
+  }
+}
+
+/* === Variation 2: Custom animation which animates the modal in from the top and back */
+
+/* this className will be added to the modal when the modal should be animated in */
+.from-top {
+  opacity: 1;
+  transform: translate(0, 0);
+  animation: from-top-in var(--epm-animation-modal-in-duration) ease-out;
+}
+
+/* this className will be added to the modal when the modal should be animated out */
+.from-top.epm-out {
+  opacity: 0;
+  transform: translate(0, calc(-50vh - 50%));
+  animation: from-top-out var(--epm-animation-modal-out-duration) ease-in;
+}
+
+@keyframes from-top-in {
+  0% {
+    opacity: 0;
+    transform: translate(0, calc(-50vh - 50%));
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes from-top-out {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, calc(-50vh - 50%));
+  }
+}
+
+/* Anything below is just to make the demo page look fancy */
+
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1.5;
+  color: inherit;
+}
+
+html,
+body {
+  font: 15px/24px sans-serif;
+  background: #fff;
+  color: #456078;
+}
+
+:where(*) {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+body {
+  padding: 0 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+}
+
+main,
+footer p {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  padding: 1.5rem;
+  background: #fafafa;
+  margin-top: 3rem;
+}
+
+header {
+  max-width: 600px;
+  margin: auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+p {
+  text-align: center;
+}
+
+p + p {
+  margin-top: 1rem;
+}
+
+small {
+  font-size: 0.8125rem;
+  line-height: 1.5rem;
+  opacity: 0.4;
+}
+
+*:focus {
+  outline: 0;
+  box-shadow: 0 0 10px -2px #007EDF;
+}
+
+a {
+  padding: 0.25em 0;
+  border-radius: 0.25em;
+}
+
+[type='button'] {
+  padding: 0.5rem 1.25rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 2px 0 rgba(0, 76, 134, 0.4), 0 5px 16px -4px rgba(0, 76, 134, 0.4);
+  border-radius: 0.5625rem;
+}
+
+[type='button']:focus {
+  box-shadow: 0 0 10px -2px #007EDF, 0 1px 2px 0 rgba(0, 76, 134, 0.4), 0 5px 16px -4px rgba(0, 76, 134, 0.4);
+  outline: 0;
+  color: #007EDF;
+}
+
+[type='button']:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 2px 0 rgba(0, 76, 134, 0.4), 0 4px 16px -4px rgba(0, 76, 134, 0.4);
+}
+
+.box {
+  padding: 1.5rem;
+  border-radius: 1.125rem;
+  text-align: center;
+}
+
+* + .box {
+  margin-top: 1rem;
+}
+
+.box + * {
+  margin-top: 3rem;
+}
+
+.box-blue {
+  background: #eff9fa;
+}
+
+.box-green {
+  background: #effbf2;
+}
+
+.box-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  background: #fafafa;
+}
+
+.modal header {
+  margin: 0 0 1rem;
+}
+
+.modal p {
+  text-align: left;
+}
+
+.visually-hidden {
+  position: absolute!important;
+  width: 1px!important;
+  height: 1px!important;
+  padding: 0!important;
+  margin: -1px!important;
+  overflow: hidden!important;
+  clip: rect(0,0,0,0)!important;
+  white-space: nowrap!important;
+  border: 0!important;
+}
