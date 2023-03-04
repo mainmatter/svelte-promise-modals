@@ -8,6 +8,7 @@
 		"package": "svelte-kit sync && svelte-package && publint",
 		"prepublishOnly": "npm run package",
 		"test": "playwright test",
+		"test:debug": "PWDEBUG=1 playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "vitest",
