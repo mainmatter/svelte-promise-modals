@@ -1,14 +1,32 @@
+import deepmerge from 'deepmerge';
 import type { ComponentType } from 'svelte';
-import { derived, writable } from 'svelte/store';
+import { derived, get, writable } from 'svelte/store';
 
 import { Modal } from './modal';
+import type { ModalOptions } from './types';
 
 export const stack = writable<Modal[]>([]);
 export const count = derived(stack, ($stack) => $stack.filter((modal) => !modal.isClosing).length);
 export const top = derived(stack, ($stack) => $stack.at(-1));
+export const globalOptions = writable({
+  focusTrapOptions: {
+    clickOutsideDeactivates: true,
+  },
+});
+
+export { globalOptions as options };
+
+export const updateOptions = (userOptions: Partial<ModalOptions>) => {
+  if (userOptions && typeof userOptions === 'object') {
+    globalOptions.update((defaultOptions) => {
+      return deepmerge(defaultOptions, userOptions);
+    });
+  }
+};
 
 export const open = (component: ComponentType, data?: object, options?: object) => {
-  let modal: Modal = new Modal(component, data, options);
+  let modalOptions = deepmerge(get(globalOptions), options ?? {});
+  let modal: Modal = new Modal(component, data, modalOptions);
 
   stack.update((modals) => [...modals, modal]);
 

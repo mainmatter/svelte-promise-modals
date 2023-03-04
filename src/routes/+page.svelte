@@ -1,11 +1,18 @@
-<script>
+<script lang="ts">
   import "./app.css";
 
+  import { browser } from "$app/environment";
   import ModalContainer from "$lib/ModalContainer.svelte";
   import { open } from "$lib/service";
 
   import FooComponent from "./FooComponent.svelte";
   import logo from './svelte-promise-modals-logo.svg';
+
+  type PlaywrightWindow = Window & {
+    modalOptions?: object;
+  };
+
+  let modalOptions = (browser && (window as PlaywrightWindow).modalOptions) || {};
 </script>
 
 <header>
@@ -39,4 +46,4 @@
   <p>svelte-promise-modals is <br />made &amp; sponsored with ❤️ by <a href="https://mainmatter.com" target="_blank" rel="noopener noreferrer">Mainmatter</a></p>
 </main>
 
-<ModalContainer />
+<ModalContainer options={modalOptions} />

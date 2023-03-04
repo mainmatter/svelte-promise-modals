@@ -29,6 +29,7 @@
     let options = {
       fallbackFocus: modalElement,
       clickOutsideDeactivates: true,
+      ...modal.options.focusTrapOptions,
       onDeactivate: () => {
         closeModal();
       },

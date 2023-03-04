@@ -3,10 +3,7 @@ import { defer } from 'rsvp';
 import type { ComponentType, SvelteComponentTyped } from 'svelte';
 
 import { removeFromStack } from './service';
-
-type ModalOptions = {
-  onAnimationModalOutEnd(): void;
-};
+import type { ModalOptions } from './types';
 
 export class Modal {
   private deferred: RSVP.Deferred<unknown> = defer();
