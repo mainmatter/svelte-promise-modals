@@ -9,7 +9,7 @@
 
 <div class="modal modal1" data-test-modal-wrap>
   <header>
-    <button type="button" data-test-close on:click={() => close()}>Close</button>
+    <button type="button" data-testid="close" on:click={() => close()}>Close</button>
   </header>
 
   <h2>Modal 1</h2>

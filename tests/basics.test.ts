@@ -68,3 +68,25 @@ test('clicking the backdrop does not close the modal if `clickOutsideDeactivates
   expect(await page.getByTestId('backdrop')).toBeTruthy();
   expect(await page.getByTestId('spm-modal')).toBeTruthy();
 });
+
+test('opening a modal disables scrolling on the <body> element', async ({ page }) => {
+  let getBodyStyle = () => {
+    return page.locator('body').evaluate((element) => window.getComputedStyle(element));
+  };
+
+  // Reduced motion will speed up animations which comes handy for testing
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+
+  await page.goto('/');
+
+  expect((await getBodyStyle()).overflow).toBe('visible');
+
+  await page.getByTestId('open-foo').click();
+
+  expect((await getBodyStyle()).overflow).toBe('hidden');
+
+  await page.getByTestId('close').click();
+  await page.waitForSelector('[data-testid="spm-modal"]', { state: 'hidden', timeout: 500 });
+
+  expect((await getBodyStyle()).overflow).toBe('visible');
+});
