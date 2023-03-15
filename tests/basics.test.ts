@@ -90,3 +90,18 @@ test('opening a modal disables scrolling on the <body> element', async ({ page }
 
   expect((await getBodyStyle()).overflow).toBe('visible');
 });
+
+test('closing the modal via the close function returns passed values', async ({
+  page,
+  context,
+}) => {
+  await context.exposeBinding('modalResult', () => undefined);
+
+  // Reduced motion will speed up animations which comes handy for testing
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  await page.getByTestId('open-foo').click();
+  await page.getByTestId('close').click();
+
+  expect(await page.evaluate('modalResult')).toMatchObject({ foo: 'bar' });
+});

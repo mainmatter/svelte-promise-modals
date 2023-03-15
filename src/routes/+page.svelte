@@ -10,9 +10,15 @@
 
   type PlaywrightWindow = Window & {
     modalOptions?: object;
+    modalResult?: unknown;
   };
 
   let modalOptions = (browser && (window as PlaywrightWindow).modalOptions) || {};
+
+  async function openFooModal() {
+    let result = await open(FooComponent);
+    (window as PlaywrightWindow).modalResult = result;
+  }
 </script>
 
 <header>
@@ -27,7 +33,7 @@
 <main>
   <div class="box box-blue">
     <p>
-      <button type="button" on:click={() => open(FooComponent)} data-testid="open-foo">
+      <button type="button" on:click={() => openFooModal()} data-testid="open-foo">
         A simple modal with a button to close it
       </button>
     </p>
