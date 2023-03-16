@@ -5,6 +5,7 @@
   import { onDestroy, onMount } from "svelte";
 
   import type { Modal } from "./modal";
+  import { onModalAnimationEnd, onModalAnimationStart } from './service';
 
   type AnimationEndHandler = GlobalEventHandlers['onanimationend'];
   type OnDeactivateCallback = (() => void) | null;
@@ -19,6 +20,7 @@
   onMount(async () => {
     addFocusTrap();
     addAnimationListeners();
+    onModalAnimationStart();
   });
 
   onDestroy(() => {
@@ -54,6 +56,8 @@
         return;
       }
 
+      onModalAnimationEnd();
+
       let isOutAnimation = animationName.slice(-4) === '-out';
       if (isOutAnimation) {
         modal.remove();
@@ -88,6 +92,8 @@
     if (isAnimatingOut) {
       return;
     }
+
+    onModalAnimationStart();
 
     // This triggers the out animation, which in turn will remove the modal after it completes
     isAnimatingOut = true;

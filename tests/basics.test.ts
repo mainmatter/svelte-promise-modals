@@ -105,3 +105,20 @@ test('closing the modal via the close function returns passed values', async ({
 
   expect(await page.evaluate('modalResult')).toMatchObject({ foo: 'bar' });
 });
+
+test('opening and closing a modal both adds `.spm-animating` class to <body>', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+
+  await page.waitForSelector('body:not(.spm-animating)');
+
+  page.getByTestId('open-foo').click();
+
+  await page.waitForSelector('body.spm-animating');
+  await page.waitForSelector('body:not(.spm-animating)');
+
+  page.getByTestId('close').click();
+
+  await page.waitForSelector('body.spm-animating');
+  await page.waitForSelector('body:not(.spm-animating)');
+});

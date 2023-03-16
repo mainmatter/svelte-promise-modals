@@ -63,3 +63,15 @@ function onLastModalRemoved() {
     document.body.classList.remove('spm-scrolling-disabled');
   }
 }
+
+export function onModalAnimationStart() {
+  if (browser) {
+    document.body.classList.add('spm-animating');
+  }
+}
+
+export function onModalAnimationEnd() {
+  if (browser) {
+    document.body.classList.remove('spm-animating');
+  }
+}
