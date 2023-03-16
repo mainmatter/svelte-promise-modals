@@ -91,6 +91,20 @@ test('opening a modal disables scrolling on the <body> element', async ({ page }
   expect((await getBodyStyle()).overflow).toBe('visible');
 });
 
+test('pressing the Escape keyboard button closes the modal', async ({ page, context }) => {
+  await context.exposeBinding('modalResult', () => undefined);
+
+  // Reduced motion will speed up animations which comes handy for testing
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  await page.getByTestId('open-foo').click();
+  await page.waitForSelector('[data-testid="spm-modal"]', { timeout: 500 });
+
+  await page.keyboard.press('Escape');
+
+  await page.waitForSelector('[data-testid="spm-modal"]', { state: 'hidden', timeout: 500 });
+});
+
 test('closing the modal via the close function returns passed values', async ({
   page,
   context,
