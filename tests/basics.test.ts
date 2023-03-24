@@ -121,7 +121,6 @@ test('closing the modal via the close function returns passed values', async ({
 });
 
 test('opening and closing a modal both adds `.spm-animating` class to <body>', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
 
   await page.waitForSelector('body:not(.spm-animating)');
