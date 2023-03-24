@@ -21,7 +21,7 @@
   </p>
 
   <p>
-    <button type="button" data-test-show-modal-2 on:click={() => openModal(BarComponent)}>Open another modal</button>
+    <button type="button" data-testid="show-modal-2" on:click={() => openModal(BarComponent)}>Open another modal</button>
   </p>
 
   <p>
