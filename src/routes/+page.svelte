@@ -3,7 +3,7 @@
 
   import { browser } from "$app/environment";
   import ModalContainer from "$lib/ModalContainer.svelte";
-  import { open } from "$lib/service";
+  import { destroyModals,open } from "$lib/service";
 
   import FooComponent from "./FooComponent.svelte";
   import logo from './svelte-promise-modals-logo.svg';
@@ -11,7 +11,13 @@
   type PlaywrightWindow = Window & {
     modalOptions?: object;
     modalResult?: unknown;
+    modals?: unknown;
+    destroyModals?: unknown;
   };
+
+  if (browser) {
+    (window as PlaywrightWindow).destroyModals = destroyModals;
+  }
 
   let modalOptions = (browser && (window as PlaywrightWindow).modalOptions) || {};
 

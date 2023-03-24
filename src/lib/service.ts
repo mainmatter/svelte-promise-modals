@@ -46,6 +46,10 @@ export const removeFromStack = (modal: unknown) => {
   stack.update(($stack) => $stack.filter((m) => m !== modal));
 };
 
+export function destroyModals() {
+  get(stack).forEach((m) => m.destroy());
+}
+
 stack.subscribe((modals) => {
   if (modals.length === 0) {
     onLastModalRemoved();

@@ -43,6 +43,10 @@ export class Modal {
     this.deferred.resolve(value);
   }
 
+  destroy() {
+    this.componentInstance?.destroyModal();
+  }
+
   close() {
     this.componentInstance?.closeModal();
   }
