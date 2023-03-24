@@ -26,7 +26,7 @@ export const updateOptions = (userOptions: Partial<ModalOptions>) => {
   }
 };
 
-export const open = (component: ComponentType, data?: object, options?: object) => {
+export const openModal = (component: ComponentType, data?: object, options?: object) => {
   let modalOptions = deepmerge(get(globalOptions), options ?? {});
   let modal: Modal = new Modal(component, data, modalOptions);
 

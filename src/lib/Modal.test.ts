@@ -3,13 +3,13 @@ import { describe, expect, it } from 'vitest';
 
 import FooComponent from './dummy/FooComponent.svelte';
 import ModalContainer from './ModalContainer.svelte';
-import { open } from './service';
+import { openModal } from './service';
 
 describe('Modal', () => {
   it('closeModal() should resolve only once', async () => {
     render(ModalContainer);
 
-    let modal = open(FooComponent);
+    let modal = openModal(FooComponent);
     let spy = vi.spyOn(modal, 'resolve');
 
     await waitFor(() => {

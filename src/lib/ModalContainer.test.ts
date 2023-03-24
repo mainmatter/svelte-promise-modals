@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import FooComponent from './dummy/FooComponent.svelte';
 import ModalContainer from './ModalContainer.svelte';
-import { open } from './service';
+import { openModal } from './service';
 
 describe('ModalContainer', () => {
   // Looks like there is an issue about components being compiled for SSR in Vitest, so their
@@ -17,7 +17,7 @@ describe('ModalContainer', () => {
     expect(await screen.queryByTestId('spm-modal')).not.toBeInTheDocument();
     expect(container).toHaveTextContent('');
 
-    let modal = open(FooComponent, { bar: 'baz' });
+    let modal = openModal(FooComponent, { bar: 'baz' });
 
     expect(await screen.findAllByTestId('backdrop')).toHaveLength(1);
     expect(await screen.findByTestId('spm-modal')).toHaveTextContent('foo baz');

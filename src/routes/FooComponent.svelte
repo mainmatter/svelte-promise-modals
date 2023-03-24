@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { open } from "$lib/service";
+  import { openModal } from "$lib/service";
 
   import BarComponent from "./BarComponent.svelte";
 
@@ -21,7 +21,7 @@
   </p>
 
   <p>
-    <button type="button" data-test-show-modal-2 on:click={() => open(BarComponent)}>Open another modal</button>
+    <button type="button" data-test-show-modal-2 on:click={() => openModal(BarComponent)}>Open another modal</button>
   </p>
 
   <p>

@@ -3,7 +3,7 @@
 
   import { browser } from "$app/environment";
   import ModalContainer from "$lib/ModalContainer.svelte";
-  import { destroyModals,open } from "$lib/service";
+  import { destroyModals, openModal } from "$lib/service";
 
   import FooComponent from "./FooComponent.svelte";
   import logo from './svelte-promise-modals-logo.svg';
@@ -22,7 +22,7 @@
   let modalOptions = (browser && (window as PlaywrightWindow).modalOptions) || {};
 
   async function openFooModal() {
-    let result = await open(FooComponent);
+    let result = await openModal(FooComponent);
     (window as PlaywrightWindow).modalResult = result;
   }
 </script>

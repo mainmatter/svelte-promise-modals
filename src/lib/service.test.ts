@@ -2,7 +2,7 @@ import type { ComponentType } from 'svelte';
 import { get } from 'svelte/store';
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { count, open, stack, top } from './service';
+import { count, openModal, stack, top } from './service';
 
 describe('Service', () => {
   afterEach(() => {
@@ -16,11 +16,11 @@ describe('Service', () => {
     expect(get(count), '#count').toBe(0);
     expect(get(top), '#top').toBe(undefined);
 
-    let modal1 = open(Component, { foo: 'bar' });
+    let modal1 = openModal(Component, { foo: 'bar' });
     expect(get(count), '#count').toBe(1);
     expect(get(top), '#top').toBe(modal1);
 
-    let modal2 = open(Component);
+    let modal2 = openModal(Component);
     expect(get(count), '#count').toBe(2);
     expect(get(top), '#top').toBe(modal2);
 
@@ -34,7 +34,7 @@ describe('Service', () => {
   });
 
   it('modals can have results', () => {
-    let modal = open(Component);
+    let modal = openModal(Component);
     expect(modal.result).toBe(undefined);
 
     modal.resolve('foo');
@@ -44,7 +44,7 @@ describe('Service', () => {
   });
 
   it('modals are promises', async () => {
-    let modal = open(Component);
+    let modal = openModal(Component);
     let steps: string[] = [];
 
     modal.then(() => {
@@ -62,7 +62,7 @@ describe('Service', () => {
   });
 
   it('modals do not show up in openCount when closing', () => {
-    let modal = open(Component);
+    let modal = openModal(Component);
 
     expect(get(count)).toBe(1);
 
@@ -78,7 +78,7 @@ describe('Service', () => {
   it('modals will call the optional onAnimationModalOutEnd hook when it is passed as an option', async () => {
     let steps = [];
 
-    let modal = open(
+    let modal = openModal(
       Component,
       {},
       {
