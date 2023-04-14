@@ -1,11 +1,11 @@
 <script lang="ts">
-  import "./app.css";
+  import './app.css';
 
-  import { browser } from "$app/environment";
-  import ModalContainer from "$lib/ModalContainer.svelte";
-  import { destroyModals, openModal } from "$lib/service";
+  import { browser } from '$app/environment';
+  import ModalContainer from '$lib/ModalContainer.svelte';
+  import { destroyModals, openModal } from '$lib/service';
 
-  import FooComponent from "./FooComponent.svelte";
+  import FooComponent from './FooComponent.svelte';
   import logo from './svelte-promise-modals-logo.svg';
 
   type PlaywrightWindow = Window & {
@@ -30,7 +30,13 @@
 <header>
   <h1>
     <a href="https://github.com/mainmatter/svelte-promise-modals">
-      <img src={logo} alt="svelte-promise-modals logo" role="presentation" width="600" height="400" />
+      <img
+        src={logo}
+        alt="svelte-promise-modals logo"
+        role="presentation"
+        width="600"
+        height="400"
+      />
       <span class="visually-hidden">svelte-promise-modals</span>
     </a>
   </h1>
@@ -45,7 +51,13 @@
     </p>
   </div>
 
-  <p>See the <a href="https://github.com/mainmatter/svelte-promise-modals#readme" target="_blank" rel="noopener noreferrer">README on GitHub</a> for setup &amp; further instructions.</p>
+  <p>
+    See the <a
+      href="https://github.com/mainmatter/svelte-promise-modals#readme"
+      target="_blank"
+      rel="noopener noreferrer">README on GitHub</a
+    > for setup &amp; further instructions.
+  </p>
 
   <div class="box box-placeholder">
     <p>
@@ -55,7 +67,10 @@
     </p>
   </div>
 
-  <p>svelte-promise-modals is <br />made &amp; sponsored with ❤️ by <a href="https://mainmatter.com" target="_blank" rel="noopener noreferrer">Mainmatter</a></p>
+  <p>
+    svelte-promise-modals is <br />made &amp; sponsored with ❤️ by
+    <a href="https://mainmatter.com" target="_blank" rel="noopener noreferrer">Mainmatter</a>
+  </p>
 </main>
 
 <ModalContainer options={modalOptions} />

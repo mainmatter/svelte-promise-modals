@@ -2,10 +2,10 @@
   import './svelte-promise-modals.css';
 
   import { createFocusTrap, type FocusTrap } from 'focus-trap';
-  import { onDestroy, onMount } from "svelte";
+  import { onDestroy, onMount } from 'svelte';
 
-  import type { Modal } from "./modal";
   import { onModalAnimationEnd, onModalAnimationStart } from './service';
+  import type { Modal } from './modal';
 
   type AnimationEndHandler = GlobalEventHandlers['onanimationend'];
   type OnDeactivateCallback = (() => void) | null;
@@ -39,7 +39,7 @@
 
     focusTrap = createFocusTrap(modalElement, options);
     focusTrap.activate();
-  }
+  };
 
   const removeFocusTrap = (onDeactivate?: OnDeactivateCallback) => {
     if (!focusTrap) {
@@ -47,7 +47,7 @@
     }
 
     focusTrap.deactivate({ onDeactivate });
-  }
+  };
 
   const addAnimationListeners = () => {
     animationEnd = ({ target, animationName }) => {
@@ -67,7 +67,7 @@
     if (modalElement) {
       modalElement.addEventListener('animationend', animationEnd);
     }
-  }
+  };
 
   const removeAnimationListeners = () => {
     if (!animationEnd) {
@@ -79,14 +79,14 @@
     }
 
     animationEnd = null;
-  }
+  };
 
   export const destroyModal = () => {
     removeFocusTrap(null);
     removeAnimationListeners();
 
     modal.remove();
-  }
+  };
 
   export const closeModal = (result?: unknown) => {
     if (isAnimatingOut) {
@@ -99,12 +99,12 @@
     isAnimatingOut = true;
 
     modal.resolve(result);
-  }
+  };
 
   const close = (result: unknown) => {
     closeModal(result);
     removeFocusTrap();
-  }
+  };
 </script>
 
 <div
@@ -117,7 +117,12 @@
 />
 
 <div class="spm-modal-container">
-  <div data-testid="spm-modal" class="spm-modal" class:spm-out={isAnimatingOut} bind:this={modalElement}>
-    <svelte:component this={modal.component} data={modal.data} close={close} />
+  <div
+    data-testid="spm-modal"
+    class="spm-modal"
+    class:spm-out={isAnimatingOut}
+    bind:this={modalElement}
+  >
+    <svelte:component this={modal.component} data={modal.data} {close} />
   </div>
 </div>
