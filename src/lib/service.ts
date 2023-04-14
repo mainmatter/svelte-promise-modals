@@ -2,8 +2,7 @@ import deepmerge from 'deepmerge';
 import type { ComponentType } from 'svelte';
 import { derived, get, writable } from 'svelte/store';
 
-import { browser } from '$app/environment';
-
+import { browser } from '../utils/browser';
 import { Modal } from './modal';
 import type { ModalOptions } from './types';
 
@@ -27,8 +26,7 @@ export const updateOptions = (userOptions: Partial<ModalOptions>) => {
 };
 
 export const openModal = (component: ComponentType, data?: object, options?: object) => {
-  let modalOptions = deepmerge(get(globalOptions), options ?? {});
-  let modal: Modal = new Modal(component, data, modalOptions);
+  let modal: Modal = new Modal(component, data, options);
 
   stack.update((modals) => {
     let stack = [...modals, modal];

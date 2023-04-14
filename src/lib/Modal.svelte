@@ -3,9 +3,11 @@
 
   import { createFocusTrap, type FocusTrap } from 'focus-trap';
   import { onDestroy, onMount } from 'svelte';
+  import { get } from 'svelte/store';
 
-  import { onModalAnimationEnd, onModalAnimationStart } from './service';
   import type { Modal } from './modal';
+  import { globalOptions, onModalAnimationEnd, onModalAnimationStart } from './service';
+  import type { FocusTrapOptions } from './types';
 
   type AnimationEndHandler = GlobalEventHandlers['onanimationend'];
   type OnDeactivateCallback = (() => void) | null;
@@ -16,6 +18,8 @@
   let focusTrap: FocusTrap;
   let modalElement: HTMLElement;
   let animationEnd: AnimationEndHandler | null = null;
+
+  let focusTrapOptions: FocusTrapOptions;
 
   onMount(async () => {
     addFocusTrap();
@@ -28,11 +32,26 @@
   });
 
   const addFocusTrap = () => {
+    let $globalOptions = get(globalOptions);
+    let { focusTrapOptions: globalFocusTrapOptions } = $globalOptions;
+    let { focusTrapOptions: localFocusTrapOptions } = modal.options;
+
+    if (localFocusTrapOptions !== null) {
+      focusTrapOptions = localFocusTrapOptions || globalFocusTrapOptions;
+    }
+
+    if (!focusTrapOptions) {
+      return;
+    }
+
     let options = {
+      ...focusTrapOptions,
       fallbackFocus: modalElement,
       clickOutsideDeactivates: true,
-      ...modal.options.focusTrapOptions,
-      onDeactivate: () => {
+      onDeactivate: (...args: unknown[]) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        focusTrapOptions.onDeactivate?.(...args);
         closeModal();
       },
     };
@@ -44,6 +63,10 @@
   const removeFocusTrap = (onDeactivate?: OnDeactivateCallback) => {
     if (!focusTrap) {
       return;
+    }
+
+    if (typeof onDeactivate === 'undefined') {
+      onDeactivate = focusTrapOptions.onDeactivate;
     }
 
     focusTrap.deactivate({ onDeactivate });

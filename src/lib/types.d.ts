@@ -5,6 +5,8 @@ export type ModalOptions = {
   focusTrapOptions?: FocusTrapOptions;
 };
 
+export type FocusTrapOptions = FocusTrapOptions;
+
 declare module 'focus-trap' {
   // FocusTrap will happily accept `null` or `false` for `onDeactivate` & `onPostDeactivate`,
   // despite what its type declaration is saying.
