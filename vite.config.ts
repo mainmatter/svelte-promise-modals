@@ -1,7 +1,6 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import type { UserConfig } from 'vite';
-import { configDefaults, type UserConfig as VitestConfig } from 'vitest/config';
-// import { defineConfig } from 'vitest/config';
+import type { UserConfig as VitestConfig } from 'vitest/config';
 
 const config: UserConfig & { test: VitestConfig['test'] } = {
   plugins: [sveltekit()],
@@ -25,8 +24,7 @@ const config: UserConfig & { test: VitestConfig['test'] } = {
     coverage: {
       exclude: ['setupTest.ts'],
     },
-    // Exclude playwright tests folder
-    exclude: [...configDefaults.exclude, 'tests'],
+    include: ['src/**/*.test.{js,ts}'],
   },
 };
 
