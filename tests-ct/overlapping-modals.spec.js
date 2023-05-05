@@ -1,30 +1,28 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from '@playwright/experimental-ct-svelte';
 
-import { logMessages } from './test-helper.js';
+import TestApp from './TestApp.svelte';
 
 test.describe('Overlapping modals', () => {
   test.beforeEach(async ({ page }) => {
-    logMessages(page);
-
     // Reduced motion will speed up animations which comes handy for testing
     await page.emulateMedia({ reducedMotion: 'reduce' });
   });
 
-  test('every modal should have a dedicated backdrop', async ({ page }) => {
-    await page.goto('/');
+  test('every modal should have a dedicated backdrop', async ({ mount, page }) => {
+    await mount(TestApp);
 
-    await page.waitForSelector('[data-testid="backdrop"]', { state: 'hidden', timeout: 500 });
-    await page.waitForSelector('[data-testid="spm-modal"]', { state: 'hidden', timeout: 500 });
+    await expect(page.getByTestId('backdrop')).toBeHidden();
+    await expect(page.getByTestId('spm-modal')).toBeHidden();
 
-    await page.getByTestId('open-foo').click();
+    await page.getByText('Open Modal').click();
 
     await expect(page.locator('[data-testid="backdrop"]')).toHaveCount(1);
 
-    await page.getByTestId('show-modal-2').click();
-
-    await page.waitForSelector('body:not(.spm-animating)');
+    await page.getByText('Open another modal').click();
 
     await expect(page.locator('[data-testid="backdrop"]')).toHaveCount(2);
+
+    await page.waitForSelector('body:not(.spm-animating)');
 
     let backdropStyles;
 
