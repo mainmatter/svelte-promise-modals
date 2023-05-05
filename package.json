@@ -33,7 +33,7 @@
     "svelte": "^3.54.0"
   },
   "devDependencies": {
-    "@playwright/experimental-ct-svelte": "1.32.3",
+    "@playwright/experimental-ct-svelte": "1.33.0",
     "@playwright/test": "1.33.0",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/kit": "^1.5.0",
@@ -55,7 +55,7 @@
     "esm-env": "^1.0.0",
     "jest": "^29.4.3",
     "jsdom": "^21.1.0",
-    "playwright": "1.32.3",
+    "playwright": "1.33.0",
     "prettier": "^2.8.0",
     "prettier-plugin-svelte": "^2.8.1",
     "publint": "^0.1.9",
