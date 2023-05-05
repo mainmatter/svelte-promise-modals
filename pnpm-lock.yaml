@@ -13,8 +13,8 @@ devDependencies:
     specifier: 1.32.3
     version: 1.32.3(svelte@3.55.1)
   '@playwright/test':
-    specifier: 1.32.3
-    version: 1.32.3
+    specifier: 1.33.0
+    version: 1.33.0
   '@sveltejs/adapter-auto':
     specifier: ^2.0.0
     version: 2.0.0(@sveltejs/kit@1.8.0)
@@ -1018,6 +1018,17 @@ packages:
     dependencies:
       '@types/node': 18.14.0
       playwright-core: 1.32.3
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /@playwright/test@1.33.0:
+    resolution: {integrity: sha512-YunBa2mE7Hq4CfPkGzQRK916a4tuZoVx/EpLjeWlTVOnD4S2+fdaQZE0LJkbfhN5FTSKNLdcl7MoT5XB37bTkg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.14.0
+      playwright-core: 1.33.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
@@ -4071,6 +4082,12 @@ packages:
 
   /playwright-core@1.32.3:
     resolution: {integrity: sha512-SB+cdrnu74ZIn5Ogh/8278ngEh9NEEV0vR4sJFmK04h2iZpybfbqBY0bX6+BLYWVdV12JLLI+JEFtSnYgR+mWg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
+  /playwright-core@1.33.0:
+    resolution: {integrity: sha512-aizyPE1Cj62vAECdph1iaMILpT0WUDCq3E6rW6I+dleSbBoGbktvJtzS6VHkZ4DKNEOG9qJpiom/ZxO+S15LAw==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
