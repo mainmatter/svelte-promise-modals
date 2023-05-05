@@ -2,7 +2,7 @@ import deepmerge from 'deepmerge';
 import type { ComponentType } from 'svelte';
 import { derived, get, writable } from 'svelte/store';
 
-import { browser } from '../utils/browser';
+import { BROWSER as browser } from 'esm-env';
 import { Modal } from './modal';
 import type { ModalOptions } from './types';
 
