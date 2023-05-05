@@ -1,7 +1,7 @@
 <script lang="ts">
   import { openModal } from '$lib/service';
 
-  import SecondTestModal from './SecondTestModal.svelte';
+  import OverlappingTestModal from './OverlappingTestModal.svelte';
 
   export let data: Record<string, unknown> | undefined;
   export let close: (...args: unknown[]) => unknown;
@@ -10,7 +10,7 @@
 <button type="button">foo</button>
 {JSON.stringify(data)}
 
-<button type="button" data-testid="show-modal-2" on:click={() => openModal(SecondTestModal)}
+<button type="button" data-testid="show-modal-2" on:click={() => openModal(OverlappingTestModal)}
   >Open another modal</button
 >
 
