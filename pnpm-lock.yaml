@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   deepmerge:
     specifier: ^4.3.0
@@ -31,8 +35,8 @@ devDependencies:
     specifier: ^5.16.5
     version: 5.16.5
   '@testing-library/svelte':
-    specifier: ^3.2.2
-    version: 3.2.2(svelte@3.55.1)
+    specifier: ^4.0.0
+    version: 4.0.0(svelte@3.55.1)
   '@testing-library/user-event':
     specifier: ^14.4.3
     version: 14.4.3(@testing-library/dom@9.0.0)
@@ -1392,11 +1396,11 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/svelte@3.2.2(svelte@3.55.1):
-    resolution: {integrity: sha512-IKwZgqbekC3LpoRhSwhd0JswRGxKdAGkf39UiDXTywK61YyLXbCYoR831e/UUC6EeNW4hiHPY+2WuovxOgI5sw==}
+  /@testing-library/svelte@4.0.0(svelte@3.55.1):
+    resolution: {integrity: sha512-LRsrUm0FPn/PSdiyFGpix7i3VwgvF65Uw6eLboTM84SWGvRnBlE0VkawrhGl49Phh2nyZ7mS7M0gtVl3OM1eKQ==}
     engines: {node: '>= 10'}
     peerDependencies:
-      svelte: 3.x
+      svelte: ^3 || ^4
     dependencies:
       '@testing-library/dom': 8.20.0
       svelte: 3.55.1
