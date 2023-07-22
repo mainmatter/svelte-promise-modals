@@ -45,7 +45,7 @@
     "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
-    "@vitest/coverage-c8": "^0.31.0",
+    "@vitest/coverage-c8": "^0.33.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -64,7 +64,7 @@
     "tslib": "^2.4.1",
     "typescript": "^5.0.0",
     "vite": "^4.0.0",
-    "vitest": "^0.31.0",
+    "vitest": "^0.33.0",
     "vitest-svelte-kit": "^0.0.7"
   },
   "svelte": "./dist/index.js",
