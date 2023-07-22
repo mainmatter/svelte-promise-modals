@@ -48,7 +48,7 @@
     "@vitest/coverage-c8": "^0.33.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-svelte3": "^4.0.0",
     "esm-env": "^1.0.0",
