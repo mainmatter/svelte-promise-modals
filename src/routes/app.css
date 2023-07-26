@@ -168,7 +168,7 @@ small {
 
 *:focus {
   outline: 0;
-  box-shadow: 0 0 10px -2px #007EDF;
+  box-shadow: 0 0 10px -2px #007edf;
 }
 
 a {
@@ -180,19 +180,26 @@ a {
   padding: 0.5rem 1.25rem;
   font-weight: 700;
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 1px 2px 0 rgba(0, 76, 134, 0.4), 0 5px 16px -4px rgba(0, 76, 134, 0.4);
+  box-shadow:
+    0 1px 2px 0 rgba(0, 76, 134, 0.4),
+    0 5px 16px -4px rgba(0, 76, 134, 0.4);
   border-radius: 0.5625rem;
 }
 
 [type='button']:focus {
-  box-shadow: 0 0 10px -2px #007EDF, 0 1px 2px 0 rgba(0, 76, 134, 0.4), 0 5px 16px -4px rgba(0, 76, 134, 0.4);
+  box-shadow:
+    0 0 10px -2px #007edf,
+    0 1px 2px 0 rgba(0, 76, 134, 0.4),
+    0 5px 16px -4px rgba(0, 76, 134, 0.4);
   outline: 0;
-  color: #007EDF;
+  color: #007edf;
 }
 
 [type='button']:active {
   transform: translateY(1px);
-  box-shadow: 0 0 2px 0 rgba(0, 76, 134, 0.4), 0 4px 16px -4px rgba(0, 76, 134, 0.4);
+  box-shadow:
+    0 0 2px 0 rgba(0, 76, 134, 0.4),
+    0 4px 16px -4px rgba(0, 76, 134, 0.4);
 }
 
 .box {
@@ -234,13 +241,13 @@ a {
 }
 
 .visually-hidden {
-  position: absolute!important;
-  width: 1px!important;
-  height: 1px!important;
-  padding: 0!important;
-  margin: -1px!important;
-  overflow: hidden!important;
-  clip: rect(0,0,0,0)!important;
-  white-space: nowrap!important;
-  border: 0!important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }

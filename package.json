@@ -13,8 +13,8 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test:unit": "vitest",
-    "lint": "prettier --plugin-search-dir . --check . && eslint .",
-    "format": "prettier --plugin-search-dir . --write ."
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write . &&  eslint . --fix"
   },
   "exports": {
     ".": {
@@ -51,7 +51,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-svelte3": "^4.0.0",
+    "eslint-plugin-svelte": "^2.32.4",
     "esm-env": "^1.0.0",
     "jest": "^29.4.3",
     "jsdom": "^22.0.0",

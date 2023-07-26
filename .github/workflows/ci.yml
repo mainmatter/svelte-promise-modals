@@ -6,9 +6,29 @@ env:
   PNPM_VERSION: 8.3.1
 
 jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Run lint
+        run: pnpm lint
+
   tests_e2e:
     name: Run end-to-end tests
     runs-on: ubuntu-latest
+    needs: [lint]
 
     steps:
       - uses: actions/checkout@v3
@@ -30,6 +50,7 @@ jobs:
   tests_unit:
     name: Run unit tests
     runs-on: ubuntu-latest
+    needs: [lint]
 
     steps:
       - uses: actions/checkout@v3

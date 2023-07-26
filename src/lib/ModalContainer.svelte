@@ -9,6 +9,6 @@
   $: updateOptions(options);
 </script>
 
-{#each $stack as modal, index}
-  <Modal modal={modal} bind:this={modal.componentInstance} />
+{#each $stack as modal, _index}
+  <Modal {modal} bind:this={modal.componentInstance} />
 {/each}

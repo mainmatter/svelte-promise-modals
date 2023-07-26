@@ -8,23 +8,27 @@
   --spm-animation-backdrop-out-delay: 0s;
   --spm-animation-modal-in-delay: 0s;
   --spm-animation-modal-out-delay: 0s;
-  --spm-animation-backdrop-in: var(--spm-animation-backdrop-in-duration) ease var(--spm-animation-backdrop-in-delay) forwards spm-backdrop-in;
-  --spm-animation-backdrop-out: var(--spm-animation-backdrop-out-duration) ease var(--spm-animation-backdrop-out-delay) forwards spm-backdrop-out;
-  --spm-animation-modal-in: var(--spm-animation-modal-in-duration) ease-out var(--spm-animation-modal-in-delay) forwards spm-modal-in;
-  --spm-animation-modal-out: var(--spm-animation-modal-out-duration) ease-out var(--spm-animation-modal-out-delay) forwards spm-modal-out;
-  --spm-backdrop-background: #2d3748CD;
+  --spm-animation-backdrop-in: var(--spm-animation-backdrop-in-duration) ease
+    var(--spm-animation-backdrop-in-delay) forwards spm-backdrop-in;
+  --spm-animation-backdrop-out: var(--spm-animation-backdrop-out-duration) ease
+    var(--spm-animation-backdrop-out-delay) forwards spm-backdrop-out;
+  --spm-animation-modal-in: var(--spm-animation-modal-in-duration) ease-out
+    var(--spm-animation-modal-in-delay) forwards spm-modal-in;
+  --spm-animation-modal-out: var(--spm-animation-modal-out-duration) ease-out
+    var(--spm-animation-modal-out-delay) forwards spm-modal-out;
+  --spm-backdrop-background: #2d3748cd;
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
-  --spm-animation-backdrop-in-duration: 0.001s;
-  --spm-animation-backdrop-out-duration: 0.001s;
-  --spm-animation-modal-in-duration: 0.001s;
-  --spm-animation-modal-out-duration: 0.001s;
-  --spm-animation-backdrop-in-delay: 0.001s;
-  --spm-animation-backdrop-out-delay: 0.001s;
-  --spm-animation-modal-in-delay: 0.001s;
-  --spm-animation-modal-out-delay: 0.001s;
+    --spm-animation-backdrop-in-duration: 0.001s;
+    --spm-animation-backdrop-out-duration: 0.001s;
+    --spm-animation-modal-in-duration: 0.001s;
+    --spm-animation-modal-out-duration: 0.001s;
+    --spm-animation-backdrop-in-delay: 0.001s;
+    --spm-animation-backdrop-out-delay: 0.001s;
+    --spm-animation-modal-in-delay: 0.001s;
+    --spm-animation-modal-out-delay: 0.001s;
   }
 }
 
