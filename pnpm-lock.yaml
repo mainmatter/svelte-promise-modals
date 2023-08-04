@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^3.0.0
     version: 3.0.0(prettier@3.0.0)(svelte@4.0.0)
   publint:
-    specifier: ^0.1.9
-    version: 0.1.9
+    specifier: ^0.2.0
+    version: 0.2.0
   rsvp:
     specifier: ^4.8.5
     version: 4.8.5
@@ -4677,8 +4677,8 @@ packages:
     resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==}
     dev: true
 
-  /publint@0.1.9:
-    resolution: {integrity: sha512-O53y7vbePxuGFmEjgcrafMSlDpOJwOkj8YdexOt7yWlv7SB3rXoT3mHknyMJ3lf2UFH5Bmt6tnIkHcOTR6dEoA==}
+  /publint@0.2.0:
+    resolution: {integrity: sha512-h8lxdjhQjpDw+A4BgY4sE7Z4CU3x5tCGGpERVdKGDQmWMtr1P7kvptJS2P10HhmNnS7Yeny37zfQE5+xRZ6nig==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
