@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import '@sveltejs/kit';
 
-import matchers from '@testing-library/jest-dom/matchers';
+import * as matchers from '@testing-library/jest-dom/matchers';
 import { expect, vi } from 'vitest';
 
 import type * as environment from '$app/environment';
