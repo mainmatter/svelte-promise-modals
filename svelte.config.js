@@ -8,6 +8,7 @@ const config = {
   preprocess: vitePreprocess(),
 
   kit: {
+    appDir: 'app',
     adapter: adapter({
       fallback: 'index.html',
     }),
