@@ -22,6 +22,9 @@ devDependencies:
   '@sveltejs/adapter-auto':
     specifier: ^2.0.0
     version: 2.0.0(@sveltejs/kit@1.8.0)
+  '@sveltejs/adapter-static':
+    specifier: ^2.0.3
+    version: 2.0.3(@sveltejs/kit@1.8.0)
   '@sveltejs/kit':
     specifier: ^1.5.0
     version: 1.8.0(svelte@4.0.0)(vite@4.1.3)
@@ -1329,6 +1332,14 @@ packages:
     dependencies:
       '@sveltejs/kit': 1.8.0(svelte@4.0.0)(vite@4.1.3)
       import-meta-resolve: 2.2.1
+    dev: true
+
+  /@sveltejs/adapter-static@2.0.3(@sveltejs/kit@1.8.0):
+    resolution: {integrity: sha512-VUqTfXsxYGugCpMqQv1U0LIdbR3S5nBkMMDmpjGVJyM6Q2jHVMFtdWJCkeHMySc6mZxJ+0eZK3T7IgmUCDrcUQ==}
+    peerDependencies:
+      '@sveltejs/kit': ^1.5.0
+    dependencies:
+      '@sveltejs/kit': 1.8.0(svelte@4.0.0)(vite@4.1.3)
     dev: true
 
   /@sveltejs/kit@1.8.0(svelte@4.0.0)(vite@4.1.3):
