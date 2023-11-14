@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 
-import FooComponent from './dummy/FooComponent.svelte';
+import FooComponent from './_Dummy.svelte';
 import ModalContainer from './ModalContainer.svelte';
 import { openModal } from './service';
 

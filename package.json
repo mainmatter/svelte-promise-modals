@@ -23,7 +23,9 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/_*.*"
   ],
   "dependencies": {
     "deepmerge": "^4.3.0",
