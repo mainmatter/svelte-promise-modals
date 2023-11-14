@@ -4,29 +4,30 @@
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="content-security-policy" content="">
-		<link rel="preload" as="script" crossorigin="anonymous" href="/app/immutable/entry/start.11c4d1d7.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="/app/immutable/chunks/scheduler.b301a7d8.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="/app/immutable/chunks/singletons.2c238252.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="/app/immutable/chunks/index.683ca5b9.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="/app/immutable/entry/app.ad43080a.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="/app/immutable/chunks/index.d58a673b.mjs">
+    
+		<link rel="modulepreload" href="/app/immutable/entry/start.c6558a72.js">
+		<link rel="modulepreload" href="/app/immutable/chunks/scheduler.3dbe9454.js">
+		<link rel="modulepreload" href="/app/immutable/chunks/singletons.cfb4aa93.js">
+		<link rel="modulepreload" href="/app/immutable/chunks/index.389cf2d8.js">
+		<link rel="modulepreload" href="/app/immutable/entry/app.4446f000.js">
+		<link rel="modulepreload" href="/app/immutable/chunks/index.be1241d6.js">
   </head>
   <body>
     <div>
 			<script>
 				{
-					__sveltekit_1as6jsi = {
-						env: {},
-						assets: "",
-						element: document.currentScript.parentElement
+					__sveltekit_17dxvbr = {
+						base: "",
+						env: {}
 					};
 
+					const element = document.currentScript.parentElement;
+
 					Promise.all([
-						import("/app/immutable/entry/start.11c4d1d7.mjs"),
-						import("/app/immutable/entry/app.ad43080a.mjs")
+						import("/app/immutable/entry/start.c6558a72.js"),
+						import("/app/immutable/entry/app.4446f000.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_1as6jsi.element);
+						kit.start(app, element);
 					});
 				}
 			</script>
