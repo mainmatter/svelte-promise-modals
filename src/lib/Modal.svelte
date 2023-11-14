@@ -6,7 +6,7 @@
   import { get } from 'svelte/store';
 
   import type { Modal } from './modal';
-  import { globalOptions, onModalAnimationEnd, onModalAnimationStart } from './service';
+  import { animating, globalOptions } from './service';
   import type { FocusTrapOptions } from './types';
 
   type AnimationEndHandler = GlobalEventHandlers['onanimationend'];
@@ -24,7 +24,7 @@
   onMount(async () => {
     addFocusTrap();
     addAnimationListeners();
-    onModalAnimationStart();
+    animating.set(true);
   });
 
   onDestroy(() => {
@@ -79,7 +79,7 @@
         return;
       }
 
-      onModalAnimationEnd();
+      animating.set(false);
 
       let isOutAnimation = animationName.slice(-4) === '-out';
       if (isOutAnimation) {
@@ -116,7 +116,7 @@
       return;
     }
 
-    onModalAnimationStart();
+    animating.set(true);
 
     // This triggers the out animation, which in turn will remove the modal after it completes
     isAnimatingOut = true;

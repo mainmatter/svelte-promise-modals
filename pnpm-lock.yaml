@@ -76,9 +76,6 @@ devDependencies:
   eslint-plugin-svelte:
     specifier: ^2.32.4
     version: 2.32.4(eslint@8.34.0)(svelte@4.2.3)
-  esm-env:
-    specifier: ^1.0.0
-    version: 1.0.0
   jest:
     specifier: ^29.4.3
     version: 29.4.3
