@@ -1,5 +1,5 @@
 <script lang="ts">
-  import '$lib/svelte-promise-modals.css';
+  import '$lib/style.css';
   import './app.css';
 
   import { browser } from '$app/environment';
