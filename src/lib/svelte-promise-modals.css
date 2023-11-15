@@ -1,5 +1,4 @@
 :root {
-  /* The named -duration and -delay variables will be lowered to near zero when using the setupPromiseModals test helper  */
   --spm-animation-backdrop-in-duration: 0.3s;
   --spm-animation-backdrop-out-duration: 0.18s;
   --spm-animation-modal-in-duration: 0.3s;
@@ -36,28 +35,11 @@
   overflow: hidden;
 }
 
-.spm-backdrop,
-.spm-modal-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 .spm-backdrop {
   background-color: var(--spm-backdrop-background);
-  opacity: 0;
   animation: var(--spm-animation-backdrop-in);
   animation-delay: var(--spm-animation-backdrop-in-delay);
   animation-duration: var(--spm-animation-backdrop-in-duration);
-}
-
-.spm-modal-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: auto;
 }
 
 .spm-animating .spm-modal-container {
@@ -65,13 +47,9 @@
 }
 
 .spm-modal {
-  margin: auto;
-  transform: translate(0, -30vh) scale(1.1);
-  opacity: 0;
   animation: var(--spm-animation-modal-in);
   animation-delay: var(--spm-animation-modal-in-delay);
   animation-duration: var(--spm-animation-modal-in-duration);
-  -webkit-overflow-scrolling: touch; /* momentum-based scrolling for Safari on iOS */
 }
 
 .spm-backdrop.spm-out {

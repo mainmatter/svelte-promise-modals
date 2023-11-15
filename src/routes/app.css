@@ -7,18 +7,6 @@
   padding: 0.5rem;
 }
 
-.modal {
-  max-width: 600px;
-  border-radius: 6px;
-  background-color: white;
-  box-shadow: 0 4px 28px 0 rgba(0, 0, 0, 0.36);
-  padding: 1.5rem;
-}
-
-.modal2 {
-  max-width: 400px;
-}
-
 /* === Variation 1: Custom animation which animates the modal in from the bottom and back */
 
 /* this className will be added to the modal when the modal should be animated in */
@@ -230,14 +218,6 @@ a {
   justify-content: center;
   min-height: 50vh;
   background: #fafafa;
-}
-
-.modal header {
-  margin: 0 0 1rem;
-}
-
-.modal p {
-  text-align: left;
 }
 
 .visually-hidden {

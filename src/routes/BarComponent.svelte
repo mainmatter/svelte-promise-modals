@@ -21,3 +21,21 @@
     convallis pretium ac tincidunt inceptos cum.
   </p>
 </div>
+
+<style>
+  .modal {
+    max-width: 400px;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 4px 28px 0 rgba(0, 0, 0, 0.36);
+    padding: 1.5rem;
+  }
+
+  header {
+    margin: 0 0 1rem;
+  }
+
+  p {
+    text-align: left;
+  }
+</style>

@@ -1,6 +1,4 @@
 <script lang="ts">
-  import './svelte-promise-modals.css';
-
   import { createFocusTrap, type FocusTrap } from 'focus-trap';
   import { onDestroy, onMount } from 'svelte';
   import { get } from 'svelte/store';
@@ -130,8 +128,11 @@
   };
 </script>
 
+<!-- Note: all `spm-` prefixed class names are deliberate to keep them from being local to the
+component. Don't style them here, always use a separate local class! -->
+
 <div
-  class="spm-backdrop"
+  class="spm-backdrop backdrop"
   class:spm-out={isAnimatingOut}
   tabindex="-1"
   role="presentation"
@@ -139,13 +140,42 @@
   data-testid="backdrop"
 />
 
-<div class="spm-modal-container">
+<div class="spm-modal-container modal-container">
   <div
     data-testid="spm-modal"
-    class="spm-modal"
+    class="spm-modal modal"
     class:spm-out={isAnimatingOut}
     bind:this={modalElement}
   >
     <svelte:component this={modal.component} data={modal.data} {close} />
   </div>
 </div>
+
+<style>
+  .backdrop {
+    opacity: 0;
+  }
+
+  .modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+  }
+
+  .backdrop,
+  .modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .modal {
+    margin: auto;
+    opacity: 0;
+    transform: translate(0, -30vh) scale(1.1);
+    -webkit-overflow-scrolling: touch; /* momentum-based scrolling for Safari on iOS */
+  }
+</style>
