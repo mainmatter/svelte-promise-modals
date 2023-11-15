@@ -3,7 +3,7 @@ on:
   - pull_request
 
 env:
-  PNPM_VERSION: 8.3.1
+  PNPM_VERSION: 8.10.5
 
 jobs:
   lint:
