@@ -1,0 +1,10 @@
+:root {
+  --spm-animation-backdrop-in-duration: 0.001s;
+  --spm-animation-backdrop-out-duration: 0.001s;
+  --spm-animation-modal-in-duration: 0.001s;
+  --spm-animation-modal-out-duration: 0.001s;
+  --spm-animation-backdrop-in-delay: 0.001s;
+  --spm-animation-backdrop-out-delay: 0.001s;
+  --spm-animation-modal-in-delay: 0.001s;
+  --spm-animation-modal-out-delay: 0.001s;
+}
