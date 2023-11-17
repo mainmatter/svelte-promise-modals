@@ -120,7 +120,7 @@ test.describe('Basics', () => {
     await page.getByText('close').click();
 
     await expect(resultCallback.called).toBeTruthy();
-    await expect(resultCallback.lastCall.firstArg).toMatchObject({ foo: 'bar' });
+    await expect(resultCallback.lastCall.firstArg).toBe('bar');
   });
 
   test('opening and closing a modal both adds `.spm-animating` class to <body>', async ({

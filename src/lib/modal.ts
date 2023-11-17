@@ -8,16 +8,16 @@ import type { ModalOptions } from './types';
 export class Modal {
   private deferred: RSVP.Deferred<unknown> = defer();
   component: ComponentType;
-  data: object | Record<string | number | symbol, unknown>;
+  props: object | Record<string | number | symbol, unknown>;
   result?: unknown;
   deferredOutAnimation?: RSVP.Deferred<unknown>;
   componentInstance?: SvelteComponentTyped;
 
   options: ModalOptions;
 
-  constructor(component: ComponentType, data?: object, options?: Partial<ModalOptions>) {
+  constructor(component: ComponentType, props?: object, options?: Partial<ModalOptions>) {
     this.component = component;
-    this.data = data ?? {};
+    this.props = props ?? {};
     this.options = {
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       onAnimationModalOutEnd: (): void => {},

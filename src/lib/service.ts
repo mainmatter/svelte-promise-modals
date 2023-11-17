@@ -25,8 +25,8 @@ export const updateOptions = (userOptions: Partial<ModalOptions>) => {
   }
 };
 
-export const openModal = (component: ComponentType, data?: object, options?: object) => {
-  let modal: Modal = new Modal(component, data, options);
+export const openModal = (component: ComponentType, props?: object, options?: object) => {
+  let modal: Modal = new Modal(component, props, options);
 
   stack.update((modals) => [...modals, modal]);
 
