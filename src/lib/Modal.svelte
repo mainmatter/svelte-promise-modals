@@ -45,7 +45,6 @@
     let options = {
       ...focusTrapOptions,
       fallbackFocus: modalElement,
-      clickOutsideDeactivates: true,
       onDeactivate: (...args: unknown[]) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
