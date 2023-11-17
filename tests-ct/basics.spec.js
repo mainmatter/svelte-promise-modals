@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/experimental-ct-svelte';
+import sinon from 'sinon';
 
 import TestApp from './TestApp.svelte';
 
@@ -47,7 +48,9 @@ test.describe('Basics', () => {
     await mount(TestApp, {
       props: {
         openModalOptions: {
-          clickOutsideDeactivates: false,
+          focusTrapOptions: {
+            clickOutsideDeactivates: false,
+          },
         },
       },
     });
@@ -102,23 +105,22 @@ test.describe('Basics', () => {
     mount,
     page,
   }) => {
-    let result;
+    let resultCallback = sinon.fake();
 
     await mount(TestApp, {
       props: {
         modalData: {
           foo: 'bar',
         },
-        resultCallback(_result) {
-          result = _result;
-        },
+        resultCallback,
       },
     });
 
     await page.getByText('Open Modal').click();
     await page.getByText('close').click();
 
-    expect(result).toMatchObject({ foo: 'bar' });
+    await expect(resultCallback.called).toBeTruthy();
+    await expect(resultCallback.lastCall.firstArg).toMatchObject({ foo: 'bar' });
   });
 
   test('opening and closing a modal both adds `.spm-animating` class to <body>', async ({

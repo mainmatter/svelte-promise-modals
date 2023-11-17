@@ -4,12 +4,12 @@
   import BarComponent from './BarComponent.svelte';
 
   export let data: unknown;
-  export let close: any;
+  export let closeModal: any;
 </script>
 
 <div class="modal modal1" data-test-modal-wrap>
   <header>
-    <button type="button" data-testid="close" on:click={() => close({ foo: 'bar' })}>
+    <button type="button" data-testid="close" on:click={() => closeModal({ foo: 'bar' })}>
       Close
     </button>
   </header>
@@ -59,7 +59,7 @@
   </p>
 
   <p>
-    <button type="button" data-test-submit on:click={() => close(data)}
+    <button type="button" data-test-submit on:click={() => closeModal(data)}
       >Close with return data</button
     >
   </p>
