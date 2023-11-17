@@ -31,6 +31,9 @@
     "!dist/**/*.test.*",
     "!dist/**/_*.*"
   ],
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
     "deepmerge": "^4.3.0",
     "focus-trap": "^7.3.1",
