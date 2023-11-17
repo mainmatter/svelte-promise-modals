@@ -109,7 +109,7 @@ test.describe('Basics', () => {
 
     await mount(TestApp, {
       props: {
-        modalData: {
+        modalProps: {
           foo: 'bar',
         },
         resultCallback,

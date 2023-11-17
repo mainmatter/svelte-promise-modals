@@ -5,7 +5,7 @@
   import TestModal from './TestModal.svelte';
 
   export let modalContainerOptions = {};
-  export let modalData: object | undefined;
+  export let modalProps: object | undefined;
   export let openModalOptions = {};
 
   export let resultCallback = (_: unknown) => {
@@ -13,7 +13,7 @@
   };
 
   async function openFooModal() {
-    let result = await openModal(TestModal, modalData, openModalOptions);
+    let result = await openModal(TestModal, modalProps, openModalOptions);
     resultCallback(result);
   }
 </script>
