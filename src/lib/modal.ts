@@ -4,14 +4,15 @@ import type { ComponentType, SvelteComponentTyped } from 'svelte';
 
 import { removeFromStack } from './service';
 import type { ModalOptions } from './types';
+import { defer, type Deferred } from './utils';
 
 export class Modal {
-  private deferred: RSVP.Deferred<unknown> = defer();
   component: ComponentType;
   props: object | Record<string | number | symbol, unknown>;
+  private deferred = defer();
   result?: unknown;
-  deferredOutAnimation?: RSVP.Deferred<unknown>;
   componentInstance?: SvelteComponentTyped;
+  deferredOutAnimation?: Deferred<void>;
 
   options: ModalOptions;
 
@@ -30,7 +31,7 @@ export class Modal {
       return;
     }
 
-    this.deferredOutAnimation = defer();
+    this.deferredOutAnimation = defer<void>();
     if (this.options.onAnimationModalOutEnd) {
       this.deferredOutAnimation.promise
         .then(() => this.options.onAnimationModalOutEnd?.())
@@ -57,9 +58,11 @@ export class Modal {
   }
 
   then(
-    onFulfilled: (value: RSVP.Arg<unknown>) => unknown,
-    onRejected?: (reason: RSVP.Arg<unknown>) => unknown
   ): Promise<unknown> {
+    onFulfilled: (value: unknown) => unknown,
+    onRejected?: (reason: unknown) => unknown
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return this.deferred.promise.then(onFulfilled, onRejected);
   }
 

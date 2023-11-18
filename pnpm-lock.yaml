@@ -11,9 +11,6 @@ dependencies:
   focus-trap:
     specifier: ^7.3.1
     version: 7.3.1
-  rsvp:
-    specifier: ^4.8.5
-    version: 4.8.5
 
 devDependencies:
   '@playwright/experimental-ct-svelte':
@@ -49,9 +46,6 @@ devDependencies:
   '@testing-library/user-event':
     specifier: ^14.4.3
     version: 14.4.3(@testing-library/dom@9.0.0)
-  '@types/rsvp':
-    specifier: ^4.0.4
-    version: 4.0.4
   '@types/testing-library__jest-dom':
     specifier: ^5.14.5
     version: 5.14.5
@@ -1402,10 +1396,6 @@ packages:
 
   /@types/pug@2.0.6:
     resolution: {integrity: sha512-SnHmG9wN1UVmagJOnyo/qkk0Z7gejYxOYYmaAwr5u2yFYfsupN3sg10kyzN8Hep/2zbHxCnsumxOoRIRMBwKCg==}
-    dev: true
-
-  /@types/rsvp@4.0.4:
-    resolution: {integrity: sha512-J3Ol++HCC7/hwZhanDvggFYU/GtxHxE/e7cGRWxR04BF7Tt3TqJZ84BkzQgDxmX0uu8IagiyfmfoUlBACh2Ilg==}
     dev: true
 
   /@types/semver@7.3.13:
@@ -4613,11 +4603,6 @@ packages:
   /rrweb-cssom@0.6.0:
     resolution: {integrity: sha512-APM0Gt1KoXBz0iIkkdB/kfvGOwC4UuJFeG/c+yV7wSc7q96cG/kJ0HiYCnzivD9SB53cLV1MlHFNfOuPaadYSw==}
     dev: true
-
-  /rsvp@4.8.5:
-    resolution: {integrity: sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==}
-    engines: {node: 6.* || >= 7.*}
-    dev: false
 
   /run-applescript@5.0.0:
     resolution: {integrity: sha512-XcT5rBksx1QdIhlFOCtgZkB99ZEouFZ1E2Kc2LHqNW13U3/74YGdkQRmThTwxy4QIyookibDKYZOPqX//6BlAg==}
