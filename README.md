@@ -45,7 +45,7 @@ render it as a modal.
   import SomeComponent from './SomeComponent.svelte';
 
   async function handleOpenModal() {
-    let modal = openModal(FooModal);
+    let modal = openModal(SomeComponent);
 
     // the instance acts as a promise that resolves with anything passed to the close function
     modal.then((result) => {
