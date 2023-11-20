@@ -1,6 +1,6 @@
 <script lang="ts">
   export let foo: string | undefined;
-  export let closeModal: any;
+  export let closeModal: () => void;
 </script>
 
 <button type="button">foo</button>

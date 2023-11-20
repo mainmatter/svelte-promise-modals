@@ -1,24 +1,22 @@
-import type RSVP from 'rsvp';
-import { defer } from 'rsvp';
-import type { ComponentType, SvelteComponentTyped } from 'svelte';
+import type { ComponentProps, SvelteComponent } from 'svelte';
 
 import { removeFromStack } from './service';
 import type { ModalOptions } from './types';
 import { defer, type Deferred } from './utils';
 
-export class Modal {
-  component: ComponentType;
-  props: object | Record<string | number | symbol, unknown>;
-  private deferred = defer();
-  result?: unknown;
-  componentInstance?: SvelteComponentTyped;
+export class Modal<T extends SvelteComponent, V extends ComponentProps<T>> {
+  private deferred = defer<ReturnType<V['closeModal']>>();
+  component: SvelteComponent;
+  props: Omit<V, 'closeModal'>;
+  result?: ReturnType<V['closeModal']>;
   deferredOutAnimation?: Deferred<void>;
+  componentInstance?: SvelteComponent;
 
   options: ModalOptions;
 
-  constructor(component: ComponentType, props?: object, options?: Partial<ModalOptions>) {
+  constructor(component: T, props?: Omit<V, 'closeModal'>, options?: Partial<ModalOptions>) {
     this.component = component;
-    this.props = props ?? {};
+    this.props = props ?? ({} as Omit<V, 'closeModal'>);
     this.options = {
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       onAnimationModalOutEnd: (): void => {},
@@ -26,7 +24,7 @@ export class Modal {
     };
   }
 
-  resolve(value?: unknown): void {
+  resolve(value: ReturnType<V['closeModal']>): void {
     if (this.deferredOutAnimation) {
       return;
     }
@@ -58,9 +56,10 @@ export class Modal {
   }
 
   then(
-  ): Promise<unknown> {
-    onFulfilled: (value: unknown) => unknown,
+    onFulfilled: (value: ReturnType<V['closeModal']>) => unknown,
     onRejected?: (reason: unknown) => unknown
+  ): Promise<ReturnType<V['closeModal']>> {
+    // TODO: fix type mismatch
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return this.deferred.promise.then(onFulfilled, onRejected);
