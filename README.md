@@ -286,7 +286,7 @@ accessibility of modals for your users. Be very careful._
 
 ## Testing
 
-In order to speed up modal in/out animations duriung testing, either:
+In order to speed up modal in/out animations during testing, either:
 
 - Switch to reduced motion, for ex. in Playwright:  
    `await page.emulateMedia({ reducedMotion: 'reduce' });`
