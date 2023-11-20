@@ -98,7 +98,7 @@ the "close modal" action. It can be called like so:
 
 ### Destroying the component
 
-It's woth noting that since modals are opened as a descendant of `ModalContainer`, and therefore
+It's worth noting that since modals are opened as a descendant of `ModalContainer`, and therefore
 likely placed at the root layout, when the component the modal was opened from gets destroyed, such
 as when navigating away from a route, the modal will continue to live on. To automatically destroy
 the modal in such cases, use the `onDestroy` hook:
@@ -218,8 +218,6 @@ Use the below CSS variables to override the defaults:
 --spm-backdrop-background;
 ```
 
-For th
-
 ## Accessibility
 
 User can press the <kbd>Esc</kbd> key to close the modal.
@@ -288,7 +286,7 @@ accessibility of modals for your users. Be very careful._
 
 ## Testing
 
-In order to speed up modal in/out animations duriung testing, either:
+In order to speed up modal in/out animations during testing, either:
 
 - Switch to reduced motion, for ex. in Playwright:  
    `await page.emulateMedia({ reducedMotion: 'reduce' });`
