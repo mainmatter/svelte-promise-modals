@@ -146,7 +146,7 @@ component. Don't style them here, always use a separate local class! -->
     class:spm-out={isAnimatingOut}
     bind:this={modalElement}
   >
-    <svelte:component this={modal.component} data={modal.data} {close} />
+    <svelte:component this={modal.component} {...modal.props} closeModal={close} />
   </div>
 </div>
 

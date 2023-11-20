@@ -3,15 +3,15 @@
 
   import OverlappingTestModal from './OverlappingTestModal.svelte';
 
-  export let data: Record<string, unknown> | undefined;
-  export let close: (...args: unknown[]) => unknown;
+  export let foo: string | undefined;
+  export let closeModal: (...args: unknown[]) => unknown;
 </script>
 
 <button type="button">foo</button>
-{JSON.stringify(data)}
+<span data-testid="foo-prop">{foo}</span>
 
 <button type="button" data-testid="show-modal-2" on:click={() => openModal(OverlappingTestModal)}
   >Open another modal</button
 >
 
-<button type="button" on:click={() => close(data)} data-testid="close"> close </button>
+<button type="button" on:click={() => closeModal(foo)} data-testid="close"> close </button>

@@ -122,7 +122,6 @@ test.describe('Focus trap', () => {
 
     await mount(TestApp, {
       props: {
-        // openModalOptions: {
         modalContainerOptions: {
           focusTrapOptions: {
             onDeactivate,
@@ -144,7 +143,6 @@ test.describe('Focus trap', () => {
 
     await mount(TestApp, {
       props: {
-        // openModalOptions: {
         modalContainerOptions: {
           focusTrapOptions: {
             onDeactivate,

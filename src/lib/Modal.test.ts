@@ -1,15 +1,19 @@
 import { render, screen, waitFor } from '@testing-library/svelte';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 
-import FooComponent from './_Dummy.svelte';
+import _Dummy from './_Dummy.svelte';
 import ModalContainer from './ModalContainer.svelte';
-import { openModal } from './service';
+import { destroyModals, openModal } from './service';
 
 describe('Modal', () => {
+  afterEach(() => {
+    destroyModals();
+  });
+
   it('closeModal() should resolve only once', async () => {
     render(ModalContainer);
 
-    let modal = openModal(FooComponent);
+    let modal = openModal(_Dummy);
     let spy = vi.spyOn(modal, 'resolve');
 
     await waitFor(() => {
@@ -25,5 +29,15 @@ describe('Modal', () => {
     modal.close();
 
     expect(spy).toHaveBeenCalledOnce();
+  });
+
+  it('passes the props to the component', async () => {
+    render(ModalContainer);
+
+    openModal(_Dummy, { foo: 'bar' });
+
+    await waitFor(() => {
+      expect(screen.queryByTestId('foo-prop')).toHaveTextContent('bar');
+    });
   });
 });

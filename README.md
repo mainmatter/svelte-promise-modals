@@ -45,7 +45,7 @@ render it as a modal.
   import SomeComponent from './SomeComponent.svelte';
 
   async function handleOpenModal() {
-    let modal = openModal(FooModal);
+    let modal = openModal(SomeComponent);
 
     // the instance acts as a promise that resolves with anything passed to the close function
     modal.then((result) => {
@@ -84,16 +84,16 @@ All passed attributes can be accessed from the passed-in `data` object:
 <img src={data.fileUrl} />
 ```
 
-**NOTE:** By default, a `close` function is passed in your rendered component, in order to trigger
+**NOTE:** By default, a `closeModal` function is passed in your rendered component, in order to trigger
 the "close modal" action. It can be called like so:
 
 ```svelte
 <!-- FilePreview.svelte -->
 <script>
-  export let close;
+  export let closeModal;
 </script>
 
-<button type="button" on:click={() => close('some result')}>Close</button>
+<button type="button" on:click={() => closeModal('some result')}>Close</button>
 ```
 
 ### Destroying the component
