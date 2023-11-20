@@ -218,8 +218,6 @@ Use the below CSS variables to override the defaults:
 --spm-backdrop-background;
 ```
 
-For th
-
 ## Accessibility
 
 User can press the <kbd>Esc</kbd> key to close the modal.
