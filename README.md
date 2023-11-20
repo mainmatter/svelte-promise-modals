@@ -307,4 +307,5 @@ npm run dev -- --open
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.md).
+svelte-promise-modals is developed by and © Mainmatter GmbH and contributors. It is released under
+the [MIT License](LICENSE.md).
