@@ -28,6 +28,14 @@
   }
 </script>
 
+<svelte:head>
+  <script
+    defer
+    data-domain="svelte-promise-modals.com"
+    src="https://plausible.io/js/script.js"
+  ></script>
+</svelte:head>
+
 <header>
   <h1>
     <a href="https://github.com/mainmatter/svelte-promise-modals">
