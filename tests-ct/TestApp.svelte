@@ -5,7 +5,7 @@
   import TestModal from './TestModal.svelte';
 
   export let modalContainerOptions = {};
-  export let modalProps: object | undefined;
+  export let modalProps: any;
   export let openModalOptions = {};
 
   export let resultCallback = (_: unknown) => {

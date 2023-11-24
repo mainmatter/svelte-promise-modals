@@ -3,8 +3,8 @@
 
   import OverlappingTestModal from './OverlappingTestModal.svelte';
 
-  export let foo: string | undefined;
-  export let closeModal: (...args: unknown[]) => unknown;
+  export let foo: string | undefined = undefined;
+  export let closeModal: (value?: unknown) => unknown;
 </script>
 
 <button type="button">foo</button>

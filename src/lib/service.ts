@@ -1,12 +1,12 @@
 import deepmerge from 'deepmerge';
-import type { ComponentProps, ComponentType, SvelteComponent } from 'svelte';
+import type { ComponentType, SvelteComponent } from 'svelte';
 import { derived, get, writable } from 'svelte/store';
 
 import { Modal } from './modal';
-import type { ModalOptions } from './types';
+import type { ModalOptions, PropsWithoutCloseModal } from './types';
 
 export const animating = writable<boolean>(false);
-export const stack = writable<Modal<any, any>[]>([]);
+export const stack = writable<Modal<any>[]>([]);
 export const count = derived(stack, ($stack) => $stack.filter((modal) => !modal.isClosing).length);
 export const top = derived(stack, ($stack) => $stack.at(-1));
 export const globalOptions = writable({
@@ -25,15 +25,12 @@ export const updateOptions = (userOptions: Partial<ModalOptions>) => {
   }
 };
 
-export const openModal = <T extends SvelteComponent, V extends ComponentProps<T>>(
+export const openModal = <T extends SvelteComponent>(
   component: ComponentType<T>,
-  props?: Omit<V, 'closeModal'>,
+  props?: PropsWithoutCloseModal<T>,
   options?: ModalOptions
-): Modal<T, V> => {
-  // TODO: fix `component as T` type assertion
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  let modal: Modal<T, V> = new Modal(component as T, props, options);
+): Modal<T> => {
+  let modal: Modal<T> = new Modal(component, props, options);
 
   stack.update((modals) => [...modals, modal]);
 

@@ -1,6 +1,8 @@
 <script lang="ts">
-  export let foo: string | undefined;
-  export let closeModal: () => void;
+  import type { CloseModalFn } from './types';
+
+  export let foo: string | undefined = undefined;
+  export let closeModal: CloseModalFn;
 </script>
 
 <button type="button">foo</button>
