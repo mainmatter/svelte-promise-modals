@@ -1,22 +1,28 @@
-import type { ComponentProps, SvelteComponent } from 'svelte';
+import type { ComponentProps, ComponentType, SvelteComponent } from 'svelte';
 
+import type ModalComponent from './Modal.svelte';
 import { removeFromStack } from './service';
-import type { ModalOptions } from './types';
+import type { CloseModalFnValue, ModalOptions, PropsWithoutCloseModal } from './types';
 import { defer, type Deferred } from './utils';
 
-export class Modal<T extends SvelteComponent, V extends ComponentProps<T>> {
-  private deferred = defer<ReturnType<V['closeModal']>>();
-  component: SvelteComponent;
-  props: Omit<V, 'closeModal'>;
-  result?: ReturnType<V['closeModal']>;
-  deferredOutAnimation?: Deferred<void>;
-  componentInstance?: SvelteComponent;
+export class Modal<T extends SvelteComponent> {
+  private deferred = defer<CloseModalFnValue<T>>();
 
+  component: ComponentType<T>;
+  props: PropsWithoutCloseModal<T>;
   options: ModalOptions;
 
-  constructor(component: T, props?: Omit<V, 'closeModal'>, options?: Partial<ModalOptions>) {
+  result?: CloseModalFnValue<T>;
+  deferredOutAnimation?: Deferred<void>;
+  componentInstance?: ModalComponent;
+
+  constructor(
+    component: ComponentType<T>,
+    props?: PropsWithoutCloseModal<T>,
+    options?: Partial<ModalOptions>
+  ) {
     this.component = component;
-    this.props = props ?? ({} as Omit<V, 'closeModal'>);
+    this.props = props ?? ({} as PropsWithoutCloseModal<T>);
     this.options = {
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       onAnimationModalOutEnd: (): void => {},
@@ -24,7 +30,7 @@ export class Modal<T extends SvelteComponent, V extends ComponentProps<T>> {
     };
   }
 
-  resolve(value: ReturnType<V['closeModal']>): void {
+  resolve: ComponentProps<T>['closeModal'] = (value: CloseModalFnValue<T>): void => {
     if (this.deferredOutAnimation) {
       return;
     }
@@ -40,7 +46,7 @@ export class Modal<T extends SvelteComponent, V extends ComponentProps<T>> {
 
     this.result = value;
     this.deferred.resolve(value);
-  }
+  };
 
   destroy() {
     this.componentInstance?.destroyModal();
@@ -56,13 +62,10 @@ export class Modal<T extends SvelteComponent, V extends ComponentProps<T>> {
   }
 
   then(
-    onFulfilled: (value: ReturnType<V['closeModal']>) => unknown,
-    onRejected?: (reason: unknown) => unknown
-  ): Promise<ReturnType<V['closeModal']>> {
-    // TODO: fix type mismatch
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    return this.deferred.promise.then(onFulfilled, onRejected);
+    onFulfilled: (value: CloseModalFnValue<T>) => void,
+    onRejected?: (reason?: unknown) => void
+  ): Promise<CloseModalFnValue<T>> {
+    return this.deferred.promise.then<any, any>(onFulfilled, onRejected);
   }
 
   get isClosing(): boolean {

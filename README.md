@@ -96,6 +96,51 @@ the "close modal" action. It can be called like so:
 <button type="button" on:click={() => closeModal('some result')}>Close</button>
 ```
 
+### TypeScript
+
+In order to make sure you don't pass something other to `closeModal` than expected, you can specify
+its value param type in your modal component using the `CloseModalFn<T>` type, such as:
+
+```svelte
+<!-- MyModal.svelte -->
+<script lang="ts">
+  import type { CloseModalFn } from './svelte-promise-modals';
+  export let closeModal: CloseModalFn<string>;
+
+  function handleClose() {
+    closeModal('foo');
+  }
+</script>
+```
+
+Then when you open the modal, it'll correctly infer the type of the result:
+
+```svelte
+<script lang="ts">
+  import { openModal } from 'svelte-promise-modals';
+  import MyModal from './MyModal.svelte';
+
+  async function handleOpenModal() {
+    // You can specify `string` here, but it's also automatically inferred
+    let result: string = openModal(MyModal);
+  }
+</script>
+```
+
+If you don't pass a type parameter to `CloseModalFn`, it means you won't be passing anything to
+`closeModal`, such as:
+
+```typescript
+// This means you can do only call `closeModal();` without params
+export let closeModal: CloseModalFn;
+```
+
+And the `result` will be `undefined`:
+
+```typescript
+let result: undefined = await openModal(MyModal);
+```
+
 ### Destroying the component
 
 It's worth noting that since modals are opened as a descendant of `ModalContainer`, and therefore

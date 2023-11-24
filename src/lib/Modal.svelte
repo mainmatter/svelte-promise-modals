@@ -3,14 +3,14 @@
   import { onDestroy, onMount } from 'svelte';
   import { get } from 'svelte/store';
 
-  import type { Modal } from './modal';
+  import type { Modal as ModalClass } from './modal';
   import { animating, globalOptions } from './service';
   import type { FocusTrapOptions } from './types';
 
   type AnimationEndHandler = GlobalEventHandlers['onanimationend'];
   type OnDeactivateCallback = (() => void) | null;
 
-  export let modal: Modal;
+  export let modal: ModalClass<any>;
 
   let isAnimatingOut = false;
   let focusTrap: FocusTrap;

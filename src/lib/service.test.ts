@@ -1,4 +1,4 @@
-import type { ComponentType } from 'svelte';
+import type { ComponentType, SvelteComponent } from 'svelte';
 import { get } from 'svelte/store';
 import { afterEach, describe, expect, it } from 'vitest';
 
@@ -10,7 +10,7 @@ describe('Service', () => {
   });
 
   // We don't need real components here, any object we can uniquely reference to will do
-  let Component = {} as ComponentType;
+  let Component = {} as ComponentType<SvelteComponent<{ closeModal: (value?: unknown) => void }>>;
 
   it('basics', () => {
     expect(get(count), '#count').toBe(0);
