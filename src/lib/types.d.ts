@@ -1,5 +1,5 @@
 import type { Options as FocusTrapOptions } from 'focus-trap';
-import type { ComponentProps } from 'svelte';
+import type { ComponentProps, SvelteComponent } from 'svelte';
 
 export type ModalOptions = {
   onAnimationModalOutEnd?(): void;
