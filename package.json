@@ -42,8 +42,8 @@
     "svelte": "^3.54.0 || ^4.0.0"
   },
   "devDependencies": {
-    "@playwright/experimental-ct-svelte": "1.40.0",
-    "@playwright/test": "1.40.0",
+    "@playwright/experimental-ct-svelte": "1.40.1",
+    "@playwright/test": "1.40.1",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/adapter-static": "^2.0.3",
     "@sveltejs/kit": "^1.20.4",
