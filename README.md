@@ -146,11 +146,16 @@ let result: undefined = await openModal(MyModal);
 It's worth noting that since modals are opened as a descendant of `ModalContainer`, and therefore
 likely placed at the root layout, when the component the modal was opened from gets destroyed, such
 as when navigating away from a route, the modal will continue to live on. To automatically destroy
-the modal in such cases, use the `onDestroy` hook:
+the modal in such cases, create a modal context first, then use its `openModal` function instead of
+the one exported from the package. Modal context's `openModal` function hooks into `onDestroy`,
+ensuring all modals opened from that specific component gets destroyed when the component is
+unrendered.
 
 ```svelte
 <script>
-  import { onDestroy } from 'svelte';
+  import { useModalContext } from 'ember-promise-modals';
+
+  let { openModal } = useModalContext();
 
   async function handleOpenModal() {
     let modal = openModal(FooModal);

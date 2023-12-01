@@ -1,5 +1,5 @@
 import deepmerge from 'deepmerge';
-import type { ComponentType, SvelteComponent } from 'svelte';
+import { type ComponentType, onDestroy, type SvelteComponent } from 'svelte';
 import { derived, get, writable } from 'svelte/store';
 
 import { Modal } from './modal';
@@ -36,6 +36,37 @@ export const openModal = <T extends SvelteComponent>(
 
   return modal;
 };
+
+export function useModalContext() {
+  let modals: Modal<any>[] = [];
+
+  onDestroy(() => {
+    while (modals.length) {
+      modals.pop()?.close();
+    }
+  });
+
+  return {
+    openModal<T extends SvelteComponent>(
+      ...args: Parameters<typeof openModal<T>>
+    ): ReturnType<typeof openModal<T>> {
+      let modal = openModal(...args);
+
+      modals.push(modal);
+
+      modal.then((value) => {
+        let modalIndex = modals.indexOf(modal);
+        if (modalIndex > -1) {
+          modals.splice(modalIndex, 1);
+        }
+
+        return value;
+      });
+
+      return modal;
+    },
+  };
+}
 
 export const removeFromStack = (modal: unknown) => {
   stack.update(($stack) => $stack.filter((m) => m !== modal));
