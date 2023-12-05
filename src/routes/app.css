@@ -220,14 +220,14 @@ footer p {
 }
 
 #crossedfingers,
-#heart {
+#redheart {
   max-width: 400px;
   height: auto;
 }
 
 @media (max-width: 600px) {
   #crossedfingers,
-  #heart {
+  #redheart {
     max-width: 240px;
     height: auto;
   }
