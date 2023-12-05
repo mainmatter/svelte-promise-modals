@@ -7,7 +7,11 @@
   import { destroyModals, openModal } from '$lib/service';
 
   import FooComponent from './FooComponent.svelte';
-  import logo from './svelte-promise-modals-logo.svg';
+  import crossedFingers from './assets/Crossedfingers.svg';
+  import redHeart from './assets/Redheart.svg';
+  import yellowHeart from './assets/Yellowheart.svg';
+  import heartFace from './assets/Heartface.svg';
+  import mainmatter from './assets/Mainmatter.svg';
 
   type PlaywrightWindow = Window & {
     modalOptions?: object;
@@ -36,50 +40,102 @@
   ></script>
 </svelte:head>
 
+
 <header>
-  <h1>
-    <a href="https://github.com/mainmatter/svelte-promise-modals">
+  <a href="https://github.com/mainmatter/svelte-promise-modals">
+    <div>
       <img
-        src={logo}
-        alt="svelte-promise-modals logo"
-        role="presentation"
-        width="600"
-        height="400"
+        src={crossedFingers}
+        alt="An emoji showing crossed fingers"
+        role=""
+        id ="crossedfingers"
       />
       <span class="visually-hidden">svelte-promise-modals</span>
+    </div>
+    <h1><span class="svelte">Svelte</span><span class="translateNeg">Promise</span><span class="translatePos">Modals</span></h1>
     </a>
-  </h1>
-</header>
+  </header>
 
 <main>
-  <div class="box box-blue">
-    <p>
-      <button type="button" on:click={() => openFooModal()} data-testid="open-foo">
+  <div class="preview">
+    <h2>Example for <strong>the modal</strong></h2>
+    <button type="button" on:click={() => openFooModal()} data-testid="open-foo">
         A simple modal with a button to close it
-      </button>
-    </p>
+    </button>
+    <p>Code for the demonstrations shown here can be found in the dummy application of the addon.</p>
   </div>
 
-  <p>
-    See the <a
-      href="https://github.com/mainmatter/svelte-promise-modals#readme"
-      target="_blank"
-      rel="noopener noreferrer">README on GitHub</a
-    > for setup &amp; further instructions.
-  </p>
+  <div class="preview">
+    <h2>Example for <strong>custom animations</strong></h2>
+    <button type="button" on:click={() => openFooModal()} data-testid="open-foo">
+      From and to the bottom of the window
+    </button>
+    <button type="button" on:click={() => openFooModal()} data-testid="open-foo">
+      From and to the bottom of the window
+    </button>
+  </div>
 
-  <div class="box box-placeholder">
+  <div class="note">
     <p>
-      <small>
-        Left blank to see <br />how scrolling is handled.
-      </small>
+      See the <a
+        href="https://github.com/mainmatter/svelte-promise-modals#readme"
+        target="_blank"
+        rel="noopener noreferrer">README</a> on GitHub for setup &amp; further instructions.
     </p>
   </div>
 
-  <p>
-    svelte-promise-modals is <br />made &amp; sponsored with ❤️ by
-    <a href="https://mainmatter.com" target="_blank" rel="noopener noreferrer">Mainmatter</a>
-  </p>
+  <div>
+    <img
+      src={redHeart}
+      alt="A red heart"
+      role=""
+      id="redheart"
+    />
+  </div>
+
+  <div class="note">
+    <p>
+      svelte-promise-modals is <br />made &amp; sponsored with ❤️ by
+      <a href="https://mainmatter.com" target="_blank" rel="noopener noreferrer">
+        <div>
+        <img
+          src={mainmatter}
+          alt="Mainmatter"
+          role=""
+          id="mainmatter"
+        />
+      </div></a>
+    </p>
+  </div>
+
+  <div>
+    <img
+          src={yellowHeart}
+          alt="yellow heart"
+          role=""
+          id="yellowheart"
+          class="floating"
+        />
+  </div>
+
+  <div>
+    <img
+          src={heartFace}
+          alt="smiley face surrounded by hearts"
+          role=""
+          id="heartface"
+          class="floating"
+        />
+  </div>
+
 </main>
+<footer>
+  
+  <p>
+    Ember Promise Modals is not an official part of Ember.js
+    and is not maintained by the Ember.js Core Team.
+  </p>
+  
+</footer>
 
 <ModalContainer options={modalOptions} />
