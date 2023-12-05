@@ -3,30 +3,33 @@
 @font-face {
   font-family: 'LuckiestGuy';
   src: url('./assets/fonts/LuckiestGuy.eot'); /* IE9 Compat Modes */
-  src: url('./assets/fonts/LuckiestGuy.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./assets/fonts/LuckiestGuy.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./assets/fonts/LuckiestGuy.woff') format('woff'), /* Pretty Modern Browsers */
-       url('./assets/fonts/LuckiestGuy.ttf')  format('truetype'), /* Safari, Android, iOS */
+  src:
+    url('./assets/fonts/LuckiestGuy.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('./assets/fonts/LuckiestGuy.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('./assets/fonts/LuckiestGuy.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('./assets/fonts/LuckiestGuy.ttf') format('truetype'); /* Safari, Android, iOS */
 }
 
 @font-face {
   font-family: 'CourierPrime';
   font-weight: 400;
   src: url('./assets/fonts/CourierPrime-Regular.eot'); /* IE9 Compat Modes */
-  src: url('./assets/fonts/CourierPrime-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./assets/fonts/CourierPrime-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./assets/fonts/CourierPrime-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-       url('./assets/fonts/CourierPrime-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+  src:
+    url('./assets/fonts/CourierPrime-Regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('./assets/fonts/CourierPrime-Regular.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('./assets/fonts/CourierPrime-Regular.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('./assets/fonts/CourierPrime-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
 }
 
 @font-face {
   font-family: 'CourierPrime';
   font-weight: 800;
   src: url('./assets/fonts/CourierPrime-Bold.eot'); /* IE9 Compat Modes */
-  src: url('./assets/fonts/CourierPrime-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./assets/fonts/CourierPrime-Bold.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./assets/fonts/CourierPrime-Bold.woff') format('woff'), /* Pretty Modern Browsers */
-       url('./assets/fonts/CourierPrime-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+  src:
+    url('./assets/fonts/CourierPrime-Bold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('./assets/fonts/CourierPrime-Bold.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('./assets/fonts/CourierPrime-Bold.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('./assets/fonts/CourierPrime-Bold.ttf') format('truetype'); /* Safari, Android, iOS */
 }
 
 /* Landing Page Styling */
@@ -37,25 +40,27 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  --primary-color: #FFCD4B;
-  --secondary-color: #FB2752;
-  --bg-color: #FF7676;
-  --text-color: #0802A3;
+  --primary-color: #ffcd4b;
+  --secondary-color: #fb2752;
+  --bg-color: #ff7676;
+  --text-color: #0802a3;
   --font-default: 'CourierPrime';
-  --font-decorative: 'LuckiestGuy'
+  --font-decorative: 'LuckiestGuy';
 }
 
 body {
   background-color: var(--bg-color);
 }
 
-header, main {
+header,
+main {
   max-width: 800px;
   margin: 0 auto;
 }
 
 @media (max-width: 840px) {
-  header, main {
+  header,
+  main {
     max-width: 100%;
     padding: 0 5%;
   }
@@ -101,7 +106,7 @@ h1 .translateNeg {
   h1 .translatePos {
     transform: translateX(0.5rem);
   }
-  
+
   h1 .translateNeg {
     transform: translateX(-0.5rem);
   }
@@ -180,7 +185,8 @@ img {
   color: var(--primary-color);
 }
 
-.preview, .note {
+.preview,
+.note {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -208,13 +214,15 @@ footer p {
   font-size: 1rem;
 }
 
-#crossedfingers, #heart {
+#crossedfingers,
+#heart {
   max-width: 400px;
   height: auto;
 }
 
 @media (max-width: 600px) {
-  #crossedfingers, #heart {
+  #crossedfingers,
+  #heart {
     max-width: 240px;
     height: auto;
   }
@@ -241,7 +249,7 @@ footer p {
 @media (max-width: 840px) {
   #heartface {
     display: none;
-  } 
+  }
 }
 
 #yellowheart {
@@ -252,7 +260,7 @@ footer p {
 @media (max-width: 960px) {
   #yellowheart {
     display: none;
-  } 
+  }
 }
 
 .visually-hidden {
@@ -266,8 +274,6 @@ footer p {
   white-space: nowrap !important;
   border: 0 !important;
 }
-
-
 
 /* === Basic styling for the demo modal */
 
@@ -355,4 +361,3 @@ footer p {
     transform: translate(0, calc(-50vh - 50%));
   }
 }
-
