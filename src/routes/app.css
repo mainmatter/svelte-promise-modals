@@ -145,9 +145,14 @@ a {
   font-weight: 800;
 }
 
+a:hover {
+  color: var(--secondary-color);
+}
+
 a:has(h1) {
   text-decoration: none;
 }
+
 
 img {
   display: block;
@@ -246,7 +251,7 @@ footer p {
   left: 3%;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 860px) {
   #heartface {
     display: none;
   }
@@ -257,7 +262,7 @@ footer p {
   right: 4%;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 980px) {
   #yellowheart {
     display: none;
   }
