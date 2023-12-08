@@ -4,6 +4,7 @@ import type { ComponentProps, SvelteComponent } from 'svelte';
 export type ModalOptions = {
   onAnimationModalOutEnd?(): void;
   focusTrapOptions?: FocusTrapOptions;
+  className?: string;
 };
 
 export type FocusTrapOptions = FocusTrapOptions;

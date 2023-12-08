@@ -141,4 +141,24 @@ test.describe('Basics', () => {
     await page.waitForSelector('body.spm-animating');
     await page.waitForSelector('body:not(.spm-animating)');
   });
+
+  test('passing `className` adds the passed class to the `.spm-modal` element', async ({
+    mount,
+    page,
+  }) => {
+    await mount(TestApp, {
+      props: {
+        openModalOptions: {
+          className: 'foo',
+        },
+      },
+    });
+
+    await expect(page.getByTestId('spm-modal.foo')).toHaveCount(0);
+
+    await page.getByText('Open Modal').click();
+
+    await page.waitForSelector('.spm-modal.foo');
+    await expect(page.getByTestId('spm-modal')).toBeVisible();
+  });
 });

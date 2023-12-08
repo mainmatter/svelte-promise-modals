@@ -18,6 +18,7 @@
   let animationEnd: AnimationEndHandler | null = null;
 
   let focusTrapOptions: FocusTrapOptions;
+  let optionsClassName = modal.options.className ?? '';
 
   onMount(async () => {
     addFocusTrap();
@@ -142,7 +143,7 @@ component. Don't style them here, always use a separate local class! -->
 <div class="spm-modal-container modal-container">
   <div
     data-testid="spm-modal"
-    class="spm-modal modal"
+    class="spm-modal modal {optionsClassName}"
     class:spm-out={isAnimatingOut}
     bind:this={modalElement}
   >
