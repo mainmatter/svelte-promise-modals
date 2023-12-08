@@ -2,29 +2,16 @@
   import '$lib/style.css';
   import './app.css';
 
-  import { browser } from '$app/environment';
   import ModalContainer from '$lib/ModalContainer.svelte';
-  import { destroyModals, openModal } from '$lib/service';
+  import { openModal } from '$lib/service';
+  import type { ModalOptions } from '$lib/types';
 
   import FooComponent from './FooComponent.svelte';
   import logo from './svelte-promise-modals-logo.svg';
 
-  type PlaywrightWindow = Window & {
-    modalOptions?: object;
-    modalResult?: unknown;
-    modals?: unknown;
-    destroyModals?: unknown;
-  };
-
-  if (browser) {
-    (window as PlaywrightWindow).destroyModals = destroyModals;
-  }
-
-  let modalOptions = (browser && (window as PlaywrightWindow).modalOptions) || {};
-
-  async function openFooModal() {
-    let result = await openModal(FooComponent);
-    (window as PlaywrightWindow).modalResult = result;
+  async function openFooModal(options?: ModalOptions) {
+    let result = await openModal(FooComponent, null, options);
+    console.log(`Modal result: ${JSON.stringify(result)}`);
   }
 </script>
 
@@ -82,4 +69,4 @@
   </p>
 </main>
 
-<ModalContainer options={modalOptions} />
+<ModalContainer />
