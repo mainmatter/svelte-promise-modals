@@ -27,10 +27,10 @@ export const updateOptions = (userOptions: Partial<ModalOptions>) => {
 
 export const openModal = <T extends SvelteComponent>(
   component: ComponentType<T>,
-  props?: PropsWithoutCloseModal<T>,
+  props?: PropsWithoutCloseModal<T> | null, // `null` is a convenience for when you don't want to pass any props but do want to pass options
   options?: ModalOptions
 ): Modal<T> => {
-  let modal: Modal<T> = new Modal(component, props, options);
+  let modal: Modal<T> = new Modal(component, props ?? undefined, options);
 
   stack.update((modals) => [...modals, modal]);
 
