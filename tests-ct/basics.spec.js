@@ -15,7 +15,7 @@ test.describe('Basics', () => {
     await expect(page.getByTestId('backdrop')).toBeHidden();
     await expect(page.getByTestId('spm-modal')).toBeHidden();
 
-    await page.getByText('Open Modal').click();
+    await page.getByTestId('open-modal-button').click();
 
     await expect(page.getByTestId('backdrop')).toBeVisible();
     await expect(page.getByTestId('spm-modal')).toBeVisible();
