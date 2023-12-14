@@ -65,7 +65,7 @@ render it as a modal.
 
 ### Passing data to the rendered component
 
-You can pass custom data into your rendered template like so:
+Passing data to the component rendered as a modal is done via props like so:
 
 ```js
 openModal(FilePreview, {
@@ -73,15 +73,15 @@ openModal(FilePreview, {
 });
 ```
 
-All passed attributes can be accessed from the passed-in `data` object:
+Each key of the object is just a regular prop:
 
 ```svelte
 <!-- FilePreview.svelte -->
 <script>
-  export let data;
+  export let fileUrl;
 </script>
 
-<img src={data.fileUrl} />
+<img src={fileUrl} />
 ```
 
 **NOTE:** By default, a `closeModal` function is passed in your rendered component, in order to trigger
@@ -131,7 +131,7 @@ If you don't pass a type parameter to `CloseModalFn`, it means you won't be pass
 `closeModal`, such as:
 
 ```typescript
-// This means you can do only call `closeModal();` without params
+// This means you can only call `closeModal();` without params
 export let closeModal: CloseModalFn;
 ```
 
@@ -140,6 +140,9 @@ And the `result` will be `undefined`:
 ```typescript
 let result: undefined = await openModal(MyModal);
 ```
+
+Last, but not least, you can omit `closeModal` entirely, but then you'll have to close the modal
+from when you opened it.
 
 ### Destroying the component
 
@@ -158,13 +161,8 @@ unrendered.
   let { openModal } = useModalContext();
 
   async function handleOpenModal() {
-    let modal = openModal(FooModal);
-
-    onDestroy(() => {
-      modal.close();
-    });
-
-    let result = await modal;
+    let result = await openModal(FooModal);
+    // The modal will get destroyed if the component is destroyed
   }
 </script>
 ```
