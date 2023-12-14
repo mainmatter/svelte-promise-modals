@@ -182,7 +182,7 @@ By default, the animations are dropped when `prefers-reduced-motion` is detected
 ### Custom animations
 
 To override the animation for a specific modal, an `options` object containing
-a custom `className` can be handed to the `.open()` method.
+a custom `className` can be handed to the `openModal()` method.
 
 ```js
 openModal(
@@ -193,11 +193,6 @@ openModal(
   {
     // custom class, see below for example
     className: 'custom-modal',
-    // optional: name the animation triggered by the custom CSS class
-    //           animations ending in "-out" are detected by default!
-    //           You most likely do not have to do this unless you absolutely
-    //           can't have an animation ending in '-out'
-    animationKeyframesOutName: 'custom-animation-name-out',
     // optional: a hook that is called when the closing animation of
     //           the modal (so not the backdrop) has finished.
     onAnimationModalOutEnd: () => {},
