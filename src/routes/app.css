@@ -160,6 +160,10 @@ img {
   margin: auto;
 }
 
+img[role="presentation"] {
+  pointer-events: none;
+}
+
 [type='button'] {
   font-family: var(--font-default);
   background-color: var(--primary-color);

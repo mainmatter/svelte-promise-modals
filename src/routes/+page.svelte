@@ -33,7 +33,7 @@
       <img
         src={crossedFingers}
         alt="An emoji showing crossed fingers"
-        role=""
+        role="presentation"
         id="crossedfingers"
       />
       <span class="visually-hidden">svelte-promise-modals</span>
@@ -78,7 +78,7 @@
   </div>
 
   <div>
-    <img src={redHeart} alt="A red heart" role="" id="redheart" />
+    <img src={redHeart} alt="A red heart" role="presentation" id="redheart" />
   </div>
 
   <div class="note">
@@ -86,21 +86,27 @@
       svelte-promise-modals is <br />made &amp; sponsored with ❤️ by
       <a href="https://mainmatter.com" target="_blank" rel="noopener noreferrer">
         <div>
-          <img src={mainmatter} alt="Mainmatter" role="" id="mainmatter" />
+          <img src={mainmatter} alt="Mainmatter" role="presentation" id="mainmatter" />
         </div></a
       >
     </p>
   </div>
 
   <div>
-    <img src={yellowHeart} alt="yellow heart" role="" id="yellowheart" class="floating" />
+    <img
+      src={yellowHeart}
+      alt="yellow heart"
+      role="presentation"
+      id="yellowheart"
+      class="floating"
+    />
   </div>
 
   <div>
     <img
       src={heartFace}
       alt="smiley face surrounded by hearts"
-      role=""
+      role="presentation"
       id="heartface"
       class="floating"
     />
