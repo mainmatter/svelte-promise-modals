@@ -20,6 +20,7 @@
 </script>
 
 <svelte:head>
+  <title>Svelte Promise Modals 🤞</title>
   <script
     defer
     data-domain="svelte-promise-modals.com"
