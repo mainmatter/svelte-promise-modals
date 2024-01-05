@@ -2,6 +2,8 @@
   import '$lib/style.css';
   import './app.css';
 
+  import dedent from 'dedent';
+
   import ModalContainer from '$lib/ModalContainer.svelte';
   import { openModal } from '$lib/service';
   import type { ModalOptions } from '$lib/types';
@@ -12,6 +14,7 @@
   import yellowHeart from './assets/Yellowheart.svg';
   import heartFace from './assets/Heartface.svg';
   import mainmatter from './assets/Mainmatter.svg';
+  import SyntaxHighlight from './SyntaxHighlight.svelte';
 
   async function openFooModal(options?: ModalOptions) {
     let result = await openModal(FooComponent, null, options);
@@ -51,10 +54,24 @@
     <button type="button" on:click={() => openFooModal()} data-testid="open-foo">
       A simple modal with a button to close it
     </button>
-    <p>
-      Code for the demonstrations shown here can be found in the dummy application of the addon.
-    </p>
   </div>
+
+  <SyntaxHighlight
+    code={dedent`
+      <script>
+        import { openModal } from 'svelte-promise-modals';
+
+        async function openFooModal() {
+          let result = await openModal(FooComponent);
+          console.log(result); // Whatever the modal returned when it was closed
+        }
+      </script>
+
+      <button type="button" on:click={() => openFooModal()}>
+        A simple modal with a button to close it
+      </button>
+  `}
+  />
 
   <div class="preview">
     <h2>Example for <strong>custom animations</strong></h2>
@@ -67,6 +84,13 @@
   </div>
 
   <div class="note">
+    <p>
+      Code for the demonstrations shown here can be found in the <a
+        href="https://github.com/mainmatter/svelte-promise-modals/tree/master/src/routes"
+        >demo application</a
+      > of the addon.
+    </p>
+
     <p>
       See the <a
         href="https://github.com/mainmatter/svelte-promise-modals#readme"
