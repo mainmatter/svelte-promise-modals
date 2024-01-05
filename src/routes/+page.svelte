@@ -29,22 +29,20 @@
 </svelte:head>
 
 <header>
-  <a href="https://github.com/mainmatter/svelte-promise-modals">
-    <div>
-      <img
-        src={crossedFingers}
-        alt="An emoji showing crossed fingers"
-        role="presentation"
-        id="crossedfingers"
-      />
-      <span class="visually-hidden">svelte-promise-modals</span>
-    </div>
-    <h1>
-      <span class="svelte">Svelte</span><span class="translateNeg">Promise</span><span
-        class="translatePos">Modals</span
-      >
-    </h1>
-  </a>
+  <div>
+    <img
+      src={crossedFingers}
+      alt="An emoji showing crossed fingers"
+      role="presentation"
+      id="crossedfingers"
+    />
+    <span class="visually-hidden">svelte-promise-modals</span>
+  </div>
+  <h1>
+    <span class="svelte">Svelte</span><span class="translateNeg">Promise</span><span
+      class="translatePos">Modals</span
+    >
+  </h1>
 </header>
 
 <main>
