@@ -32,6 +32,15 @@
     /* Pretty Modern Browsers */ url('./assets/fonts/CourierPrime-Bold.ttf') format('truetype'); /* Safari, Android, iOS */
 }
 
+:root {
+  --primary-color: #ffcd4b;
+  --secondary-color: #fb2752;
+  --bg-color: #ff7676;
+  --text-color: #0802a3;
+  --font-default: 'CourierPrime';
+  --font-decorative: 'LuckiestGuy';
+}
+
 /* Landing Page Styling */
 
 html,
@@ -40,12 +49,6 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  --primary-color: #ffcd4b;
-  --secondary-color: #fb2752;
-  --bg-color: #ff7676;
-  --text-color: #0802a3;
-  --font-default: 'CourierPrime';
-  --font-decorative: 'LuckiestGuy';
 }
 
 body {
