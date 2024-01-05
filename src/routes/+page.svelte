@@ -49,6 +49,10 @@
 </header>
 
 <main>
+  <div class="note">
+    <p>Modals in Svelte made easy. Promised. 🤞</p>
+  </div>
+
   <div class="preview">
     <h2>Example for <strong>the modal</strong></h2>
     <button type="button" on:click={() => openFooModal()} data-testid="open-foo">
