@@ -111,11 +111,5 @@
     />
   </div>
 </main>
-<footer>
-  <p>
-    Ember Promise Modals is not an official part of Ember.js and is not maintained by the Ember.js
-    Core Team.
-  </p>
-</footer>
 
 <ModalContainer />
