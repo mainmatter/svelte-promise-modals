@@ -65,7 +65,7 @@ render it as a modal.
 
 ### Passing data to the rendered component
 
-You can pass custom data into your rendered template like so:
+Passing data to the component rendered as a modal is done via props like so:
 
 ```js
 openModal(FilePreview, {
@@ -73,15 +73,15 @@ openModal(FilePreview, {
 });
 ```
 
-All passed attributes can be accessed from the passed-in `data` object:
+Each key of the object is just a regular prop:
 
 ```svelte
 <!-- FilePreview.svelte -->
 <script>
-  export let data;
+  export let fileUrl;
 </script>
 
-<img src={data.fileUrl} />
+<img src={fileUrl} />
 ```
 
 **NOTE:** By default, a `closeModal` function is passed in your rendered component, in order to trigger
@@ -131,7 +131,7 @@ If you don't pass a type parameter to `CloseModalFn`, it means you won't be pass
 `closeModal`, such as:
 
 ```typescript
-// This means you can do only call `closeModal();` without params
+// This means you can only call `closeModal();` without params
 export let closeModal: CloseModalFn;
 ```
 
@@ -141,25 +141,28 @@ And the `result` will be `undefined`:
 let result: undefined = await openModal(MyModal);
 ```
 
+Last, but not least, you can omit `closeModal` entirely, but then you'll have to close the modal
+from when you opened it.
+
 ### Destroying the component
 
 It's worth noting that since modals are opened as a descendant of `ModalContainer`, and therefore
 likely placed at the root layout, when the component the modal was opened from gets destroyed, such
 as when navigating away from a route, the modal will continue to live on. To automatically destroy
-the modal in such cases, use the `onDestroy` hook:
+the modal in such cases, create a modal context first, then use its `openModal` function instead of
+the one exported from the package. Modal context's `openModal` function hooks into `onDestroy`,
+ensuring all modals opened from that specific component gets destroyed when the component is
+unrendered.
 
 ```svelte
 <script>
-  import { onDestroy } from 'svelte';
+  import { useModalContext } from 'svelte-promise-modals';
+
+  let { openModal } = useModalContext();
 
   async function handleOpenModal() {
-    let modal = openModal(FooModal);
-
-    onDestroy(() => {
-      modal.close();
-    });
-
-    let result = await modal;
+    let result = await openModal(FooModal);
+    // The modal will get destroyed if the component is destroyed
   }
 </script>
 ```
@@ -177,7 +180,7 @@ By default, the animations are dropped when `prefers-reduced-motion` is detected
 ### Custom animations
 
 To override the animation for a specific modal, an `options` object containing
-a custom `className` can be handed to the `.open()` method.
+a custom `className` can be handed to the `openModal()` method.
 
 ```js
 openModal(
@@ -188,11 +191,6 @@ openModal(
   {
     // custom class, see below for example
     className: 'custom-modal',
-    // optional: name the animation triggered by the custom CSS class
-    //           animations ending in "-out" are detected by default!
-    //           You most likely do not have to do this unless you absolutely
-    //           can't have an animation ending in '-out'
-    animationKeyframesOutName: 'custom-animation-name-out',
     // optional: a hook that is called when the closing animation of
     //           the modal (so not the backdrop) has finished.
     onAnimationModalOutEnd: () => {},

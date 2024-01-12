@@ -32,6 +32,15 @@
     /* Pretty Modern Browsers */ url('./assets/fonts/CourierPrime-Bold.ttf') format('truetype'); /* Safari, Android, iOS */
 }
 
+:root {
+  --primary-color: #ffcd4b;
+  --secondary-color: #fb2752;
+  --bg-color: #ff7676;
+  --text-color: #0802a3;
+  --font-default: 'CourierPrime';
+  --font-decorative: 'LuckiestGuy';
+}
+
 /* Landing Page Styling */
 
 html,
@@ -40,12 +49,6 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  --primary-color: #ffcd4b;
-  --secondary-color: #fb2752;
-  --bg-color: #ff7676;
-  --text-color: #0802a3;
-  --font-default: 'CourierPrime';
-  --font-decorative: 'LuckiestGuy';
 }
 
 body {
@@ -160,6 +163,10 @@ img {
   margin: auto;
 }
 
+img[role="presentation"] {
+  pointer-events: none;
+}
+
 [type='button'] {
   font-family: var(--font-default);
   background-color: var(--primary-color);
@@ -195,6 +202,10 @@ img {
   flex-direction: column;
   align-items: center;
   margin-top: 6rem;
+}
+
+.note p {
+  margin-bottom: 2rem;
 }
 
 footer {
@@ -298,7 +309,7 @@ footer p {
 }
 
 /* this className will be added to the modal when the modal should be animated out */
-.from-bottom.epm-out {
+.from-bottom.spm-out {
   opacity: 0;
   transform: translate(0, calc(50vh + 50%));
   animation: from-bottom-out var(--epm-animation-modal-out-duration) ease-in;
@@ -334,14 +345,14 @@ footer p {
 .from-top {
   opacity: 1;
   transform: translate(0, 0);
-  animation: from-top-in var(--epm-animation-modal-in-duration) ease-out;
+  animation: from-top-in var(--spm-animation-modal-in-duration) ease-out;
 }
 
 /* this className will be added to the modal when the modal should be animated out */
-.from-top.epm-out {
+.from-top.spm-out {
   opacity: 0;
   transform: translate(0, calc(-50vh - 50%));
-  animation: from-top-out var(--epm-animation-modal-out-duration) ease-in;
+  animation: from-top-out var(--spm-animation-modal-out-duration) ease-in;
 }
 
 @keyframes from-top-in {
