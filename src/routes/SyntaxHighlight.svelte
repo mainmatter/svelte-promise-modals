@@ -3,7 +3,7 @@
   // eslint-disable-next-line simple-import-sort/imports
   import Prism from 'prismjs';
   import 'prism-svelte';
-  import './prism-synthwave84.css';
+  import './prism-promisemodals.css';
 
   export let code = '';
 

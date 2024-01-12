@@ -176,10 +176,14 @@ img[role="presentation"] {
   outline: 0;
   border: none;
   padding: 1.25rem 3rem;
+  margin: 1.5rem auto;
   border-radius: 2.5rem;
   text-align: center;
-  margin: 1.5rem auto;
   cursor: pointer;
+}
+
+.mt-0 {
+  margin: 0 auto 1.5rem;
 }
 
 [type='button']:hover {

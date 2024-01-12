@@ -1,0 +1,108 @@
+/*
+ * Synthwave '84 Theme originally by Robb Owen [@Robb0wen] for Visual Studio Code
+ * Demo: https://marc.dev/demo/prism-synthwave84
+ *
+ * Ported for PrismJS by Marc Backes [@themarcba]
+ * Adapted to use for Svelte Promise Modals
+ */
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: #fb2752;
+  background: none;
+  font-family: 'CourierPrime', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  padding: 2em;
+  margin: 2em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background-color: #03014D;
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  padding: 0.1em;
+  border-radius: 0.5em;
+  white-space: normal;
+}
+
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.token.punctuation,
+.token.symbol,
+.token.operator,
+.token.boolean,
+.token.class-name,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin  {
+  color: #ffcd4b;
+}
+
+.token.tag,
+.token.namespace,
+.token.number,
+.token.unit,
+.token.hexcode,
+.token.deleted,
+.token.string,
+.token.char,
+.token.comment,
+.token.block-comment {
+  color: #ff7676;
+}
+
+.token.attr-name,
+.token.attr-value,
+.token.property,
+.token.selector,
+.token.function-name,
+.token.constant,
+.token.entity,
+.token.url,
+.token.inserted,
+.token.regex,
+.token.variable,
+.token.function, 
+.token.selector .token.id,
+.token.selector .token.class {
+  color: #fb2752;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
