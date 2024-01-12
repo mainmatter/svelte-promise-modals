@@ -163,7 +163,7 @@ img {
   margin: auto;
 }
 
-img[role="presentation"] {
+img[role='presentation'] {
   pointer-events: none;
 }
 
