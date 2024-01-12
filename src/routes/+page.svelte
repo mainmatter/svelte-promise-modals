@@ -60,22 +60,24 @@
     </button>
   </div>
 
+  <!-- eslint-disable -->
   <SyntaxHighlight
     code={dedent`
-      <script>
-        import { openModal } from 'svelte-promise-modals';
+    <script>
+      import { openModal } from 'svelte-promise-modals';
 
-        async function openFooModal() {
-          let result = await openModal(FooComponent);
-          console.log(result); // Whatever the modal returned when it was closed
-        }
-      </script>
+      async function openFooModal() {
+      let result = await openModal(FooComponent);
+      console.log(result); // Whatever the modal returned when it was closed
+    }
+    </script>
 
-      <button type="button" on:click={() => openFooModal()}>
-        A simple modal with a button to close it
-      </button>
-  `}
+    <button type="button" on:click={() => openFooModal()}>
+      A simple modal with a button to close it
+    </button>
+    `}
   />
+  <!-- eslint-enable -->
 
   <div class="preview">
     <h2>Example for <strong>custom animations</strong></h2>
