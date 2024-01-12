@@ -26,6 +26,10 @@
     padding: 1.5rem;
   }
 
+  .modal h2 {
+    text-align: start;
+  }
+
   header {
     margin: 0 0 1rem;
   }
