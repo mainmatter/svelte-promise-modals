@@ -156,7 +156,7 @@ unrendered.
 
 ```svelte
 <script>
-  import { useModalContext } from 'ember-promise-modals';
+  import { useModalContext } from 'svelte-promise-modals';
 
   let { openModal } = useModalContext();
 
