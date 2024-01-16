@@ -309,14 +309,16 @@ footer p {
 .from-bottom {
   opacity: 1;
   transform: translate(0, 0);
-  animation: from-bottom-in var(--epm-animation-modal-in-duration) ease-out;
+  animation: var(--spm-animation-modal-in-duration) ease-out var(--spm-animation-modal-in-delay)
+    forwards from-bottom-in;
 }
 
 /* this className will be added to the modal when the modal should be animated out */
 .from-bottom.spm-out {
   opacity: 0;
   transform: translate(0, calc(50vh + 50%));
-  animation: from-bottom-out var(--epm-animation-modal-out-duration) ease-in;
+  animation: var(--spm-animation-modal-out-duration) ease-in var(--spm-animation-modal-out-delay)
+    forwards from-bottom-out;
 }
 
 /* these keyframes describe the animation  */
@@ -349,14 +351,16 @@ footer p {
 .from-top {
   opacity: 1;
   transform: translate(0, 0);
-  animation: from-top-in var(--spm-animation-modal-in-duration) ease-out;
+  animation: var(--spm-animation-modal-in-duration) ease-out var(--spm-animation-modal-in-delay)
+    forwards from-top-in;
 }
 
 /* this className will be added to the modal when the modal should be animated out */
 .from-top.spm-out {
   opacity: 0;
   transform: translate(0, calc(-50vh - 50%));
-  animation: from-top-out var(--spm-animation-modal-out-duration) ease-in;
+  animation: var(--spm-animation-modal-out-duration) ease-in var(--spm-animation-modal-out-delay)
+    forwards from-top-out;
 }
 
 @keyframes from-top-in {

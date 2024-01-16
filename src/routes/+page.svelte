@@ -81,10 +81,10 @@
 
   <div class="preview">
     <h2>Example for <strong>custom animations</strong></h2>
-    <button type="button" on:click={() => openFooModal()} data-testid="open-foo">
-      From and to the bottom of the window
+    <button type="button" on:click={() => openFooModal({ className: 'from-top' })}>
+      From and to the top of the window
     </button>
-    <button type="button" on:click={() => openFooModal()} data-testid="open-foo">
+    <button type="button" on:click={() => openFooModal({ className: 'from-bottom' })}>
       From and to the bottom of the window
     </button>
   </div>
