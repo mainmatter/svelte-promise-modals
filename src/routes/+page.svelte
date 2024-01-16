@@ -67,9 +67,9 @@
       import { openModal } from 'svelte-promise-modals';
 
       async function openFooModal() {
-      let result = await openModal(FooComponent);
-      console.log(result); // Whatever the modal returned when it was closed
-    }
+        let result = await openModal(FooComponent);
+        console.log(result); // Whatever the modal returned when it was closed
+      }
     </script>
 
     <button type="button" on:click={() => openFooModal()}>
