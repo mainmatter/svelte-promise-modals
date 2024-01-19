@@ -212,6 +212,10 @@ img[role='presentation'] {
   margin-bottom: 2rem;
 }
 
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
 #crossedfingers,
 #redheart {
   max-width: 400px;

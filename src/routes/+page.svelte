@@ -50,7 +50,7 @@
 
 <main>
   <div class="note">
-    <p>Modals in Svelte made easy. Promised. 🤞</p>
+    <p>Modals in Svelte made easy. <span class="whitespace-nowrap">Promised.🤞</span></p>
   </div>
 
   <div class="preview">
