@@ -212,25 +212,8 @@ img[role='presentation'] {
   margin-bottom: 2rem;
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--secondary-color);
-  width: 100%;
-  padding: 1.5rem;
-  margin-top: 12rem;
-}
-
-@media (max-width: 600px) {
-  footer {
-    margin-top: 4rem;
-  }
-}
-
-footer p {
-  color: var(--primary-color);
-  font-size: 1rem;
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 #crossedfingers,

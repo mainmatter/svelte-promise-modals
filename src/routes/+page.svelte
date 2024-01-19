@@ -23,7 +23,7 @@
 </script>
 
 <svelte:head>
-  <title>Svelte Promise Modals 🤞</title>
+  <title>Svelte Promise Modals</title>
   <script
     defer
     data-domain="svelte-promise-modals.com"
@@ -50,7 +50,7 @@
 
 <main>
   <div class="note">
-    <p>Modals in Svelte made easy. Promised. 🤞</p>
+    <p>Modals in Svelte made easy. <span class="whitespace-nowrap">Promised.🤞</span></p>
   </div>
 
   <div class="preview">
@@ -141,11 +141,5 @@
     />
   </div>
 </main>
-<footer>
-  <p>
-    Ember Promise Modals is not an official part of Ember.js and is not maintained by the Ember.js
-    Core Team.
-  </p>
-</footer>
 
 <ModalContainer />
