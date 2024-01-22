@@ -16,8 +16,8 @@
   import FooComponent from './FooComponent.svelte';
   import SyntaxHighlight from './SyntaxHighlight.svelte';
 
-  async function openFooModal(options?: ModalOptions) {
-    let result = await openModal(FooComponent, null, options);
+  async function openFooModal(data?: unknown, options?: ModalOptions) {
+    let result = await openModal(FooComponent, data ?? null, options);
     console.log(`Modal result: ${JSON.stringify(result)}`);
   }
 </script>
@@ -55,7 +55,11 @@
 
   <div class="preview">
     <h2>Example for <strong>the modal</strong></h2>
-    <button type="button" on:click={() => openFooModal()} data-testid="open-foo">
+    <button
+      type="button"
+      on:click={() => openFooModal({ data: 'something' })}
+      data-testid="open-foo"
+    >
       A simple modal with a button to close it
     </button>
   </div>
@@ -81,10 +85,10 @@
 
   <div class="preview">
     <h2>Example for <strong>custom animations</strong></h2>
-    <button type="button" on:click={() => openFooModal({ className: 'from-top' })}>
+    <button type="button" on:click={() => openFooModal(null, { className: 'from-top' })}>
       From and to the top of the window
     </button>
-    <button type="button" on:click={() => openFooModal({ className: 'from-bottom' })}>
+    <button type="button" on:click={() => openFooModal(null, { className: 'from-bottom' })}>
       From and to the bottom of the window
     </button>
   </div>

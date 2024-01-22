@@ -9,12 +9,7 @@
 
 <div class="modal modal1" data-test-modal-wrap>
   <header>
-    <button
-      type="button"
-      data-testid="close"
-      class="mt-0"
-      on:click={() => closeModal({ foo: 'bar' })}
-    >
+    <button type="button" data-testid="close" class="mt-0" on:click={() => closeModal()}>
       Close
     </button>
   </header>
@@ -50,7 +45,7 @@
   </p>
 
   <p>
-    <button type="button" data-test-submit on:click={() => closeModal(data)}
+    <button type="button" data-test-submit on:click={() => closeModal({ returnData: data })}
       >Close with return data</button
     >
   </p>
