@@ -1,0 +1,34 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  VOLTA_FEATURE_PNPM: 1
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: wyvox/action-setup-pnpm@v3
+        with:
+          node-version: 18
+
+      - name: install dependencies
+        run: pnpm install
+
+      - name: build
+        run: pnpm run build
+
+      - name: Set publishing config
+        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: publish to npm
+        run: pnpm run release
