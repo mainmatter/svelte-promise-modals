@@ -1,6 +1,4 @@
-<p align="center"><h1>🤞</h1></p>
-
-# svelte-promise-modals
+# Svelte Promise Modals
 
 The better way to handle modals in your Svelte apps. Promised! 🤞
 
