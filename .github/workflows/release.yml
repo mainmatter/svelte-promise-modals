@@ -31,4 +31,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: publish to npm
-        run: npm run publish
+        run: npm publish
