@@ -1,7 +1,7 @@
 {
   "name": "svelte-promise-modals",
   "version": "0.0.1",
-  "repository": "https://github.com/mainmatter/ember-promise-modals",
+  "repository": "https://github.com/mainmatter/svelte-promise-modals",
   "scripts": {
     "prepare": "svelte-kit sync",
     "dev": "vite dev",
