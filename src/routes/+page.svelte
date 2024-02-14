@@ -11,6 +11,7 @@
   import crossedFingers from './assets/Crossedfingers.svg';
   import heartFace from './assets/Heartface.svg';
   import mainmatter from './assets/Mainmatter.svg';
+  import ogimage from './assets/og-image.png';
   import redHeart from './assets/Redheart.svg';
   import yellowHeart from './assets/Yellowheart.svg';
   import FooComponent from './FooComponent.svelte';
@@ -24,6 +25,14 @@
 
 <svelte:head>
   <title>Svelte Promise Modals</title>
+  <meta property="og:title" content="Svelte Promise Modals" />
+  <meta property="og:site_name" content="Svelte Promise Modals" />
+  <meta property="og:url" content="https://svelte-promise-modals.com/" />
+  <meta property="og:description" content="Modals in Svelte made easy." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content={ogimage} />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <script
     defer
     data-domain="svelte-promise-modals.com"
