@@ -11,11 +11,12 @@
   import crossedFingers from './assets/Crossedfingers.svg';
   import heartFace from './assets/Heartface.svg';
   import mainmatter from './assets/Mainmatter.svg';
+  import ogimage from './assets/og-image.png';
   import redHeart from './assets/Redheart.svg';
   import yellowHeart from './assets/Yellowheart.svg';
   import FooComponent from './FooComponent.svelte';
   import SyntaxHighlight from './SyntaxHighlight.svelte';
-  import ogimage from './assets/og-image.png';
+
 
   async function openFooModal(data?: unknown, options?: ModalOptions) {
     let result = await openModal(FooComponent, data ?? null, options);
