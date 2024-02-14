@@ -17,7 +17,6 @@
   import FooComponent from './FooComponent.svelte';
   import SyntaxHighlight from './SyntaxHighlight.svelte';
 
-
   async function openFooModal(data?: unknown, options?: ModalOptions) {
     let result = await openModal(FooComponent, data ?? null, options);
     console.log(`Modal result: ${JSON.stringify(result)}`);
