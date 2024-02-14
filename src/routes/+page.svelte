@@ -8,7 +8,6 @@
   import { openModal } from '$lib/service';
   import type { ModalOptions } from '$lib/types';
 
-
   import crossedFingers from './assets/Crossedfingers.svg';
   import heartFace from './assets/Heartface.svg';
   import mainmatter from './assets/Mainmatter.svg';
@@ -17,8 +16,6 @@
   import ogimage from './assets/og-image.png';
   import FooComponent from './FooComponent.svelte';
   import SyntaxHighlight from './SyntaxHighlight.svelte';
-
-
 
   async function openFooModal(data?: unknown, options?: ModalOptions) {
     let result = await openModal(FooComponent, data ?? null, options);
@@ -29,8 +26,8 @@
 <svelte:head>
   <title>Svelte Promise Modals</title>
   <meta property="og:title" content="Svelte Promise Modals" />
-  <meta property="og:site_name" content="Svelte Promise Modals"/>
-  <meta property="og:url" content="https://svelte-promise-modals.com/"/>
+  <meta property="og:site_name" content="Svelte Promise Modals" />
+  <meta property="og:url" content="https://svelte-promise-modals.com/" />
   <meta property="og:description" content="Modals in Svelte made easy. " />
   <meta property="og:type" content="website" />
   <meta property="og:image" content={ogimage} />
@@ -159,5 +156,3 @@
 </main>
 
 <ModalContainer />
-
-
