@@ -8,12 +8,12 @@
   import { openModal } from '$lib/service';
   import type { ModalOptions } from '$lib/types';
 
+  import ogimage from './assets/og-image.png';
   import crossedFingers from './assets/Crossedfingers.svg';
   import heartFace from './assets/Heartface.svg';
   import mainmatter from './assets/Mainmatter.svg';
   import redHeart from './assets/Redheart.svg';
   import yellowHeart from './assets/Yellowheart.svg';
-  import ogimage from './assets/og-image.png';
   import FooComponent from './FooComponent.svelte';
   import SyntaxHighlight from './SyntaxHighlight.svelte';
 
@@ -28,7 +28,7 @@
   <meta property="og:title" content="Svelte Promise Modals" />
   <meta property="og:site_name" content="Svelte Promise Modals" />
   <meta property="og:url" content="https://svelte-promise-modals.com/" />
-  <meta property="og:description" content="Modals in Svelte made easy. " />
+  <meta property="og:description" content="Modals in Svelte made easy." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content={ogimage} />
   <meta name="twitter:card" content="summary_large_image" />
