@@ -31,6 +31,8 @@ jobs:
         run: |
           pnpm install
           pnpm build
+        env:
+          PUBLIC_BASE_URL: https://svelte-promise-modals.com
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.5.0
