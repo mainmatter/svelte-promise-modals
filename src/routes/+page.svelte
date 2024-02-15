@@ -83,7 +83,7 @@
         let result = await openModal(FooComponent);
         console.log(result); // Whatever the modal returned when it was closed
       }
-    <\/script>
+    <`+dedent`/script>
 
     <button type="button" on:click={() => openFooModal()}>
       A simple modal with a button to close it
