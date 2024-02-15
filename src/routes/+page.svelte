@@ -30,7 +30,10 @@
   <meta property="og:url" content="https://svelte-promise-modals.com/" />
   <meta property="og:description" content="Modals in Svelte made easy." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://svelte-promise-modals.com/app/immutable/assets/og-image.bFjBQOh3.png" />
+  <meta
+    property="og:image"
+    content="https://svelte-promise-modals.com/app/immutable/assets/og-image.bFjBQOh3.png"
+  />
   <meta name="twitter:card" content="summary_large_image" />
 
   <script
@@ -83,7 +86,8 @@
         let result = await openModal(FooComponent);
         console.log(result); // Whatever the modal returned when it was closed
       }
-    <`+dedent`/script>
+    <` +
+      dedent`/script>
 
     <button type="button" on:click={() => openFooModal()}>
       A simple modal with a button to close it
