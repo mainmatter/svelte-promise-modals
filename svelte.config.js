@@ -9,9 +9,7 @@ const config = {
 
   kit: {
     appDir: 'app',
-    adapter: adapter({
-      fallback: 'index.html',
-    }),
+    adapter: adapter(),
   },
 };
 
