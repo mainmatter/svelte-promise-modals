@@ -30,7 +30,7 @@
   <meta property="og:url" content="https://svelte-promise-modals.com/" />
   <meta property="og:description" content="Modals in Svelte made easy." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content={ogimage} />
+  <meta property="og:image" content="https://svelte-promise-modals.com/app/immutable/assets/og-image.bFjBQOh3.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <script
