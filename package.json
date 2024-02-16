@@ -1,6 +1,6 @@
 {
   "name": "svelte-promise-modals",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "repository": "https://github.com/mainmatter/svelte-promise-modals",
   "scripts": {
     "prepare": "svelte-kit sync",
