@@ -1,5 +1,5 @@
 <script>
-  import { useModalContext } from '$lib/service';
+  import { useModalContext } from '$lib';
 
   let { openModal } = useModalContext();
 </script>
