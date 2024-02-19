@@ -29,9 +29,12 @@
 <svelte:head>
   <title>Svelte Promise Modals</title>
   <meta property="og:title" content="Svelte Promise Modals" />
-  <meta property="og:site_name" content="Svelte Promise Modals" />
+  <meta property="og:site_name" content="Svelte Promise Modals - Modals made easy." />
   <meta property="og:url" content="https://svelte-promise-modals.com/" />
-  <meta property="og:description" content="Modals in Svelte made easy." />
+  <meta
+    property="og:description"
+    content="svelte-promise-modals is the out-of-the-box, fully customizable package that makes it safe and easy to handle opening and closing modal dialogs and get results from them, written in TypeScript."
+  />
   <meta property="og:type" content="website" />
   <meta property="og:image" content={ogImageURL} />
   <meta name="twitter:card" content="summary_large_image" />
@@ -86,7 +89,8 @@
         let result = await openModal(FooComponent);
         console.log(result); // Whatever the modal returned when it was closed
       }
-    <`+dedent`/script>
+    <` +
+      dedent`/script>
 
     <button type="button" on:click={() => openFooModal()}>
       A simple modal with a button to close it
