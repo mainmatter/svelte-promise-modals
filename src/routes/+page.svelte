@@ -84,6 +84,7 @@
     code={dedent`
     <script>
       import { openModal } from 'svelte-promise-modals';
+      import FooComponent from './FooComponent.svelte';
 
       async function openFooModal() {
         let result = await openModal(FooComponent);
