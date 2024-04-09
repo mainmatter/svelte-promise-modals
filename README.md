@@ -102,7 +102,7 @@ its value param type in your modal component using the `CloseModalFn<T>` type, s
 ```svelte
 <!-- MyModal.svelte -->
 <script lang="ts">
-  import type { CloseModalFn } from './svelte-promise-modals';
+  import type { CloseModalFn } from 'svelte-promise-modals';
   export let closeModal: CloseModalFn<string>;
 
   function handleClose() {
