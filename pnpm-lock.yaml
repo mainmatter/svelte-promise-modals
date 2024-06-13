@@ -24,7 +24,7 @@ devDependencies:
     version: 6.1.0(release-it@17.0.1)
   '@sveltejs/adapter-auto':
     specifier: ^3.0.0
-    version: 3.2.0(@sveltejs/kit@2.5.8)
+    version: 3.2.1(@sveltejs/kit@2.5.8)
   '@sveltejs/adapter-static':
     specifier: ^3.0.0
     version: 3.0.1(@sveltejs/kit@2.5.8)
@@ -1683,8 +1683,8 @@ packages:
     resolution: {integrity: sha512-sXXKG+uL9IrKqViTtao2Ws6dy0znu9sOaP1di/jKGW1M6VssO8vlpXCQcpZ+jisQ1tTFAC5Jo/EOzFbggBagFQ==}
     dev: true
 
-  /@sveltejs/adapter-auto@3.2.0(@sveltejs/kit@2.5.8):
-    resolution: {integrity: sha512-She5nKT47kwHE18v9NMe6pbJcvULr82u0V3yZ0ej3n1laWKGgkgdEABE9/ak5iDPs93LqsBkuIo51kkwCLBjJA==}
+  /@sveltejs/adapter-auto@3.2.1(@sveltejs/kit@2.5.8):
+    resolution: {integrity: sha512-/3xx8ZFCD5UBc/7AbyXkFF3HNCzWAp2xncH8HA4doGjoGQEN7PmwiRx4Y9nOzi4mqDqYYUic0gaIAE2khWWU4Q==}
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
     dependencies:
