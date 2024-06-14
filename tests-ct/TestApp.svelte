@@ -17,14 +17,22 @@
   export let modalContainerOptions = {};
   export let modalProps: any;
   export let openModalOptions = {};
+  export let modalContainerCount = 1;
 
   export let resultCallback = (_: unknown) => {
     /**/
   };
 
+  let errorMessage: string | undefined;
+
   async function openFooModal() {
-    let result = await openModal(TestModal, modalProps, openModalOptions);
-    resultCallback(result);
+    try {
+      await openModal(TestModal);
+      let result = await openModal(TestModal, modalProps, openModalOptions);
+      resultCallback(result);
+    } catch (error) {
+      errorMessage = (error as Error).toString();
+    }
   }
 </script>
 
@@ -44,4 +52,10 @@
   </Wrapper>
 {/if}
 
-<ModalContainer options={modalContainerOptions} />
+{#each Array.from({ length: modalContainerCount }) as _}
+  <ModalContainer options={modalContainerOptions} />
+{/each}
+
+{#if errorMessage}
+  <p data-testid="error-message">{errorMessage}</p>
+{/if}
