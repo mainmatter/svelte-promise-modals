@@ -45,8 +45,8 @@
     "svelte": "^3.54.0 || ^4.0.0"
   },
   "devDependencies": {
-    "@playwright/experimental-ct-svelte": "1.40.1",
-    "@playwright/test": "1.40.1",
+    "@playwright/experimental-ct-svelte": "1.45.0",
+    "@playwright/test": "1.45.0",
     "@release-it-plugins/lerna-changelog": "^6.1.0",
     "@sveltejs/adapter-auto": "^3.0.0",
     "@sveltejs/adapter-static": "^3.0.0",
