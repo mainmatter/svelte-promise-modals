@@ -37,6 +37,9 @@
   "engines": {
     "node": ">=16"
   },
+  "pnpm": {
+    "packageManager": "pnpm@^9.7.0"
+  },
   "dependencies": {
     "deepmerge": "^4.3.0",
     "focus-trap": "^7.3.1"

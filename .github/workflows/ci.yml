@@ -3,7 +3,7 @@ on:
   - pull_request
 
 env:
-  PNPM_VERSION: 8.10.5
+  NODE_VERSION: 20
 
 jobs:
   lint:
@@ -12,14 +12,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2.4.0
+      - uses: wyvox/action-setup-pnpm@v3
         with:
-          version: ${{ env.PNPM_VERSION }}
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.x
-          cache: pnpm
+          node-version: ${{ env.NODE_VERSION }}
       - name: Install Dependencies
         run: pnpm install
       - name: Run lint
@@ -32,14 +27,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2.4.0
+      - uses: wyvox/action-setup-pnpm@v3
         with:
-          version: ${{ env.PNPM_VERSION }}
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.x
-          cache: pnpm
+          node-version: ${{ env.NODE_VERSION }}
       - name: Install Dependencies
         run: pnpm install
       - name: Install playwright browsers
@@ -54,14 +44,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2.4.0
+      - uses: wyvox/action-setup-pnpm@v3
         with:
-          version: ${{ env.PNPM_VERSION }}
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.x
-          cache: pnpm
+          node-version: ${{ env.NODE_VERSION }}
       - name: Install Dependencies
         run: pnpm install
       - name: Run unit tests
