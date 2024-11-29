@@ -1,8 +1,8 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import type { UserConfig } from 'vite';
+import { defineConfig, type UserConfig } from 'vite';
 import type { UserConfig as VitestConfig } from 'vitest/config';
 
-const config: UserConfig & { test: VitestConfig['test'] } = {
+const config: UserConfig & { test: VitestConfig['test'] } = defineConfig(({ mode }) => ({
   plugins: [sveltekit()],
   define: {
     // Eliminate in-source test code
@@ -26,6 +26,9 @@ const config: UserConfig & { test: VitestConfig['test'] } = {
     },
     include: ['src/**/*.test.{js,ts}'],
   },
-};
+  resolve: {
+    conditions: mode === 'test' ? ['browser'] : [],
+  },
+}));
 
 export default config;

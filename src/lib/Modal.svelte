@@ -138,7 +138,7 @@ component. Don't style them here, always use a separate local class! -->
   role="presentation"
   aria-hidden="true"
   data-testid="backdrop"
-/>
+></div>
 
 <div class="spm-modal-container modal-container">
   <div

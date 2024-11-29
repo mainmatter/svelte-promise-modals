@@ -17,7 +17,10 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test:unit": "vitest",
     "lint": "prettier --check . && eslint .",
-    "format": "prettier --write . &&  eslint . --fix"
+    "format": "prettier --write . &&  eslint . --fix",
+    "test:svelte4": "pnpm add -D svelte@4.2.12 && pnpm test:unit && pnpm test:ct",
+    "test:svelte5": "pnpm add -D svelte@next && pnpm test:unit && pnpm test:ct",
+    "test:all-versions": "pnpm test:svelte4 && pnpm test:svelte5"
   },
   "exports": {
     ".": {
@@ -45,7 +48,7 @@
     "focus-trap": "^7.3.1"
   },
   "peerDependencies": {
-    "svelte": "^3.54.0 || ^4.0.0"
+    "svelte": "^3.54.0 || ^4.0.0 || ^5.0.0"
   },
   "devDependencies": {
     "@playwright/experimental-ct-svelte": "1.40.1",
@@ -58,7 +61,7 @@
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "@testing-library/dom": "^9.0.0",
     "@testing-library/jest-dom": "^6.0.0",
-    "@testing-library/svelte": "^4.0.0",
+    "@testing-library/svelte": "^5.2.6",
     "@testing-library/user-event": "^14.4.3",
     "@types/prismjs": "^1.26.3",
     "@types/testing-library__jest-dom": "^5.14.5",

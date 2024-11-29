@@ -135,10 +135,8 @@
     <p>
       svelte-promise-modals is <br />made &amp; sponsored with ❤️ by
       <a href="https://mainmatter.com/svelte-consulting/" target="_blank" rel="noopener noreferrer">
-        <div>
-          <img src={mainmatter} alt="Mainmatter" role="presentation" id="mainmatter" />
-        </div></a
-      >
+        <img src={mainmatter} alt="Mainmatter" role="presentation" id="mainmatter" />
+      </a>
     </p>
   </div>
 
