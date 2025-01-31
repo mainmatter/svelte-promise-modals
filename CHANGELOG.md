@@ -1,6 +1,19 @@
 
 
 
+
+## v0.1.5 (2025-01-31)
+
+#### :rocket: Enhancement
+* [#121](https://github.com/mainmatter/svelte-promise-modals/pull/121) Add Svelte 5 support ([@zeppelin](https://github.com/zeppelin))
+
+#### :memo: Documentation
+* [#83](https://github.com/mainmatter/svelte-promise-modals/pull/83) Fix type import path in README ([@zeppelin](https://github.com/zeppelin))
+
+#### Committers: 2
+- Gabor Babicz ([@zeppelin](https://github.com/zeppelin))
+- Nora Burkhardt ([@yaigrie](https://github.com/yaigrie))
+
 ## v0.1.4 (2024-02-16)
 
 #### :bug: Bug Fix
