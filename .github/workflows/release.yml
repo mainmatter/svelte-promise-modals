@@ -24,6 +24,8 @@ jobs:
 
       - name: build
         run: pnpm run build
+        env:
+          PUBLIC_BASE_URL: https://svelte-promise-modals.com
 
       - name: Set publishing config
         run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
