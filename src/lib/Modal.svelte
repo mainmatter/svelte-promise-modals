@@ -10,11 +10,15 @@
   type AnimationEndHandler = GlobalEventHandlers['onanimationend'];
   type OnDeactivateCallback = (() => void) | null;
 
-  export let modal: ModalClass<any>;
+  interface Props {
+    modal: ModalClass<any>;
+  }
 
-  let isAnimatingOut = false;
+  let { modal }: Props = $props();
+
+  let isAnimatingOut = $state(false);
   let focusTrap: FocusTrap;
-  let modalElement: HTMLElement;
+  let modalElement: HTMLElement = $state();
   let animationEnd: AnimationEndHandler | null = null;
 
   let focusTrapOptions: FocusTrapOptions;
@@ -147,7 +151,7 @@ component. Don't style them here, always use a separate local class! -->
     class:spm-out={isAnimatingOut}
     bind:this={modalElement}
   >
-    <svelte:component this={modal.component} {...modal.props} closeModal={close} />
+    <modal.component {...modal.props} closeModal={close} />
   </div>
 </div>
 

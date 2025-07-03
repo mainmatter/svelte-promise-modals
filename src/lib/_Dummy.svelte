@@ -1,11 +1,15 @@
 <script lang="ts">
   import type { CloseModalFn } from './types';
 
-  export let foo: string | undefined = undefined;
-  export let closeModal: CloseModalFn;
+  interface Props {
+    foo?: string | undefined;
+    closeModal: CloseModalFn;
+  }
+
+  let { foo = undefined, closeModal }: Props = $props();
 </script>
 
 <button type="button">foo</button>
 <span data-testid="foo-prop">{foo}</span>
 
-<button type="button" on:click={() => closeModal()}>close</button>
+<button type="button" onclick={() => closeModal()}>close</button>

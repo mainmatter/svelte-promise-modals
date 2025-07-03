@@ -1,11 +1,16 @@
 <script lang="ts">
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  export let closeModal: any;
+  
+  interface Props {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    closeModal: any;
+  }
+
+  let { closeModal }: Props = $props();
 </script>
 
 <div class="modal modal2">
   <header>
-    <button type="button" on:click={() => closeModal('x')}>Close</button>
+    <button type="button" onclick={() => closeModal('x')}>Close</button>
   </header>
 
   <h2>Modal 2</h2>

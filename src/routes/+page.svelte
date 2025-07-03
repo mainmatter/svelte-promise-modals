@@ -72,7 +72,7 @@
     <h2>Example for <strong>the modal</strong></h2>
     <button
       type="button"
-      on:click={() => openFooModal({ data: 'something' })}
+      onclick={() => openFooModal({ data: 'something' })}
       data-testid="open-foo"
     >
       A simple modal with a button to close it
@@ -102,10 +102,10 @@
 
   <div class="preview">
     <h2>Example for <strong>custom animations</strong></h2>
-    <button type="button" on:click={() => openFooModal(null, { className: 'from-top' })}>
+    <button type="button" onclick={() => openFooModal(null, { className: 'from-top' })}>
       From and to the top of the window
     </button>
-    <button type="button" on:click={() => openFooModal(null, { className: 'from-bottom' })}>
+    <button type="button" onclick={() => openFooModal(null, { className: 'from-bottom' })}>
       From and to the bottom of the window
     </button>
   </div>

@@ -8,19 +8,28 @@
   let win: any = window;
   win.handle = {} as Record<string, any>;
 
-  let showWrapper = true;
+  let showWrapper = $state(true);
 
   win.handle.hideWrapper = () => {
     showWrapper = false;
   };
 
-  export let modalContainerOptions = {};
-  export let modalProps: any;
-  export let openModalOptions = {};
 
-  export let resultCallback = (_: unknown) => {
+  interface Props {
+    modalContainerOptions?: any;
+    modalProps: any;
+    openModalOptions?: any;
+    resultCallback?: any;
+  }
+
+  let {
+    modalContainerOptions = {},
+    modalProps,
+    openModalOptions = {},
+    resultCallback = (_: unknown) => {
     /**/
-  };
+  }
+  }: Props = $props();
 
   async function openFooModal() {
     let result = await openModal(TestModal, modalProps, openModalOptions);
@@ -28,20 +37,22 @@
   }
 </script>
 
-<button data-testid="open-modal-button" type="button" on:click={() => openFooModal()}>
+<button data-testid="open-modal-button" type="button" onclick={() => openFooModal()}>
   Open Modal
 </button>
 
 {#if showWrapper}
-  <Wrapper let:openModal>
-    <button
-      on:click={() => openModal(TestModal)}
-      data-testid="open-modal-using-context-button"
-      type="button"
-    >
-      Open Using Context
-    </button>
-  </Wrapper>
+  <Wrapper >
+    {#snippet children({ openModal })}
+        <button
+        onclick={() => openModal(TestModal)}
+        data-testid="open-modal-using-context-button"
+        type="button"
+      >
+        Open Using Context
+      </button>
+          {/snippet}
+    </Wrapper>
 {/if}
 
 <ModalContainer options={modalContainerOptions} />

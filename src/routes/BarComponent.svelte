@@ -1,10 +1,14 @@
 <script lang="ts">
-  export let closeModal: any;
+  interface Props {
+    closeModal: any;
+  }
+
+  let { closeModal }: Props = $props();
 </script>
 
 <div class="modal modal2">
   <header>
-    <button type="button" class="mt-0" on:click={() => closeModal('x')}>Close</button>
+    <button type="button" class="mt-0" onclick={() => closeModal('x')}>Close</button>
   </header>
 
   <h2>Hi, I'm another modal!</h2>

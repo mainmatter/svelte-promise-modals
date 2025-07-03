@@ -1,12 +1,20 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import { onDestroy, onMount } from 'svelte';
 
   import Modal from './Modal.svelte';
   import { animating, destroyModals, stack, updateOptions } from './service';
 
-  export let options: Record<string, any> = {};
+  interface Props {
+    options?: Record<string, any>;
+  }
 
-  $: updateOptions(options);
+  let { options = {} }: Props = $props();
+
+  run(() => {
+    updateOptions(options);
+  });
 
   onMount(() => {
     let unsubscribeStack = stack.subscribe(($stack) => {

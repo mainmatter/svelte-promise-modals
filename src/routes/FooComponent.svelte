@@ -3,13 +3,17 @@
 
   import BarComponent from './BarComponent.svelte';
 
-  export let data: unknown;
-  export let closeModal: any;
+  interface Props {
+    data: unknown;
+    closeModal: any;
+  }
+
+  let { data, closeModal }: Props = $props();
 </script>
 
 <div class="modal modal1" data-test-modal-wrap>
   <header>
-    <button type="button" data-testid="close" class="mt-0" on:click={() => closeModal()}>
+    <button type="button" data-testid="close" class="mt-0" onclick={() => closeModal()}>
       Close
     </button>
   </header>
@@ -25,7 +29,7 @@
   </p>
 
   <p>
-    <button type="button" data-testid="show-modal-2" on:click={() => openModal(BarComponent)}
+    <button type="button" data-testid="show-modal-2" onclick={() => openModal(BarComponent)}
       >Open another modal</button
     >
   </p>
@@ -45,7 +49,7 @@
   </p>
 
   <p>
-    <button type="button" data-test-submit on:click={() => closeModal({ returnData: data })}
+    <button type="button" data-test-submit onclick={() => closeModal({ returnData: data })}
       >Close with return data</button
     >
   </p>
