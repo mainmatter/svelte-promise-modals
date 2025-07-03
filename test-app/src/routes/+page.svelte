@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+  import Modal from "$lib/components/Modal.svelte";
+  import Wrapper from "$lib/components/Wrapper.svelte";
+  import { openModal } from 'svelte-promise-modals';
+</script>
+
+<button data-testid="open:user-modal" onclick={() => openModal(Modal, { 'data-testid': 'user-modal' })}>
+  Open
+</button>
+
+<Wrapper />
