@@ -41,7 +41,10 @@
     "node": ">=16"
   },
   "pnpm": {
-    "packageManager": "pnpm@^9.7.0"
+    "packageManager": "pnpm@^9.7.0",
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   },
   "dependencies": {
     "deepmerge": "^4.3.0",

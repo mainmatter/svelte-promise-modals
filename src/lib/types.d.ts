@@ -1,5 +1,5 @@
 import type { Options as FocusTrapOptions } from 'focus-trap';
-import type { ComponentProps, SvelteComponent } from 'svelte';
+import type { ComponentProps, Component } from 'svelte';
 
 export type ModalOptions = {
   onAnimationModalOutEnd?(): void;
@@ -10,14 +10,15 @@ export type ModalOptions = {
 export type FocusTrapOptions = FocusTrapOptions;
 
 export type CloseModalFn<T = void> = (value: T) => void;
-
 // prettier-ignore
-export type PropsWithoutCloseModal<T extends SvelteComponent> = Omit<ComponentProps<T>, 'closeModal'>;
-export type CloseModalValueParamType<T> = T extends CloseModalFn<infer Value> ? Value : void;
-export type CloseModalFnValue<
-  T,
-  V = CloseModalValueParamType<ComponentProps<T>['closeModal']>,
-> = V extends void ? undefined : V;
+export type PropsWithoutCloseModal<T extends Component> = Omit<typeof T, 'closeModal'>;
+export type CloseModalValueParamType<T> = T extends { closeModal: CloseModalFn<infer Value> }
+  ? Value
+  : never;
+export type CloseModalFnValue<T> =
+  CloseModalValueParamType<T> extends void
+    ? undefined
+    : CloseModalValueParamType<T>;
 
 declare module 'focus-trap' {
   // FocusTrap will happily accept `null` or `false` for `onDeactivate` & `onPostDeactivate`,

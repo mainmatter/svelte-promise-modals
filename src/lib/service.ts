@@ -1,5 +1,5 @@
 import deepmerge from 'deepmerge';
-import { type ComponentType, onDestroy, type SvelteComponent } from 'svelte';
+import { onDestroy, type Component } from 'svelte';
 import { derived, get, writable } from 'svelte/store';
 
 import { Modal } from './modal';
@@ -25,12 +25,13 @@ export const updateOptions = (userOptions: Partial<ModalOptions>) => {
   }
 };
 
-export const openModal = <T extends SvelteComponent>(
-  component: ComponentType<T>,
+export const openModal = <T extends Component>(
+  component: Component<T>,
   props?: PropsWithoutCloseModal<T> | null, // `null` is a convenience for when you don't want to pass any props but do want to pass options
   options?: ModalOptions
 ): Modal<T> => {
-  let modal: Modal<T> = new Modal(component, props ?? undefined, options);
+  // @TODO lets get back here
+  let modal: Modal<T> = new Modal(component as any, props ?? undefined, options) as Modal<T>;
 
   stack.update((modals) => [...modals, modal]);
 
@@ -47,7 +48,7 @@ export function useModalContext() {
   });
 
   return {
-    openModal<T extends SvelteComponent>(
+    openModal<T extends Component>(
       ...args: Parameters<typeof openModal<T>>
     ): ReturnType<typeof openModal<T>> {
       let modal = openModal(...args);

@@ -1,14 +1,14 @@
-import type { ComponentProps, ComponentType, SvelteComponent } from 'svelte';
+import type { Component } from 'svelte';
 
 import type ModalComponent from './Modal.svelte';
 import { removeFromStack } from './service';
 import type { CloseModalFnValue, ModalOptions, PropsWithoutCloseModal } from './types';
 import { defer, type Deferred } from './utils';
 
-export class Modal<T extends SvelteComponent> {
+export class Modal<T extends Component> {
   private deferred = defer<CloseModalFnValue<T>>();
 
-  component: ComponentType<T>;
+  component: T;
   props: PropsWithoutCloseModal<T>;
   options: ModalOptions;
 
@@ -17,7 +17,7 @@ export class Modal<T extends SvelteComponent> {
   componentInstance?: ModalComponent;
 
   constructor(
-    component: ComponentType<T>,
+    component: T,
     props?: PropsWithoutCloseModal<T>,
     options?: Partial<ModalOptions>
   ) {
@@ -30,7 +30,7 @@ export class Modal<T extends SvelteComponent> {
     };
   }
 
-  resolve: ComponentProps<T>['closeModal'] = (value: CloseModalFnValue<T>): void => {
+  resolve = (value: CloseModalFnValue<T>): void => {
     if (this.deferredOutAnimation) {
       return;
     }

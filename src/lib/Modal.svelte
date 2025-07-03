@@ -1,7 +1,6 @@
 <script lang="ts">
   import { createFocusTrap, type FocusTrap } from 'focus-trap';
   import { onDestroy, onMount } from 'svelte';
-  import { get } from 'svelte/store';
 
   import type { Modal as ModalClass } from './modal';
   import { animating, globalOptions } from './service';
@@ -18,7 +17,7 @@
 
   let isAnimatingOut = $state(false);
   let focusTrap: FocusTrap;
-  let modalElement: HTMLElement = $state();
+  let modalElement: HTMLElement | undefined = $state();
   let animationEnd: AnimationEndHandler | null = null;
 
   let focusTrapOptions: FocusTrapOptions;
@@ -35,7 +34,6 @@
   });
 
   const addFocusTrap = () => {
-    let $globalOptions = get(globalOptions);
     let { focusTrapOptions: globalFocusTrapOptions } = $globalOptions;
     let { focusTrapOptions: localFocusTrapOptions } = modal.options;
 
@@ -58,7 +56,7 @@
       },
     };
 
-    focusTrap = createFocusTrap(modalElement, options);
+    focusTrap = createFocusTrap(modalElement as HTMLElement, options);
     focusTrap.activate();
   };
 
