@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { openModal } from '$lib/service';
+  import { openModal } from '$lib/service.svelte';
 
   import BarComponent from './BarComponent.svelte';
 

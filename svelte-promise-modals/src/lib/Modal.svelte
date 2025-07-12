@@ -3,7 +3,7 @@
   import { onDestroy, onMount } from 'svelte';
 
   import type { Modal as ModalClass } from './modal';
-  import { animating, globalOptions } from './service';
+  import { animating, globalOptions } from './service.svelte';
   import type { FocusTrapOptions } from './types';
 
   type AnimationEndHandler = GlobalEventHandlers['onanimationend'];
@@ -24,12 +24,14 @@
   let optionsClassName = modal.options.className ?? '';
 
   onMount(async () => {
+    console.log('mount', modal);
     addFocusTrap();
     addAnimationListeners();
     animating.set(true);
   });
 
   onDestroy(() => {
+    console.log('destroy', modal);
     destroyModal();
   });
 
@@ -109,6 +111,7 @@
     removeAnimationListeners();
 
     modal.remove();
+    close(null);
   };
 
   export const closeModal = (result?: unknown) => {

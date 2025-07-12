@@ -1,6 +1,6 @@
 <script lang="ts">
   import ModalContainer from '$lib/ModalContainer.svelte';
-  import { openModal } from '$lib/service.ts';
+  import { openModal } from '$lib/service.svelte';
 
   import TestModal from './TestModal.svelte';
   import Wrapper from './Wrapper.svelte';

@@ -1,23 +1,22 @@
 import type { Component } from 'svelte';
 
 import type ModalComponent from './Modal.svelte';
-import { removeFromStack } from './service';
+import { removeFromStack } from './service.svelte';
 import type { CloseModalFnValue, ModalOptions, PropsWithoutCloseModal } from './types';
 import { defer, type Deferred } from './utils';
 
 export class Modal<T extends Component> {
   private deferred = defer<CloseModalFnValue<T>>();
 
-  component: T;
+  component: Component<T>;
   props: PropsWithoutCloseModal<T>;
   options: ModalOptions;
 
   result?: CloseModalFnValue<T>;
   deferredOutAnimation?: Deferred<void>;
-  componentInstance?: ModalComponent;
 
   constructor(
-    component: T,
+    component: Component<T>,
     props?: PropsWithoutCloseModal<T>,
     options?: Partial<ModalOptions>
   ) {
@@ -48,14 +47,6 @@ export class Modal<T extends Component> {
     this.deferred.resolve(value);
   };
 
-  destroy() {
-    this.componentInstance?.destroyModal();
-  }
-
-  close() {
-    this.componentInstance?.closeModal();
-  }
-
   remove(): void {
     removeFromStack(this);
     this.deferredOutAnimation?.resolve();
@@ -66,6 +57,19 @@ export class Modal<T extends Component> {
     onRejected?: (reason?: unknown) => void
   ): Promise<CloseModalFnValue<T>> {
     return this.deferred.promise.then<any, any>(onFulfilled, onRejected);
+  }
+
+  destroy(): void {
+    // Force immediate cleanup without animation
+    this.deferredOutAnimation = defer<void>();
+    this.result = null as any;
+    this.deferred.resolve(null as any);
+    removeFromStack(this);
+    this.deferredOutAnimation.resolve();
+  }
+
+  close(value?: CloseModalFnValue<T>): void {
+    this.resolve(value ?? (null as any));
   }
 
   get isClosing(): boolean {

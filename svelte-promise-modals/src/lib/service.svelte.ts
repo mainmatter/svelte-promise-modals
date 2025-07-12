@@ -30,8 +30,13 @@ export const openModal = <T extends Component>(
   props?: PropsWithoutCloseModal<T> | null, // `null` is a convenience for when you don't want to pass any props but do want to pass options
   options?: ModalOptions
 ): Modal<T> => {
-  // @TODO lets get back here
-  let modal: Modal<T> = new Modal(component as any, props ?? undefined, options) as Modal<T>;
+  let modal: Modal<T> = new Modal(component, props ?? undefined, options) as Modal<T>;
+
+  onDestroy(() => {
+    console.log('openModal.destroy');
+
+  });
+
 
   stack.update((modals) => [...modals, modal]);
 
@@ -43,7 +48,7 @@ export function useModalContext() {
 
   onDestroy(() => {
     while (modals.length) {
-      modals.pop()?.close();
+      modals.pop()?.destroy();
     }
   });
 

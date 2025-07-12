@@ -4,7 +4,7 @@
   import { onDestroy, onMount } from 'svelte';
 
   import Modal from './Modal.svelte';
-  import { animating, destroyModals, stack, updateOptions } from './service';
+  import { animating, destroyModals, stack, updateOptions } from './service.svelte';
 
   interface Props {
     options?: Record<string, any>;
@@ -34,6 +34,6 @@
   onDestroy(destroyModals);
 </script>
 
-{#each $stack as modal, _index}
-  <Modal {modal} bind:this={modal.componentInstance} />
+{#each $stack as modal}
+  <Modal {modal} />
 {/each}

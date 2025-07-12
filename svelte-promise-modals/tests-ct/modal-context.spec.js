@@ -14,12 +14,12 @@ test.describe('Modal Context', () => {
     await expect(page.getByTestId('backdrop')).toBeHidden();
     await expect(page.getByTestId('spm-modal')).toBeHidden();
 
-    await page.getByText('Open Using Context').click();
+    await page.getByTestId("open:inner-modal").click();
 
     await expect(page.getByTestId('backdrop')).toBeVisible();
     await expect(page.getByTestId('spm-modal')).toBeVisible();
 
-    await page.evaluateHandle(() => window.handle.hideWrapper());
+    await page.getByTestId("toggle:wrapper-visibility").click();
 
     await expect(page.getByTestId('backdrop')).toBeHidden();
     await expect(page.getByTestId('spm-modal')).toBeHidden();

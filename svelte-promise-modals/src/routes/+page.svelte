@@ -6,7 +6,7 @@
 
   import { PUBLIC_BASE_URL } from '$env/static/public';
   import ModalContainer from '$lib/ModalContainer.svelte';
-  import { openModal } from '$lib/service';
+  import { openModal } from '$lib/service.svelte';
   import type { ModalOptions } from '$lib/types';
 
   import crossedFingers from './assets/Crossedfingers.svg';
