@@ -30,3 +30,18 @@ test('it opens user modal', async ({ page }) => {
     await expect(page.getByTestId('backdrop')).toBeHidden();
     await expect(page.getByTestId('spm-modal')).toBeHidden();
   });
+
+test('it opens save-user modal and displays output', async ({ page }) => {
+	await page.goto('/');
+
+	await expect(page.getByTestId('save-user-modal')).not.toBeVisible();
+	await page.getByTestId('open:save-user-modal').click();
+	await expect(page.getByTestId('save-user-modal')).toBeVisible();
+	await page.getByTestId('save:user-modal').click();
+
+	const preOutput = page.getByTestId('output:user-modal');
+	await expect(preOutput).toBeVisible();
+  await expect(JSON.parse((await preOutput.textContent()) as string)).toStrictEqual({ id: 'a-b-c', name: 'Saved user'});
+
+});
+

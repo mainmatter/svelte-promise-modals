@@ -24,14 +24,12 @@
   let optionsClassName = modal.options.className ?? '';
 
   onMount(async () => {
-    console.log('mount', modal);
     addFocusTrap();
     addAnimationListeners();
     animating.set(true);
   });
 
   onDestroy(() => {
-    console.log('destroy', modal);
     destroyModal();
   });
 

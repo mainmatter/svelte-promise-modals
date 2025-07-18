@@ -2,7 +2,9 @@
 	import 'svelte-promise-modals/style.css';
 	import Modal from '$lib/components/Modal.svelte';
 	import Wrapper from '$lib/components/Wrapper.svelte';
-	import { ModalContainer, openModal } from 'svelte-promise-modals';
+	import { ModalContainer, createOpenModal } from 'svelte-promise-modals';
+
+  let openModal = createOpenModal();
 
 	let showWrapper = $state(true);
 </script>

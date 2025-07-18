@@ -32,15 +32,25 @@ export const openModal = <T extends Component>(
 ): Modal<T> => {
   let modal: Modal<T> = new Modal(component, props ?? undefined, options) as Modal<T>;
 
-  onDestroy(() => {
-    console.log('openModal.destroy');
-
-  });
-
-
   stack.update((modals) => [...modals, modal]);
 
   return modal;
+};
+
+export const createOpenModal = () => {
+  let modals: Modal<any>[] = [];
+
+  onDestroy(() => {
+    while (modals.length) {
+      modals.pop()?.destroy();
+    }
+  });
+
+  return <T extends Component>(...args: Parameters<typeof openModal<T>>) => {
+    let modal = openModal(...args);
+    modals.push(modal);
+    return modal;
+  }
 };
 
 export function useModalContext() {
