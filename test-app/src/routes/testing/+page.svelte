@@ -9,11 +9,45 @@
   let openModal = createOpenModal();
   let showWrapper = $state(true);
 
-  // Get props from URL search params
   const params = $page.url.searchParams;
-  const modalContainerOptions = params.get('modalContainerOptions') ? JSON.parse(params.get('modalContainerOptions')!) : { };
   const modalProps = params.get('modalProps') ? JSON.parse(params.get('modalProps')!) : {};
-  const openModalOptions = params.get('openModalOptions') ? JSON.parse(params.get('openModalOptions')!) : {};
+  let modalContainerOptions = params.get('modalContainerOptions') ? JSON.parse(params.get('modalContainerOptions')!) : { };
+  let openModalOptions = params.get('openModalOptions') ? JSON.parse(params.get('openModalOptions')!) : {};
+
+  let activateState: unknown = $state();
+  let deactivateState: unknown = $state();
+
+  if (params.get('containerOnActivate')) {
+    modalContainerOptions = {
+      focusTrapOptions: { onActivate: (...args: unknown[]) => activateState = args }
+    }
+  }
+
+  if (params.get('modalOnActivate')) {
+    openModalOptions = {
+      focusTrapOptions: { onActivate: (...args: unknown[]) => activateState = args }
+    }
+  }
+
+  if (params.get('containerOnDeactivate')) {
+    modalContainerOptions = {
+      focusTrapOptions: { onDeactivate: (...args: unknown[]) => deactivateState= args }
+    }
+  }
+
+  if (params.get('modalOnDeactivate')) {
+    openModalOptions = {
+      focusTrapOptions: { onDeactivate: (...args: unknown[]) => deactivateState = args }
+    }
+  }
+
+  if (params.get('modalDisableFocusTrap')) {
+    openModalOptions = { focusTrapOptions: null };
+  }
+
+  if (params.get('containerDisableFocusTrap')) {
+    modalContainerOptions = { focusTrapOptions: null };
+  }
 
   onMount(() => {
     let win: any = window;
@@ -54,5 +88,12 @@
     {/snippet}
   </Wrapper>
 {/if}
+
+<pre data-testid="focus-trap-activate">
+  {JSON.stringify(activateState)}
+</pre>
+<pre data-testid="focus-trap-deactivate">
+  {JSON.stringify(deactivateState)}
+</pre>
 
 <ModalContainer options={modalContainerOptions} />

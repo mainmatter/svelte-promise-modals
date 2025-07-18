@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, Page, test } from '@playwright/test';
 
 test.describe('Focus trap', () => {
   test.beforeEach(async ({ page }) => {
@@ -89,4 +89,76 @@ test.describe('Focus trap', () => {
     await page.keyboard.press('Tab');
     await expect(page.getByTestId('close')).toBeFocused();
   });
+
+  test('focus trap is enabled by default', async ({ page }) => {
+    await page.goto('/testing');
+
+    await page.getByText('Open Modal').focus();
+    await expect(page.getByText('Open Modal')).toBeFocused();
+
+    await page.getByText('Open Modal').click();
+    await expect(page.getByText('Open Modal')).not.toBeFocused();
+    await expect(page.getByText('foo')).toBeFocused();
+  });
+
+  test('global focus trap options', async ({ page }) => {
+    await page.goto("/testing?containerOnActivate=true");
+
+    await page.getByText('Open Modal').click();
+    expect(await readPreContent(page, 'focus-trap-activate')).toStrictEqual([]);
+  });
+
+  test('local focus trap options', async ({ page }) => {
+    await page.goto("/testing?modalOnActivate=true");
+
+    await page.getByText('Open Modal').click();
+    expect(await readPreContent(page, 'focus-trap-activate')).toStrictEqual([]);
+  });
+
+  test('focus trap is disabled locally', async ({ page }) => {
+    await page.goto("/testing?containerOnActivate=true&modalDisableFocusTrap=true");
+
+    await page.getByText('Open Modal').click();
+    expect(await readPreContent(page, 'focus-trap-activate')).toStrictEqual(undefined);
+  });
+
+  test('globally disabled focusTrapOptions is overriden when local options are provided', async ({
+    page,
+  }) => {
+    await page.goto("/testing?modalOnActivate=true&containerDisableFocusTrap=true");
+
+    await page.getByText('Open Modal').click();
+    expect(await readPreContent(page, 'focus-trap-activate')).toStrictEqual([]);
+  });
+
+  test('onDeactivate is called when the modal is closed when the Escape key is pressed', async ({
+    page,
+  }) => {
+    await page.goto("/testing?containerOnDeactivate=true");
+
+    await page.getByText('Open Modal').click();
+    await page.keyboard.press('Escape');
+    expect(await readPreContent(page, 'focus-trap-deactivate')).toStrictEqual([]);
+  });
+
+  test('onDeactivate is called when the modal is closed via the close action', async ({
+    page,
+  }) => {
+    await page.goto("/testing?containerOnDeactivate=true");
+
+    await page.getByText('Open Modal').click();
+    await page.getByText('close').click();
+    expect(await readPreContent(page, 'focus-trap-deactivate')).toStrictEqual([]);
+  });
 });
+
+async function readPreContent(page: Page, id: string): any {
+  try {
+
+  const content = await page.getByTestId(id).textContent() as any;
+  return JSON.parse(content);
+  } catch (err) {
+    console.warn(new Error("readPreContent failed to parse content. This might be expected.", { cause: err }));
+    return undefined;
+  }
+}
