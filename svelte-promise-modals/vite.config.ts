@@ -20,10 +20,6 @@ const config: UserConfig & { test: VitestConfig['test'] } = defineConfig(({ mode
     includeSource: ['src/**/*.{js,ts,svelte}'],
     // Add @testing-library/jest-dom matchers & mocks of SvelteKit modules
     setupFiles: ['./setupTest.ts'],
-    // Exclude files in c8
-    coverage: {
-      exclude: ['setupTest.ts'],
-    },
     include: ['src/**/*.test.{js,ts}'],
   },
   resolve: {

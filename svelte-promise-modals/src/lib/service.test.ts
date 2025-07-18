@@ -2,7 +2,7 @@ import type { ComponentType, SvelteComponent } from 'svelte';
 import { get } from 'svelte/store';
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { count, openModal, stack, top } from './service';
+import { count, openModal, stack, top } from './service.svelte';
 
 describe('Service', () => {
   afterEach(() => {
