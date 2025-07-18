@@ -8,6 +8,14 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+
+	interface Window {
+		handle: {
+			hideWrapper: () => void;
+		};
+		lastModalResult: unknown;
+		resultCallback: (result: unknown) => void;
+	}
 }
 
 export {};
