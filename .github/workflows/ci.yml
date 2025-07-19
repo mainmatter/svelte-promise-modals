@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: pnpm install
-      - run: pnpm test:visual
+      - run: pnpm -F test-app test:e2e
 
   tests_unit:
     name: Run unit tests
@@ -42,4 +42,4 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: pnpm install
-      - run: pnpm test:unit
+      - run: pnpm -F svelte-promise-modals test:unit
