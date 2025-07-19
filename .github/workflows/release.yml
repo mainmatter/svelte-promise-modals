@@ -1,12 +1,7 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - 'v*'
-
-env:
-  VOLTA_FEATURE_PNPM: 1
+  workflow_dispatch:
 
 jobs:
   release:
