@@ -9,7 +9,7 @@ The better way to handle modals in your Svelte apps. Promised! 🤞
 
 ## Compatibility
 
-- Svelte v3 or above
+- Svelte v5
 - Node v16 or above
 
 ## Installation
@@ -43,10 +43,10 @@ It produces a function that you can finally use to open modals.
 
 ```svelte
 <script>
-	import { createOpenModal } from 'svelte-promise-modals';
+  import { createOpenModal } from 'svelte-promise-modals';
   import SomeComponent from './SomeComponent.svelte';
 
-	let openModal = createOpenModal();
+  let openModal = createOpenModal();
 
   async function handleOpenModal() {
     let modal = openModal(SomeComponent);
