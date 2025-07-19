@@ -337,12 +337,20 @@ In order to speed up modal in/out animations during testing, either:
 
 Once you've cloned the project and installed dependencies with `pnpm install`, start a development server:
 
+- `pnpm -F svelte-promise-modals dev` Running https://svelte-promise-modals.com/ website
+- `pnpm -F test-app dev` Running the `test-app` which contains modal testing scenarios. Also used for automated testing using Playwright, including Visual testing.
+- `pnpm test` Run Unit and E2E tests.
+- `pnpm -F test-app test:e2e` Run only E2E tests
+- `pnpm test:visual` Run only E2E tests inside docker *preferred* method to make sure screenshots are consistent across platforms.
+
 ```bash
-npm run dev
+pnpm -F svelte-promise-modals dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm -F svelte-promise-modals dev -- --open
 ```
+
+
 
 ## License
 

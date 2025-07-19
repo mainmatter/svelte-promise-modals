@@ -9,6 +9,7 @@ test('it renders', async ({ page }) => {
 test('it opens user modal', async ({ page }) => {
 	await page.goto('/demo');
 	await expect(page.getByTestId('user-modal')).not.toBeVisible();
+  await expect(page).toHaveScreenshot({ fullPage: true });
 	await page.getByTestId('open:user-modal').click();
 	await expect(page.getByTestId('user-modal')).toBeVisible();
 });

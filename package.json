@@ -9,15 +9,16 @@
     "changelog": "lerna-changelog",
     "test": "pnpm -F svelte-promise-modals test:unit --run && pnpm -F test-app test:e2e",
     "lint": "prettier --check . && eslint .",
-    "format": "prettier --write . &&  eslint . --fix"
+    "format": "prettier --write . &&  eslint . --fix",
+    "test:visual": "pnpm docker:build && pnpm docker:e2e",
+    "docker:build": "docker buildx build . --build-arg \"DOCKER_USER=$(id -u):$(id -g)\" -f dev.Dockerfile --tag spm-visual --load",
+    "docker:e2e": "docker run -v \"$(pwd)/:/app\" -u $(id -u):$(id -g) -it --rm spm-visual pnpm -F test-app test:e2e"
   },
   "engines": {
     "node": ">=16"
   },
-  "pnpm": {
-    "packageManager": "pnpm@^9.7.0",
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  }
+  "devDependencies": {
+     "playwright": "^1.53.0"
+  },
+  "packageManager": "pnpm@9.7.0"
 }
