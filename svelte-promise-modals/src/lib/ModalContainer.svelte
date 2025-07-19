@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte';
-  import { run } from 'svelte/legacy';
 
   import Modal from './Modal.svelte';
   import { animating, destroyModals, stack, updateOptions } from './service.svelte';
@@ -9,10 +8,12 @@
     options?: Record<string, any>;
   }
 
-  let { options = {} }: Props = $props();
+  let { options }: Props = $props();
 
-  run(() => {
-    updateOptions(options);
+  $effect(() => {
+    if (options) {
+      updateOptions(options);
+    }
   });
 
   onMount(() => {
