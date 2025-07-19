@@ -61,25 +61,11 @@ export const createOpenModal = () => {
     }
   });
 
-  function scopedOpenModal<T extends Component<any>>(
-    component: T,
-    props?: null,
-    options?: ModalOptions
-  ): Modal<T>;
-  function scopedOpenModal<T extends Component<any>>(
-    component: T,
-    props: T extends Component<infer P> ? PropsWithoutCloseModal<P> : never,
-    options?: ModalOptions
-  ): Modal<T>;
-  function scopedOpenModal<T extends Component<any>>(
-    component: T,
-    props?: any,
-    options?: ModalOptions
-  ): Modal<T> {
+  const scopedOpenModal: typeof openModal = (component, props, options) => {
     let modal = openModal(component, props as any, options);
     modals.push(modal);
     return modal;
-  }
+  };
 
   return scopedOpenModal;
 };

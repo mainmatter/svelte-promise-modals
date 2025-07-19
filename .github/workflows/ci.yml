@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: pnpm install
-      - run: pnpm check
+      - run: cp svelte-promise-modals/.env.example svelte-promise-modals/.env && pnpm -F svelte-promise-modals build && pnpm check
 
   tests_e2e:
     name: Run end-to-end tests
