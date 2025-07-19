@@ -6,22 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
 		<link href="./app/immutable/assets/2.BR3LI5G6.css" rel="stylesheet">
-		<link rel="modulepreload" href="./app/immutable/entry/start.BgX3oGcJ.js">
-		<link rel="modulepreload" href="./app/immutable/chunks/DEG1mIeR.js">
+		<link rel="modulepreload" href="./app/immutable/entry/start.B-kobWgj.js">
+		<link rel="modulepreload" href="./app/immutable/chunks/DdKLFocO.js">
 		<link rel="modulepreload" href="./app/immutable/chunks/DXy7WX_B.js">
 		<link rel="modulepreload" href="./app/immutable/chunks/BTSyyCO4.js">
-		<link rel="modulepreload" href="./app/immutable/entry/app.BNyN6OHw.js">
+		<link rel="modulepreload" href="./app/immutable/entry/app.Cu9YusbJ.js">
 		<link rel="modulepreload" href="./app/immutable/chunks/CqnfhJY9.js">
 		<link rel="modulepreload" href="./app/immutable/chunks/CWj6FrbW.js">
 		<link rel="modulepreload" href="./app/immutable/nodes/0.B4DxO9rB.js">
-		<link rel="modulepreload" href="./app/immutable/nodes/2.8eIb-et-.js">
+		<link rel="modulepreload" href="./app/immutable/nodes/2.BfQgEH0m.js">
 		<link rel="modulepreload" href="./app/immutable/chunks/BxrnadnF.js"><!--[--><meta property="og:title" content="Svelte Promise Modals"/> <meta property="og:site_name" content="Svelte Promise Modals - Modals made easy."/> <meta property="og:url" content="https://svelte-promise-modals.com/"/> <meta property="og:description" content="svelte-promise-modals is the out-of-the-box, fully customizable package that makes it safe and easy to handle opening and closing modal dialogs and get results from them, written in TypeScript."/> <meta property="og:type" content="website"/> <meta property="og:image" content="https://svelte-promise-modals.com/app/immutable/assets/og-image.DLoH6x9J.png"/> <meta name="twitter:card" content="summary_large_image"/> <script defer data-domain="svelte-promise-modals.com" src="https://plausible.io/js/script.js"></script><!--]--><title>Svelte Promise Modals</title>
   </head>
   <body>
     <div><!--[--><!--[--><!----><!----><header><div><img src="/app/immutable/assets/Crossedfingers.Yf0yQk92.svg" alt="An emoji showing crossed fingers" role="presentation" id="crossedfingers"/> <span class="visually-hidden">svelte-promise-modals</span></div> <h1><span class="svelte">Svelte</span><span class="translateNeg">Promise</span><span class="translatePos">Modals</span></h1></header> <main><div class="note"><p>Modals in Svelte made easy. <span class="whitespace-nowrap">Promised.🤞</span></p></div> <div class="preview"><h2>Example for <strong>the modal</strong></h2> <button type="button" data-testid="open-foo">A simple modal with a button to close it</button></div> <pre class="language-svelte svelte-9bhf5q"><code><!----><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> <span class="token punctuation">{</span> openModal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'svelte-promise-modals'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">{</span> createOpenModal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'svelte-promise-modals'</span><span class="token punctuation">;</span>
   <span class="token keyword">import</span> FooComponent <span class="token keyword">from</span> <span class="token string">'./FooComponent.svelte'</span><span class="token punctuation">;</span>
 
+  <span class="token keyword">const</span> openModal <span class="token operator">=</span> <span class="token function">createOpenModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">openFooModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">openModal</span><span class="token punctuation">(</span>FooComponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Whatever the modal returned when it was closed</span>
@@ -34,15 +35,15 @@
 			
 			<script>
 				{
-					__sveltekit_2bmy9n = {
+					__sveltekit_r0dl3q = {
 						base: new URL(".", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("./app/immutable/entry/start.BgX3oGcJ.js"),
-						import("./app/immutable/entry/app.BNyN6OHw.js")
+						import("./app/immutable/entry/start.B-kobWgj.js"),
+						import("./app/immutable/entry/app.Cu9YusbJ.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
