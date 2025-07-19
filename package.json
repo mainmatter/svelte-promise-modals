@@ -17,8 +17,5 @@
   "engines": {
     "node": ">=16"
   },
-  "devDependencies": {
-     "playwright": "^1.53.0"
-  },
   "packageManager": "pnpm@9.7.0"
 }

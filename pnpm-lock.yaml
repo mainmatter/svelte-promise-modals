@@ -6,11 +6,7 @@ settings:
 
 importers:
 
-  .:
-    devDependencies:
-      playwright:
-        specifier: ^1.53.0
-        version: 1.53.2
+  .: {}
 
   svelte-promise-modals:
     dependencies:
