@@ -9,28 +9,34 @@ test('it renders', async ({ page }) => {
 test('it opens user modal', async ({ page }) => {
 	await page.goto('/demo');
 	await expect(page.getByTestId('user-modal')).not.toBeVisible();
-  await expect(page).toHaveScreenshot({ fullPage: true });
+	await expect(page).toHaveScreenshot({ fullPage: true });
 	await page.getByTestId('open:user-modal').click();
 	await expect(page.getByTestId('user-modal')).toBeVisible();
 });
 
-  test('removing the parent component removes the modal as well', async ({ page }) => {
-	  await page.goto('/demo');
+test('removing the parent component removes the modal as well', async ({ page }) => {
+	await page.goto('/demo');
 
-    await expect(page.getByTestId('backdrop')).toBeHidden();
-    await expect(page.getByTestId('spm-modal')).toBeHidden();
+	await expect(page.getByTestId('backdrop')).toBeHidden();
+	await expect(page.getByTestId('spm-modal')).toBeHidden();
 
-    await page.getByTestId("open:inner-modal").click();
+	await page.getByTestId('open:inner-modal').click();
 
-    await expect(page.getByTestId('backdrop')).toBeVisible();
-    await expect(page.getByTestId('spm-modal')).toBeVisible();
+	await expect(page.getByTestId('backdrop')).toBeVisible();
+	await expect(page.getByTestId('spm-modal')).toBeVisible();
 
-    await page.evaluateHandle(() => (window.document.querySelector("[data-testid='toggle:wrapper-visibility']") as HTMLButtonElement).click());
-  await page.waitForTimeout(500);
+	await page.evaluateHandle(() =>
+		(
+			window.document.querySelector(
+				"[data-testid='toggle:wrapper-visibility']"
+			) as HTMLButtonElement
+		).click()
+	);
+	await page.waitForTimeout(500);
 
-    await expect(page.getByTestId('backdrop')).toBeHidden();
-    await expect(page.getByTestId('spm-modal')).toBeHidden();
-  });
+	await expect(page.getByTestId('backdrop')).toBeHidden();
+	await expect(page.getByTestId('spm-modal')).toBeHidden();
+});
 
 test('it opens save-user modal and displays output', async ({ page }) => {
 	await page.goto('/demo');
@@ -42,7 +48,8 @@ test('it opens save-user modal and displays output', async ({ page }) => {
 
 	const preOutput = page.getByTestId('output:user-modal');
 	await expect(preOutput).toBeVisible();
-  await expect(JSON.parse((await preOutput.textContent()) as string)).toStrictEqual({ id: 'a-b-c', name: 'Saved user'});
-
+	await expect(JSON.parse((await preOutput.textContent()) as string)).toStrictEqual({
+		id: 'a-b-c',
+		name: 'Saved user'
+	});
 });
-

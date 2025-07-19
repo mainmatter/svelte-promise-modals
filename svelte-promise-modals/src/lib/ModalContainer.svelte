@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
-
   import { onDestroy, onMount } from 'svelte';
+  import { run } from 'svelte/legacy';
 
   import Modal from './Modal.svelte';
   import { animating, destroyModals, stack, updateOptions } from './service.svelte';

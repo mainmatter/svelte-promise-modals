@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { useModalContext } from 'svelte-promise-modals';
-  interface Props {
-    children?: import('svelte').Snippet<[any]>;
-  }
+	import { useModalContext } from 'svelte-promise-modals';
+	interface Props {
+		children?: import('svelte').Snippet<[any]>;
+	}
 
-  let { children }: Props = $props();
+	let { children }: Props = $props();
 
-  let { openModal } = useModalContext();
+	let { openModal } = useModalContext();
 </script>
 
-{@render children?.({ openModal, })}
+{@render children?.({ openModal })}

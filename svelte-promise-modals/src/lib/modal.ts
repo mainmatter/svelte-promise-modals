@@ -1,6 +1,5 @@
 import type { Component } from 'svelte';
 
-import type ModalComponent from './Modal.svelte';
 import { removeFromStack } from './service.svelte';
 import type { CloseModalFnValue, ModalOptions, PropsWithoutCloseModal } from './types';
 import { defer, type Deferred } from './utils';

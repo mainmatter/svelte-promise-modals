@@ -1,5 +1,5 @@
 import deepmerge from 'deepmerge';
-import { onDestroy, type Component } from 'svelte';
+import { type Component, onDestroy } from 'svelte';
 import { derived, get, writable } from 'svelte/store';
 
 import { Modal } from './modal';
@@ -50,7 +50,7 @@ export const createOpenModal = () => {
     let modal = openModal(...args);
     modals.push(modal);
     return modal;
-  }
+  };
 };
 
 export function useModalContext() {
