@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright:v1.53.1-noble AS base
+FROM mcr.microsoft.com/playwright:v1.54.1-noble AS base
 ARG DOCKER_USER
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
