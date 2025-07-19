@@ -4,7 +4,6 @@ on:
 
 env:
   NODE_VERSION: 20
-  PUBLIC_BASE_URL: http://localhost:5173
 
 jobs:
   lint:
@@ -30,7 +29,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: pnpm install
-      - run: pnpm test:visual
+      - run: cp svelte-promise-modals/.env.example svelte-promise-modals/.env && pnpm test:visual
 
   tests_unit:
     name: Run unit tests
