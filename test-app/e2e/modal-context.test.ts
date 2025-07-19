@@ -12,7 +12,9 @@ test.describe('Modal context', () => {
 		await expect(page.getByTestId('backdrop')).toBeHidden();
 		await expect(page.getByTestId('spm-modal')).toBeHidden();
 
+		await expect(page).toHaveScreenshot({ fullPage: true });
 		await page.getByTestId('open-modal-using-context-button').click();
+		await expect(page).toHaveScreenshot({ fullPage: true });
 
 		await expect(page.getByTestId('backdrop')).toBeVisible();
 		await expect(page.getByTestId('spm-modal')).toBeVisible();
@@ -25,6 +27,7 @@ test.describe('Modal context', () => {
 		});
 
 		await page.keyboard.press('Escape');
+		await expect(page).toHaveScreenshot({ fullPage: true });
 
 		await expect(page.getByTestId('spm-modal')).toBeHidden();
 	});

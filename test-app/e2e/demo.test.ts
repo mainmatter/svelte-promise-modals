@@ -12,6 +12,7 @@ test('it opens user modal', async ({ page }) => {
 	await expect(page).toHaveScreenshot({ fullPage: true });
 	await page.getByTestId('open:user-modal').click();
 	await expect(page.getByTestId('user-modal')).toBeVisible();
+	await expect(page).toHaveScreenshot({ fullPage: true });
 });
 
 test('removing the parent component removes the modal as well', async ({ page }) => {
@@ -20,10 +21,12 @@ test('removing the parent component removes the modal as well', async ({ page })
 	await expect(page.getByTestId('backdrop')).toBeHidden();
 	await expect(page.getByTestId('spm-modal')).toBeHidden();
 
+	await expect(page).toHaveScreenshot({ fullPage: true });
 	await page.getByTestId('open:inner-modal').click();
 
 	await expect(page.getByTestId('backdrop')).toBeVisible();
 	await expect(page.getByTestId('spm-modal')).toBeVisible();
+	await expect(page).toHaveScreenshot({ fullPage: true });
 
 	await page.evaluateHandle(() =>
 		(
@@ -33,6 +36,7 @@ test('removing the parent component removes the modal as well', async ({ page })
 		).click()
 	);
 	await page.waitForTimeout(500);
+	await expect(page).toHaveScreenshot({ fullPage: true });
 
 	await expect(page.getByTestId('backdrop')).toBeHidden();
 	await expect(page.getByTestId('spm-modal')).toBeHidden();
@@ -52,4 +56,5 @@ test('it opens save-user modal and displays output', async ({ page }) => {
 		id: 'a-b-c',
 		name: 'Saved user'
 	});
+	await expect(page).toHaveScreenshot({ fullPage: true });
 });

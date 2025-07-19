@@ -139,7 +139,9 @@ test.describe('Focus trap', () => {
 		await page.goto('/testing?containerOnDeactivate=true');
 
 		await page.getByText('Open Modal').click();
+		await expect(page).toHaveScreenshot({ fullPage: true });
 		await page.keyboard.press('Escape');
+		await expect(page).toHaveScreenshot({ fullPage: true });
 		expect(await readPreContent(page, 'focus-trap-deactivate')).toStrictEqual([]);
 	});
 
