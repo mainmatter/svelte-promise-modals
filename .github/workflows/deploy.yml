@@ -24,7 +24,7 @@ jobs:
       - name: Install and Build 🔧
         run: |
           pnpm install
-          pnpm build
+          pnpm -F svelte-promise-modals build
         env:
           PUBLIC_BASE_URL: https://svelte-promise-modals.com
 

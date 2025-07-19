@@ -23,14 +23,14 @@ jobs:
         run: pnpm install
 
       - name: build
-        run: pnpm run build
+        run: pnpm -F svelte-promise-modals build
         env:
           PUBLIC_BASE_URL: https://svelte-promise-modals.com
 
       - name: Set publishing config
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: cd svelte-promise-modals && pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: publish to npm
-        run: pnpm publish
+        run: cd svelte-promise-modals && pnpm publish

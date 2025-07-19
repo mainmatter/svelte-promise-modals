@@ -5,11 +5,11 @@
   "scripts": {
     "prepare": "svelte-kit sync",
     "dev": "vite dev",
-    "build": "vite build && npm run package",
     "preview": "vite preview",
+    "build": "vite build && pnpm package",
     "package": "svelte-kit sync && svelte-package && publint",
     "release": "release-it",
-    "prepublishOnly": "npm run package",
+    "prepublishOnly": "pnpm package",
     "changelog": "lerna-changelog",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",

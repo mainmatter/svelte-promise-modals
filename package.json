@@ -5,7 +5,6 @@
   "repository": "https://github.com/mainmatter/svelte-promise-modals",
   "scripts": {
     "release": "release-it",
-    "prepublishOnly": "npm run package",
     "changelog": "lerna-changelog",
     "test": "pnpm -F svelte-promise-modals test:unit --run && pnpm -F test-app test:e2e",
     "lint": "pnpm -r /lint/",
