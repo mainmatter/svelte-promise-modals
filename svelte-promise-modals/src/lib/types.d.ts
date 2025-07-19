@@ -10,7 +10,7 @@ export type ModalOptions = {
 export type FocusTrapOptions = FocusTrapOptions;
 
 export type CloseModalFn<T = void> = (value: T) => void;
-export type PropsWithoutCloseModal<T extends Component> = Omit<T, 'closeModal'>;
+export type PropsWithoutCloseModal<T> = Omit<T, 'closeModal'>;
 export type CloseModalValueParamType<T> = T extends { closeModal: CloseModalFn<infer Value> }
   ? Value
   : never;
