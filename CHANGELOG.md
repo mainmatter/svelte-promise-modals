@@ -1,5 +1,19 @@
 # Changelog
 
+## Release (2025-07-19)
+
+svelte-promise-modals 1.0.0 (major)
+
+#### :boom: Breaking Change
+* `svelte-promise-modals`, `test-app`
+  * [#124](https://github.com/mainmatter/svelte-promise-modals/pull/124) Breaking: Monorepo. Svelte 5 migration. Visual testing ([@BobrImperator](https://github.com/BobrImperator))
+
+#### :house: Internal
+* [#126](https://github.com/mainmatter/svelte-promise-modals/pull/126) chore(release): add release-plan ([@BobrImperator](https://github.com/BobrImperator))
+
+#### Committers: 1
+- Bartlomiej Dudzik ([@BobrImperator](https://github.com/BobrImperator))
+
 
 
 ## v0.1.5 (2025-01-31)
