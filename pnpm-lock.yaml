@@ -16,7 +16,7 @@ importers:
         version: 2.2.0
       playwright:
         specifier: ^1.53.0
-        version: 1.53.2
+        version: 1.54.1
       release-it:
         specifier: 18.1.2
         version: 18.1.2(@types/node@20.12.11)(typescript@5.8.3)
@@ -34,8 +34,8 @@ importers:
         version: 7.3.1
     devDependencies:
       '@playwright/test':
-        specifier: 1.40.1
-        version: 1.40.1
+        specifier: 1.54.1
+        version: 1.54.1
       '@release-it-plugins/lerna-changelog':
         specifier: ^6.1.0
         version: 6.1.0(release-it@17.0.1(typescript@5.8.3))
@@ -156,7 +156,7 @@ importers:
         version: 9.30.1
       '@playwright/test':
         specifier: ^1.49.1
-        version: 1.53.2
+        version: 1.54.1
       '@sveltejs/adapter-auto':
         specifier: ^6.0.0
         version: 6.0.1(@sveltejs/kit@2.22.2(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.35.2)(vite@6.3.5(@types/node@20.12.11)))(svelte@5.35.2)(vite@6.3.5(@types/node@20.12.11)))
@@ -168,7 +168,7 @@ importers:
         version: 5.1.0(svelte@5.35.2)(vite@6.3.5(@types/node@20.12.11))
       '@vitest/browser':
         specifier: ^3.2.3
-        version: 3.2.4(playwright@1.53.2)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
+        version: 3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
       eslint:
         specifier: ^9.18.0
         version: 9.30.1
@@ -183,7 +183,7 @@ importers:
         version: 16.3.0
       playwright:
         specifier: ^1.53.0
-        version: 1.53.2
+        version: 1.54.1
       prettier:
         specifier: ^3.4.2
         version: 3.6.2
@@ -210,7 +210,7 @@ importers:
         version: 3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0)
       vitest-browser-svelte:
         specifier: ^0.1.0
-        version: 0.1.0(@vitest/browser@3.2.4(playwright@1.53.2)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4))(svelte@5.35.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0))
+        version: 0.1.0(@vitest/browser@3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4))(svelte@5.35.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0))
 
 packages:
 
@@ -1219,14 +1219,8 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.40.1':
-    resolution: {integrity: sha512-EaaawMTOeEItCRvfmkI9v6rBkF1svM8wjl/YPRrg2N2Wmp+4qJYkWtJsbew1szfKKDm6fPLy4YAanBhIlf9dWw==}
-    engines: {node: '>=16'}
-    deprecated: Please update to the latest version of Playwright to test up-to-date browsers.
-    hasBin: true
-
-  '@playwright/test@1.53.2':
-    resolution: {integrity: sha512-tEB2U5z74ebBeyfGNZ3Jfg29AnW+5HlWhvHtb/Mqco9pFdZU1ZLNdVb2UtB5CvmiilNr2ZfVH/qMmAROG/XTzw==}
+  '@playwright/test@1.54.1':
+    resolution: {integrity: sha512-FS8hQ12acieG2dYSksmLOF7BNxnVf2afRJdCuM1eMSxj6QTSE6G4InGF7oApGgDb65MX7AwMVlIkpru0yZA4Xw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4348,23 +4342,13 @@ packages:
   pkg-types@1.0.3:
     resolution: {integrity: sha512-nN7pYi0AQqJnoLPC9eHFQ8AcyaixBUOwvqc5TDnIKCMEE6I0y8P7OKA7fPexsXGCGxQDl/cmrLAp26LhcwxZ4A==}
 
-  playwright-core@1.40.1:
-    resolution: {integrity: sha512-+hkOycxPiV534c4HhpfX6yrlawqVUzITRKwHAmYfmsVreltEl6fAZJ3DPfLMOODw0H3s1Itd6MDCWmP1fl/QvQ==}
-    engines: {node: '>=16'}
-    hasBin: true
-
-  playwright-core@1.53.2:
-    resolution: {integrity: sha512-ox/OytMy+2w1jcYEYlOo1Hhp8hZkLCximMTUTMBXjGUA1KoFfiSZ+DU+3a739jsPY0yoKH2TFy9S2fsJas8yAw==}
+  playwright-core@1.54.1:
+    resolution: {integrity: sha512-Nbjs2zjj0htNhzgiy5wu+3w09YetDx5pkrpI/kZotDlDUaYk0HVA5xrBVPdow4SAUIlhgKcJeJg4GRKW6xHusA==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.40.1:
-    resolution: {integrity: sha512-2eHI7IioIpQ0bS1Ovg/HszsN/XKNwEG1kbzSDDmADpclKc7CyqkHw7Mg2JCz/bbCxg25QUPcjksoMW7JcIFQmw==}
-    engines: {node: '>=16'}
-    hasBin: true
-
-  playwright@1.53.2:
-    resolution: {integrity: sha512-6K/qQxVFuVQhRQhFsVZ9fGeatxirtrpPgxzBYWyZLEXJzqYwuL4fuNmfOfD5et1tJE4GScKyPNeLhZeRwuTU3A==}
+  playwright@1.54.1:
+    resolution: {integrity: sha512-peWpSwIBmSLi6aW2auvrUtf2DqY16YYcCMO8rTVx486jKmDTJg7UAhyrraP98GB8BoPURZP8+nxO7TSd4cPr5g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -6667,13 +6651,9 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@playwright/test@1.40.1':
+  '@playwright/test@1.54.1':
     dependencies:
-      playwright: 1.40.1
-
-  '@playwright/test@1.53.2':
-    dependencies:
-      playwright: 1.53.2
+      playwright: 1.54.1
 
   '@pnpm/config.env-replace@1.1.0': {}
 
@@ -7263,7 +7243,7 @@ snapshots:
       '@typescript-eslint/types': 8.35.1
       eslint-visitor-keys: 4.2.1
 
-  '@vitest/browser@3.2.4(playwright@1.53.2)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)':
+  '@vitest/browser@3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)':
     dependencies:
       '@testing-library/dom': 10.4.0
       '@testing-library/user-event': 14.6.1(@testing-library/dom@10.4.0)
@@ -7275,7 +7255,7 @@ snapshots:
       vitest: 3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0)
       ws: 8.18.3
     optionalDependencies:
-      playwright: 1.53.2
+      playwright: 1.54.1
     transitivePeerDependencies:
       - bufferutil
       - msw
@@ -10450,19 +10430,11 @@ snapshots:
       mlly: 1.4.2
       pathe: 1.1.1
 
-  playwright-core@1.40.1: {}
+  playwright-core@1.54.1: {}
 
-  playwright-core@1.53.2: {}
-
-  playwright@1.40.1:
+  playwright@1.54.1:
     dependencies:
-      playwright-core: 1.40.1
-    optionalDependencies:
-      fsevents: 2.3.2
-
-  playwright@1.53.2:
-    dependencies:
-      playwright-core: 1.53.2
+      playwright-core: 1.54.1
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -11546,9 +11518,9 @@ snapshots:
     optionalDependencies:
       vite: 6.3.5(@types/node@20.12.11)
 
-  vitest-browser-svelte@0.1.0(@vitest/browser@3.2.4(playwright@1.53.2)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4))(svelte@5.35.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0)):
+  vitest-browser-svelte@0.1.0(@vitest/browser@3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4))(svelte@5.35.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0)):
     dependencies:
-      '@vitest/browser': 3.2.4(playwright@1.53.2)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
+      '@vitest/browser': 3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
       svelte: 5.35.2
       vitest: 3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0)
 
@@ -11616,7 +11588,7 @@ snapshots:
     optionalDependencies:
       '@types/debug': 4.1.12
       '@types/node': 20.12.11
-      '@vitest/browser': 3.2.4(playwright@1.53.2)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
+      '@vitest/browser': 3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
       jsdom: 24.0.0
     transitivePeerDependencies:
       - jiti
