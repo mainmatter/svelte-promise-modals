@@ -103,5 +103,4 @@
   {JSON.stringify(deactivateState)}
 </pre>
 
-<!-- eslint-disable-next-line -->
 <ModalContainer options={modalContainerOptions} />

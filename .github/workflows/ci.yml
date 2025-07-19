@@ -18,6 +18,18 @@ jobs:
       - run: pnpm install
       - run: pnpm lint
 
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: wyvox/action-setup-pnpm@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: pnpm install
+      - run: pnpm check
+
   tests_e2e:
     name: Run end-to-end tests
     runs-on: ubuntu-latest

@@ -9,6 +9,7 @@
     "test": "pnpm -F svelte-promise-modals test:unit --run && pnpm -F test-app test:e2e",
     "lint": "pnpm -r /lint/",
     "format": "pnpm -r /format/",
+    "check": "pnpm -r /check/",
     "test:visual": "pnpm docker:build && pnpm docker:e2e",
     "docker:build": "docker buildx build . --build-arg \"DOCKER_USER=$(id -u):$(id -g)\" -f dev.Dockerfile --tag spm-visual --load",
     "docker:e2e": "docker run -v \"$(pwd)/:/app\" -u $(id -u):$(id -g) -i --rm spm-visual pnpm -F test-app test:e2e"

@@ -10,7 +10,8 @@ describe('Service', () => {
   });
 
   // We don't need real components here, any object we can uniquely reference to will do
-  let TestComponent = {} as Component<{ closeModal: (value?: unknown) => string }>;
+  type TestProps = { closeModal: (value?: string) => void };
+  let TestComponent = {} as Component<TestProps> & { closeModal: (value?: string) => void };
 
   it('basics', () => {
     expect(get(count), '#count').toBe(0);
