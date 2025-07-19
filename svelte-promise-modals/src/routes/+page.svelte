@@ -6,7 +6,7 @@
 
   import { PUBLIC_BASE_URL } from '$env/static/public';
   import ModalContainer from '$lib/ModalContainer.svelte';
-  import { openModal } from '$lib/service.svelte';
+  import { createOpenModal } from '$lib/service.svelte';
   import type { ModalOptions } from '$lib/types';
 
   import crossedFingers from './assets/Crossedfingers.svg';
@@ -20,6 +20,7 @@
 
   let ogImageURL = PUBLIC_BASE_URL + ogimage;
 
+  const openModal = createOpenModal();
   async function openFooModal(data?: unknown, options?: ModalOptions) {
     let result = await openModal(FooComponent, { data }, options);
     console.log(`Modal result: ${JSON.stringify(result)}`);
@@ -83,9 +84,10 @@
   <SyntaxHighlight
     code={dedent`
     <script>
-      import { openModal } from 'svelte-promise-modals';
+      import { createOpenModal } from 'svelte-promise-modals';
       import FooComponent from './FooComponent.svelte';
 
+      const openModal = createOpenModal();
       async function openFooModal() {
         let result = await openModal(FooComponent);
         console.log(result); // Whatever the modal returned when it was closed

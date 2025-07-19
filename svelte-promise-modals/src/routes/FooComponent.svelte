@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { openModal } from '$lib/service.svelte';
+  import { createOpenModal } from '$lib/service.svelte';
 
   import BarComponent from './BarComponent.svelte';
 
@@ -8,6 +8,7 @@
     closeModal: any;
   }
 
+  const openModal = createOpenModal();
   let { data, closeModal }: Props = $props();
 </script>
 
