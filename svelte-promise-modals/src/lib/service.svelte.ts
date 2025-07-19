@@ -53,37 +53,6 @@ export const createOpenModal = () => {
   };
 };
 
-export function useModalContext() {
-  let modals: Modal<any>[] = [];
-
-  onDestroy(() => {
-    while (modals.length) {
-      modals.pop()?.destroy();
-    }
-  });
-
-  return {
-    openModal<T extends Component>(
-      ...args: Parameters<typeof openModal<T>>
-    ): ReturnType<typeof openModal<T>> {
-      let modal = openModal(...args);
-
-      modals.push(modal);
-
-      modal.then((value) => {
-        let modalIndex = modals.indexOf(modal);
-        if (modalIndex > -1) {
-          modals.splice(modalIndex, 1);
-        }
-
-        return value;
-      });
-
-      return modal;
-    },
-  };
-}
-
 export const removeFromStack = (modal: unknown) => {
   stack.update(($stack) => $stack.filter((m) => m !== modal));
 };

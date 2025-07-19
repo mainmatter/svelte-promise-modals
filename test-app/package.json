@@ -4,6 +4,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
+		"prebuild": "pnpm -F svelte-promise-modals build",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",

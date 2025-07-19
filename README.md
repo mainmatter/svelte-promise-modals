@@ -34,13 +34,19 @@ To use SPM in your project, add the target for the modals to your root template:
 <ModalContainer />
 ```
 
-Then you can import the `openModal` function wherever you need it and call with a component reference to
-render it as a modal.
+Then you can import the `createOpenModal` function that you need to call at the _root_ level of a component.
+It produces a function that you can finally use to open modals.
+```ts
+	import { createOpenModal } from 'svelte-promise-modals';
+  let openModal = createOpenModal();
+```
 
 ```svelte
 <script>
-  import { openModal } from 'svelte-promise-modals';
+	import { createOpenModal } from 'svelte-promise-modals';
   import SomeComponent from './SomeComponent.svelte';
+
+	let openModal = createOpenModal();
 
   async function handleOpenModal() {
     let modal = openModal(SomeComponent);
@@ -115,8 +121,10 @@ Then when you open the modal, it'll correctly infer the type of the result:
 
 ```svelte
 <script lang="ts">
-  import { openModal } from 'svelte-promise-modals';
+  import { createOpenModal } from 'svelte-promise-modals';
   import MyModal from './MyModal.svelte';
+	
+  let openModal = createOpenModal();
 
   async function handleOpenModal() {
     // You can specify `string` here, but it's also automatically inferred
@@ -154,9 +162,9 @@ unrendered.
 
 ```svelte
 <script>
-  import { useModalContext } from 'svelte-promise-modals';
+  import { createOpenModal } from 'svelte-promise-modals';
 
-  let { openModal } = useModalContext();
+  let openModal = createOpenModal();
 
   async function handleOpenModal() {
     let result = await openModal(FooModal);
