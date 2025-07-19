@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: pnpm install
-      - run: pnpm -F test-app test:e2e
+      - run: pnpm test:visual
 
   tests_unit:
     name: Run unit tests
