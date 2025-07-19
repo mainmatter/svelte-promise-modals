@@ -1,17 +1,17 @@
 {
   "solution": {
     "svelte-promise-modals": {
-      "impact": "major",
-      "oldVersion": "0.1.5",
-      "newVersion": "1.0.0",
+      "impact": "patch",
+      "oldVersion": "1.0.0",
+      "newVersion": "1.0.1",
       "constraints": [
         {
-          "impact": "major",
-          "reason": "Appears in changelog section :boom: Breaking Change"
+          "impact": "patch",
+          "reason": "Appears in changelog section :bug: Bug Fix"
         }
       ],
       "pkgJSONPath": "./svelte-promise-modals/package.json"
     }
   },
-  "description": "## Release (2025-07-19)\n\nsvelte-promise-modals 1.0.0 (major)\n\n#### :boom: Breaking Change\n* `svelte-promise-modals`, `test-app`\n  * [#124](https://github.com/mainmatter/svelte-promise-modals/pull/124) Breaking: Monorepo. Svelte 5 migration. Visual testing ([@BobrImperator](https://github.com/BobrImperator))\n\n#### :house: Internal\n* [#126](https://github.com/mainmatter/svelte-promise-modals/pull/126) chore(release): add release-plan ([@BobrImperator](https://github.com/BobrImperator))\n\n#### Committers: 1\n- Bartlomiej Dudzik ([@BobrImperator](https://github.com/BobrImperator))\n"
+  "description": "## Release (2025-07-19)\n\nsvelte-promise-modals 1.0.1 (patch)\n\n#### :bug: Bug Fix\n* `svelte-promise-modals`, `test-app`\n  * [#129](https://github.com/mainmatter/svelte-promise-modals/pull/129) Fix typescript openmodal ([@BobrImperator](https://github.com/BobrImperator))\n\n#### Committers: 1\n- Bartlomiej Dudzik ([@BobrImperator](https://github.com/BobrImperator))\n"
 }

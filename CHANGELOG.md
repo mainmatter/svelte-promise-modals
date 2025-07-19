@@ -2,6 +2,17 @@
 
 ## Release (2025-07-19)
 
+svelte-promise-modals 1.0.1 (patch)
+
+#### :bug: Bug Fix
+* `svelte-promise-modals`, `test-app`
+  * [#129](https://github.com/mainmatter/svelte-promise-modals/pull/129) Fix typescript openmodal ([@BobrImperator](https://github.com/BobrImperator))
+
+#### Committers: 1
+- Bartlomiej Dudzik ([@BobrImperator](https://github.com/BobrImperator))
+
+## Release (2025-07-19)
+
 svelte-promise-modals 1.0.0 (major)
 
 #### :boom: Breaking Change
