@@ -1,8 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig, type UserConfig } from 'vite';
-import type { UserConfig as VitestConfig } from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 
-const config: UserConfig & { test: VitestConfig['test'] } = defineConfig(({ mode }) => ({
+const config = defineConfig(({ mode }) => ({
   plugins: [sveltekit()],
   define: {
     // Eliminate in-source test code

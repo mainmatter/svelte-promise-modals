@@ -11,12 +11,13 @@
 
 	const params = $page.url.searchParams;
 	const modalProps = params.get('modalProps') ? JSON.parse(params.get('modalProps')!) : {};
-	let modalContainerOptions = params.get('modalContainerOptions')
-		? JSON.parse(params.get('modalContainerOptions')!)
-		: {};
-	let openModalOptions = params.get('openModalOptions')
-		? JSON.parse(params.get('openModalOptions')!)
-		: {};
+	/* eslint-disable @typescript-eslint/no-explicit-any */
+	let modalContainerOptions = $state(
+		params.get('modalContainerOptions') ? JSON.parse(params.get('modalContainerOptions')!) : {}
+	) as any;
+	let openModalOptions = $state(
+		params.get('openModalOptions') ? JSON.parse(params.get('openModalOptions')!) : {}
+	) as any;
 
 	let activateState: unknown = $state();
 	let deactivateState: unknown = $state();

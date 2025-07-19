@@ -1,4 +1,4 @@
-import type { ComponentType, SvelteComponent } from 'svelte';
+import type { Component } from 'svelte';
 import { get } from 'svelte/store';
 import { afterEach, describe, expect, it } from 'vitest';
 
@@ -10,17 +10,18 @@ describe('Service', () => {
   });
 
   // We don't need real components here, any object we can uniquely reference to will do
-  let Component = {} as ComponentType<SvelteComponent<{ closeModal: (value?: unknown) => void }>>;
+  type TestProps = { closeModal: (value?: string) => void };
+  let TestComponent = {} as Component<TestProps> & { closeModal: (value?: string) => void };
 
   it('basics', () => {
     expect(get(count), '#count').toBe(0);
     expect(get(top), '#top').toBe(undefined);
 
-    let modal1 = openModal(Component, { foo: 'bar' });
+    let modal1 = openModal(TestComponent, { foo: 'bar' });
     expect(get(count), '#count').toBe(1);
     expect(get(top), '#top').toBe(modal1);
 
-    let modal2 = openModal(Component);
+    let modal2 = openModal(TestComponent);
     expect(get(count), '#count').toBe(2);
     expect(get(top), '#top').toBe(modal2);
 
@@ -34,7 +35,7 @@ describe('Service', () => {
   });
 
   it('modals can have results', () => {
-    let modal = openModal(Component);
+    let modal = openModal(TestComponent);
     expect(modal.result).toBe(undefined);
 
     modal.resolve('foo');
@@ -44,7 +45,7 @@ describe('Service', () => {
   });
 
   it('modals are promises', async () => {
-    let modal = openModal(Component);
+    let modal = openModal(TestComponent);
     let steps: string[] = [];
 
     modal.then(() => {
@@ -62,11 +63,11 @@ describe('Service', () => {
   });
 
   it('modals do not show up in openCount when closing', () => {
-    let modal = openModal(Component);
+    let modal = openModal(TestComponent);
 
     expect(get(count)).toBe(1);
 
-    modal.resolve();
+    modal.resolve(undefined);
 
     expect(get(count)).toBe(0);
 
@@ -79,7 +80,7 @@ describe('Service', () => {
     let steps = [];
 
     let modal = openModal(
-      Component,
+      TestComponent,
       {},
       {
         onAnimationModalOutEnd: () => {
@@ -90,7 +91,7 @@ describe('Service', () => {
 
     steps.push('modal open');
 
-    modal.resolve();
+    modal.resolve(undefined);
     steps.push('modal closing');
 
     modal.remove();

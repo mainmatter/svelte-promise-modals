@@ -25,17 +25,32 @@ export const updateOptions = (userOptions: Partial<ModalOptions>) => {
   }
 };
 
-export const openModal = <T extends Component>(
-  component: Component<T>,
-  props?: PropsWithoutCloseModal<T> | null, // `null` is a convenience for when you don't want to pass any props but do want to pass options
+// Overload for components that don't require props (or all props are optional)
+export function openModal<T extends Component<any>>(
+  component: T,
+  props?: null,
   options?: ModalOptions
-): Modal<T> => {
+): Modal<T>;
+
+// Overload for components that require props
+export function openModal<T extends Component<any>>(
+  component: T,
+  props: T extends Component<infer P> ? PropsWithoutCloseModal<P> : never,
+  options?: ModalOptions
+): Modal<T>;
+
+// Implementation
+export function openModal<T extends Component<any>>(
+  component: T,
+  props?: any,
+  options?: ModalOptions
+): Modal<T> {
   let modal: Modal<T> = new Modal(component, props ?? undefined, options) as Modal<T>;
 
   stack.update((modals) => [...modals, modal]);
 
   return modal;
-};
+}
 
 export const createOpenModal = () => {
   let modals: Modal<any>[] = [];
@@ -46,11 +61,13 @@ export const createOpenModal = () => {
     }
   });
 
-  return <T extends Component>(...args: Parameters<typeof openModal<T>>) => {
-    let modal = openModal(...args);
+  const scopedOpenModal: typeof openModal = (component, props, options) => {
+    let modal = openModal(component, props as any, options);
     modals.push(modal);
     return modal;
   };
+
+  return scopedOpenModal;
 };
 
 export const removeFromStack = (modal: unknown) => {
