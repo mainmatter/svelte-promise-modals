@@ -34,13 +34,19 @@ To use SPM in your project, add the target for the modals to your root template:
 <ModalContainer />
 ```
 
-Then you can import the `openModal` function wherever you need it and call with a component reference to
-render it as a modal.
+Then you can import the `createOpenModal` function that you need to call at the _root_ level of a component.
+It produces a function that you can finally use to open modals.
+```ts
+	import { createOpenModal } from 'svelte-promise-modals';
+  let openModal = createOpenModal();
+```
 
 ```svelte
 <script>
-  import { openModal } from 'svelte-promise-modals';
+	import { createOpenModal } from 'svelte-promise-modals';
   import SomeComponent from './SomeComponent.svelte';
+
+	let openModal = createOpenModal();
 
   async function handleOpenModal() {
     let modal = openModal(SomeComponent);
@@ -115,8 +121,10 @@ Then when you open the modal, it'll correctly infer the type of the result:
 
 ```svelte
 <script lang="ts">
-  import { openModal } from 'svelte-promise-modals';
+  import { createOpenModal } from 'svelte-promise-modals';
   import MyModal from './MyModal.svelte';
+	
+  let openModal = createOpenModal();
 
   async function handleOpenModal() {
     // You can specify `string` here, but it's also automatically inferred
@@ -154,9 +162,9 @@ unrendered.
 
 ```svelte
 <script>
-  import { useModalContext } from 'svelte-promise-modals';
+  import { createOpenModal } from 'svelte-promise-modals';
 
-  let { openModal } = useModalContext();
+  let openModal = createOpenModal();
 
   async function handleOpenModal() {
     let result = await openModal(FooModal);
@@ -337,12 +345,20 @@ In order to speed up modal in/out animations during testing, either:
 
 Once you've cloned the project and installed dependencies with `pnpm install`, start a development server:
 
+- `pnpm -F svelte-promise-modals dev` Running https://svelte-promise-modals.com/ website
+- `pnpm -F test-app dev` Running the `test-app` which contains modal testing scenarios. Also used for automated testing using Playwright, including Visual testing.
+- `pnpm test` Run Unit and E2E tests.
+- `pnpm -F test-app test:e2e` Run only E2E tests
+- `pnpm test:visual` Run only E2E tests inside docker *preferred* method to make sure screenshots are consistent across platforms.
+
 ```bash
-npm run dev
+pnpm -F svelte-promise-modals dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm -F svelte-promise-modals dev -- --open
 ```
+
+
 
 ## License
 
