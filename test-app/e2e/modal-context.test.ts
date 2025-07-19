@@ -20,8 +20,8 @@ test.describe('Modal context', () => {
 		await expect(page.getByTestId('spm-modal')).toBeVisible();
 
 		await page.waitForFunction(async () => {
-			let backdrop = document.querySelector('.spm-backdrop');
-			let { opacity } = window.getComputedStyle(backdrop);
+			const backdrop = document.querySelector('.spm-backdrop');
+			const { opacity } = window.getComputedStyle(backdrop);
 
 			return opacity === '1';
 		});

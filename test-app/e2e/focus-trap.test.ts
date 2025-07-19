@@ -14,8 +14,8 @@ test.describe('Focus trap', () => {
 
 		// Wait for the modal to open
 		await page.waitForFunction(async () => {
-			let modal = document.querySelector('.spm-modal');
-			let { opacity } = window.getComputedStyle(modal);
+			const modal = document.querySelector('.spm-modal');
+			const { opacity } = window.getComputedStyle(modal);
 
 			return opacity === '1';
 		});
@@ -51,8 +51,8 @@ test.describe('Focus trap', () => {
 
 		// Wait for the modal to open
 		await page.waitForFunction(async () => {
-			let modal = document.querySelector('.spm-modal');
-			let { opacity } = window.getComputedStyle(modal);
+			const modal = document.querySelector('.spm-modal');
+			const { opacity } = window.getComputedStyle(modal);
 
 			return opacity === '1';
 		});
@@ -75,8 +75,8 @@ test.describe('Focus trap', () => {
 
 		await page.getByTestId('open-modal-button').click();
 		await page.waitForFunction(async () => {
-			let modal = document.querySelector('.spm-modal');
-			let { opacity } = window.getComputedStyle(modal);
+			const modal = document.querySelector('.spm-modal');
+			const { opacity } = window.getComputedStyle(modal);
 
 			return opacity === '1';
 		});
@@ -154,6 +154,7 @@ test.describe('Focus trap', () => {
 	});
 });
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 async function readPreContent(page: Page, id: string): any {
 	try {
 		const content = (await page.getByTestId(id).textContent()) as any;

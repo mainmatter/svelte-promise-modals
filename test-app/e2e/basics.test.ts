@@ -18,13 +18,13 @@ test.describe('Basics', () => {
 		await expect(page.getByTestId('spm-modal')).toBeVisible();
 
 		await page.waitForFunction(async () => {
-			let backdrop = document.querySelector('.spm-backdrop');
-			let { opacity } = window.getComputedStyle(backdrop);
+			const backdrop = document.querySelector('.spm-backdrop');
+			const { opacity } = window.getComputedStyle(backdrop);
 
 			return opacity === '1';
 		});
 
-		let { pointerEvents } = await page
+		const { pointerEvents } = await page
 			.getByTestId('backdrop')
 			.evaluate((element) => window.getComputedStyle(element));
 
@@ -60,8 +60,8 @@ test.describe('Basics', () => {
 		await expect(page.getByTestId('spm-modal')).toBeVisible();
 
 		await page.waitForFunction(async () => {
-			let backdrop = document.querySelector('.spm-backdrop');
-			let { opacity } = window.getComputedStyle(backdrop);
+			const backdrop = document.querySelector('.spm-backdrop');
+			const { opacity } = window.getComputedStyle(backdrop);
 
 			return opacity === '1';
 		});
@@ -81,8 +81,8 @@ test.describe('Basics', () => {
 		await expect(page.getByTestId('spm-modal')).toBeVisible();
 
 		await page.waitForFunction(async () => {
-			let backdrop = document.querySelector('.spm-backdrop');
-			let { opacity } = window.getComputedStyle(backdrop);
+			const backdrop = document.querySelector('.spm-backdrop');
+			const { opacity } = window.getComputedStyle(backdrop);
 
 			return opacity === '1';
 		});
@@ -114,8 +114,8 @@ test.describe('Basics', () => {
 		await expect(page.getByTestId('spm-modal')).toBeVisible();
 
 		await page.waitForFunction(async () => {
-			let backdrop = document.querySelector('.spm-backdrop');
-			let { opacity } = window.getComputedStyle(backdrop);
+			const backdrop = document.querySelector('.spm-backdrop');
+			const { opacity } = window.getComputedStyle(backdrop);
 
 			return opacity === '1';
 		});

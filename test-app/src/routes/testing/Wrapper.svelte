@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { createOpenModal } from 'svelte-promise-modals';
 	interface Props {
+		/* eslint-disable @typescript-eslint/no-explicit-any */
 		children?: import('svelte').Snippet<[any]>;
 	}
 

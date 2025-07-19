@@ -54,6 +54,7 @@
 	}
 
 	onMount(() => {
+		/* eslint-disable @typescript-eslint/no-explicit-any */
 		let win: any = window;
 		win.handle = {} as Record<string, any>;
 
@@ -68,6 +69,7 @@
 	});
 
 	async function openFooModal() {
+		/* eslint-disable @typescript-eslint/no-explicit-any */
 		let result = await openModal(TestModal, modalProps, openModalOptions);
 		if (typeof window !== 'undefined') {
 			(window as any).resultCallback(result);
