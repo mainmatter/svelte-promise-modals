@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2025-07-20)
+
+svelte-promise-modals 1.0.2 (patch)
+
+#### :bug: Bug Fix
+* `svelte-promise-modals`
+  * [#132](https://github.com/mainmatter/svelte-promise-modals/pull/132) fix(release): missing readme and license ([@BobrImperator](https://github.com/BobrImperator))
+
+#### :house: Internal
+* `svelte-promise-modals`
+  * [#132](https://github.com/mainmatter/svelte-promise-modals/pull/132) fix(release): missing readme and license ([@BobrImperator](https://github.com/BobrImperator))
+
+#### Committers: 1
+- Bartlomiej Dudzik ([@BobrImperator](https://github.com/BobrImperator))
+
 ## Release (2025-07-19)
 
 svelte-promise-modals 1.0.1 (patch)
