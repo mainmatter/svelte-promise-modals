@@ -2,16 +2,20 @@
   "solution": {
     "svelte-promise-modals": {
       "impact": "patch",
-      "oldVersion": "1.0.0",
-      "newVersion": "1.0.1",
+      "oldVersion": "1.0.1",
+      "newVersion": "1.0.2",
       "constraints": [
         {
           "impact": "patch",
           "reason": "Appears in changelog section :bug: Bug Fix"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./svelte-promise-modals/package.json"
     }
   },
-  "description": "## Release (2025-07-19)\n\nsvelte-promise-modals 1.0.1 (patch)\n\n#### :bug: Bug Fix\n* `svelte-promise-modals`, `test-app`\n  * [#129](https://github.com/mainmatter/svelte-promise-modals/pull/129) Fix typescript openmodal ([@BobrImperator](https://github.com/BobrImperator))\n\n#### Committers: 1\n- Bartlomiej Dudzik ([@BobrImperator](https://github.com/BobrImperator))\n"
+  "description": "## Release (2025-07-20)\n\nsvelte-promise-modals 1.0.2 (patch)\n\n#### :bug: Bug Fix\n* `svelte-promise-modals`\n  * [#132](https://github.com/mainmatter/svelte-promise-modals/pull/132) fix(release): missing readme and license ([@BobrImperator](https://github.com/BobrImperator))\n\n#### :house: Internal\n* `svelte-promise-modals`\n  * [#132](https://github.com/mainmatter/svelte-promise-modals/pull/132) fix(release): missing readme and license ([@BobrImperator](https://github.com/BobrImperator))\n\n#### Committers: 1\n- Bartlomiej Dudzik ([@BobrImperator](https://github.com/BobrImperator))\n"
 }
