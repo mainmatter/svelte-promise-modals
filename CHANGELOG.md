@@ -2,6 +2,17 @@
 
 ## Release (2025-07-20)
 
+svelte-promise-modals 1.0.3 (patch)
+
+#### :bug: Bug Fix
+* `svelte-promise-modals`
+  * [#133](https://github.com/mainmatter/svelte-promise-modals/pull/133) fix(release): misplaced readme ([@BobrImperator](https://github.com/BobrImperator))
+
+#### Committers: 1
+- Bartlomiej Dudzik ([@BobrImperator](https://github.com/BobrImperator))
+
+## Release (2025-07-20)
+
 svelte-promise-modals 1.0.2 (patch)
 
 #### :bug: Bug Fix
