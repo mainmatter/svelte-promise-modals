@@ -16,7 +16,7 @@ importers:
         version: 2.2.0
       playwright:
         specifier: ^1.53.0
-        version: 1.54.1
+        version: 1.55.1
       release-it:
         specifier: 18.1.2
         version: 18.1.2(@types/node@20.12.11)(typescript@5.8.3)
@@ -168,7 +168,7 @@ importers:
         version: 5.1.0(svelte@5.35.2)(vite@6.3.5(@types/node@20.12.11))
       '@vitest/browser':
         specifier: ^3.2.3
-        version: 3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
+        version: 3.2.4(playwright@1.55.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
       eslint:
         specifier: ^9.18.0
         version: 9.30.1
@@ -183,7 +183,7 @@ importers:
         version: 16.3.0
       playwright:
         specifier: ^1.53.0
-        version: 1.54.1
+        version: 1.55.1
       prettier:
         specifier: ^3.4.2
         version: 3.6.2
@@ -210,7 +210,7 @@ importers:
         version: 3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0)
       vitest-browser-svelte:
         specifier: ^0.1.0
-        version: 0.1.0(@vitest/browser@3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4))(svelte@5.35.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0))
+        version: 0.1.0(@vitest/browser@3.2.4(playwright@1.55.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4))(svelte@5.35.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0))
 
 packages:
 
@@ -1390,6 +1390,9 @@ packages:
 
   '@sinonjs/text-encoding@0.7.2':
     resolution: {integrity: sha512-sXXKG+uL9IrKqViTtao2Ws6dy0znu9sOaP1di/jKGW1M6VssO8vlpXCQcpZ+jisQ1tTFAC5Jo/EOzFbggBagFQ==}
+    deprecated: |-
+      Deprecated: no longer maintained and no longer used by Sinon packages. See
+        https://github.com/sinonjs/nise/issues/243 for replacement details.
 
   '@sveltejs/acorn-typescript@1.0.5':
     resolution: {integrity: sha512-IwQk4yfwLdibDlrXVE04jTZYlLnwsTT2PIOQQGNLWfjavGifnk1JD1LcZjZaBTRcxZu2FfPfNLOE04DSu9lqtQ==}
@@ -1950,6 +1953,7 @@ packages:
   basic-ftp@5.0.4:
     resolution: {integrity: sha512-8PzkB0arJFV4jJWSGOYR+OEic6aeKMu/osRhBULN6RY0ykby6LKhbmuQ5ublvaas5BOwboah5D87nrHyuh8PPA==}
     engines: {node: '>=10.0.0'}
+    deprecated: Security vulnerability fixed in 5.2.1, please upgrade
 
   before-after-hook@2.2.3:
     resolution: {integrity: sha512-NzUnlZexiaH/46WDhANlyR2bXRopNg4F/zuSA3OpZnllCUgRaOF2znDioDWrmbNVsuZk6l9pMquQB38cfBZwkQ==}
@@ -2605,6 +2609,7 @@ packages:
   eslint@9.30.1:
     resolution: {integrity: sha512-zmxXPNMOXmwm9E0yQLi5uqXHs7uq2UIiqEKo3Gq+3fwo1XrJ+hijAZImyF7hclW3E6oHz43Yk3RP8at6OTKflQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -2896,16 +2901,17 @@ packages:
 
   glob@10.4.5:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
     engines: {node: '>=12'}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
@@ -4347,8 +4353,18 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  playwright-core@1.55.1:
+    resolution: {integrity: sha512-Z6Mh9mkwX+zxSlHqdr5AOcJnfp+xUWLCt9uKV18fhzA8eyxUd8NUWzAjxUh55RZKSYwDGX0cfaySdhZJGMoJ+w==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   playwright@1.54.1:
     resolution: {integrity: sha512-peWpSwIBmSLi6aW2auvrUtf2DqY16YYcCMO8rTVx486jKmDTJg7UAhyrraP98GB8BoPURZP8+nxO7TSd4cPr5g==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright@1.55.1:
+    resolution: {integrity: sha512-cJW4Xd/G3v5ovXtJJ52MAOclqeac9S/aGGgRzLabuF8TnIb6xHvMzKIa6JmrRzUkeXJgfL1MhukP0NK6l39h3A==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4988,6 +5004,7 @@ packages:
   tar@6.2.0:
     resolution: {integrity: sha512-/Wo7DcT0u5HUV486xg675HtjNd3BXZ6xDbzsCUZPt5iw8bTQ63bP0Raut3mvro9u+CUyq7YQd8Cx55fsZXxqLQ==}
     engines: {node: '>=10'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   test-exclude@6.0.0:
     resolution: {integrity: sha512-cAGWPIyOHU6zlmg88jwm7VRyXnMN7iV68OGAbYDk/Mh/xC/pzVPlQtY6ngoIH/5/tciuhGfvESU8GrHrcxD56w==}
@@ -5426,6 +5443,7 @@ packages:
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
@@ -7243,7 +7261,7 @@ snapshots:
       '@typescript-eslint/types': 8.35.1
       eslint-visitor-keys: 4.2.1
 
-  '@vitest/browser@3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)':
+  '@vitest/browser@3.2.4(playwright@1.55.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)':
     dependencies:
       '@testing-library/dom': 10.4.0
       '@testing-library/user-event': 14.6.1(@testing-library/dom@10.4.0)
@@ -7255,7 +7273,7 @@ snapshots:
       vitest: 3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0)
       ws: 8.18.3
     optionalDependencies:
-      playwright: 1.54.1
+      playwright: 1.55.1
     transitivePeerDependencies:
       - bufferutil
       - msw
@@ -10432,9 +10450,17 @@ snapshots:
 
   playwright-core@1.54.1: {}
 
+  playwright-core@1.55.1: {}
+
   playwright@1.54.1:
     dependencies:
       playwright-core: 1.54.1
+    optionalDependencies:
+      fsevents: 2.3.2
+
+  playwright@1.55.1:
+    dependencies:
+      playwright-core: 1.55.1
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -11518,9 +11544,9 @@ snapshots:
     optionalDependencies:
       vite: 6.3.5(@types/node@20.12.11)
 
-  vitest-browser-svelte@0.1.0(@vitest/browser@3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4))(svelte@5.35.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0)):
+  vitest-browser-svelte@0.1.0(@vitest/browser@3.2.4(playwright@1.55.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4))(svelte@5.35.2)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0)):
     dependencies:
-      '@vitest/browser': 3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
+      '@vitest/browser': 3.2.4(playwright@1.55.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
       svelte: 5.35.2
       vitest: 3.2.4(@types/debug@4.1.12)(@types/node@20.12.11)(@vitest/browser@3.2.4)(jsdom@24.0.0)
 
@@ -11588,7 +11614,7 @@ snapshots:
     optionalDependencies:
       '@types/debug': 4.1.12
       '@types/node': 20.12.11
-      '@vitest/browser': 3.2.4(playwright@1.54.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
+      '@vitest/browser': 3.2.4(playwright@1.55.1)(vite@6.3.5(@types/node@20.12.11))(vitest@3.2.4)
       jsdom: 24.0.0
     transitivePeerDependencies:
       - jiti
